@@ -1,0 +1,110 @@
+{% extends 'service/base.html' %}
+{% load staticfiles %}
+{% load data_load %}
+{% block contain %}
+
+    <!-- ##### Hero Area Start ##### -->
+    <div class="hero-area">
+        <div class="welcome-slides owl-carousel">
+            <!-- Single Welcome Slides -->
+            {% for data in slider_info %}
+                <div class="single-welcome-slides bg-img bg-overlay jarallax" style="background-image: url(/static/service/media/{{data.slider_images}});">
+                    <div class="container h-100">
+                        <div class="row h-100 align-items-center">
+                            <div class="col-12 col-lg-10">
+                                <div class="welcome-content">
+                                    <h5 data-animation="fadeInUp" data-delay="200ms">{{data.slider_name}}</h5>
+                                    <p data-animation="fadeInUp" data-delay="400ms">{{data.title|truncatechars:"200"}}</p>
+                                    <a href="/ekrishi/{{data.slider_name|str2url}}/" class="btn famie-btn mt-4" data-animation="bounceInUp" data-delay="600ms">বিস্তারিত..</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+    <!-- ##### Hero Area End ##### -->
+
+    <!-- ##### Farming Practice Area Start ##### -->
+    <section class="farming-practice-area section-padding-100-50">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <!-- Section Heading -->
+                    <div class="section-heading text-center">
+                        <h2><span>কৃষি </span> পরামর্শ</h2>
+                        <img src="{% static 'service/img/core-img/decor2.png' %}" alt="">
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <!-- Single Farming Practice Area -->
+
+                {% for data in farm_advice %}
+                    <div class="col-12 col-sm-6 col-lg-4">
+                        <div class="single-farming-practice-area mb-50 wow fadeInUp" data-wow-delay="100ms">
+                            <!-- Thumbnail -->
+                            <div class="farming-practice-thumbnail">
+                            <img src="/static/service/media/{{data.image}}" alt="">
+                            </div>
+                            <!-- Content -->
+                            <div class="farming-practice-content text-center">
+                                <!-- Icon -->
+                                <div class="farming-icon">
+                                    <img src="/static/service/media/{{data.icon_img}}" alt="">
+                                </div>
+                                <h5>{{ data.title }}</h5>
+                                <div style="text-align: justify;">{{ data.detail|safe|truncatechars:"150" }}<br><a class="aa-read-mor-btn" href="/advice/{{ data.title|str2url }}/">বিস্তারিত পড়ুন...</a></div>
+                            </div>
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+    </section>
+    <!-- ##### Farming Practice Area End ##### -->
+
+  <!-- ##### News Area Start ##### -->
+    <section class="news-area bg-gray section-padding-100-0">
+        <div class="container">
+            <div class="row">
+                <!-- Featured Post Area -->
+                <div class="col-12 col-lg-6">
+                    <div class="featured-post-area mb-100 wow fadeInUp" data-wow-delay="100ms">
+                        <img src="{% static 'service/img/bg-img/problem.jpg' %}" alt="">
+                        <!-- Post Content -->
+                        <div class="post-content">
+                            <a href="/problem/send" class="btn famie-btn">সমস্যা লিখুন..</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Single Blog Area -->
+                <div class="col-12 col-lg-6 mb-100">
+                    <div class="post-content">
+                        <h6>সমস্যা সমাধান</h6>
+                        <hr>
+                    </div>
+                   
+                    {% for data in solv_problem %}
+                        {% if  data.solve_message %}
+                            <div class="single-blog-area style-2 wow fadeInUp" data-wow-delay="300ms">
+                                <!-- Post Content -->
+                                <div class="post-content">
+                                    <h6>Post on <a href="#">{{ data.post_date }}</a> / <a href="#">{{ data.name }}</a></h6>
+                                    <a href="#" class="post-title">{{ data.problem|safe|truncatechars:"100" }}</a>
+                                    <p>{{ data.solve_message|safe|truncatechars:"150" }}</p>
+                                    <a class="aa-read-mor-btn" href="/problem/{{ data.id }}">বিস্তারিত পড়ুন...</a>
+                                </div>
+                            </div>
+                        {% endif %}
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+    </section>
+  <!-- ##### News Area End ##### -->
+
+{% endblock %}

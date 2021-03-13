@@ -1,0 +1,161 @@
+{% extends 'service/base.html' %}
+{% load staticfiles %}
+{% load data_load %}
+{% block contain %}
+{% for com in company_details|company|slice:"1" %}
+  <!-- ##### Breadcrumb Area Start ##### -->
+	<div class="breadcrumb-area bg-img bg-overlay jarallax" style="background-image: url({% static 'service/img/bg-img/18.jpg' %});">
+		<div class="container h-100">
+			<div class="row h-100 align-items-center">
+				<div class="col-12">
+					<div class="breadcrumb-text">
+						<h2>About Us</h2>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div class="famie-breadcrumb">
+		<div class="container">
+			<nav aria-label="breadcrumb">
+				<ol class="breadcrumb">
+					<li class="breadcrumb-item"><a href="/"><i class="fa fa-home"></i> Home</a></li>
+					<li class="breadcrumb-item active" aria-current="page">About</li>
+				</ol>
+			</nav>
+		</div>
+	</div>
+  <!-- ##### Breadcrumb Area End ##### -->
+
+  <!-- ##### Famie Benefits Area Start ##### -->
+	<section class="famie-benefits-area pb-5">
+		<div class="container">
+			<div class="row">
+				<div class="col-12">
+					<div class="benefits-thumbnail mb-50">
+						<img src="{% static 'service/img/bg-img/2.jpg' %}" alt="">
+					</div>
+				</div>
+			</div>
+
+			<div class="row justify-content-center">
+				<!-- Single Benefits Area -->
+				<div class="col-12 col-sm-4 col-lg">
+					<div class="single-benefits-area wow fadeInUp mb-50" data-wow-delay="100ms">
+						<img src="{% static 'service/img/core-img/digger.png' %}" alt="">
+						<h5>Best Services</h5>
+					</div>
+				</div>
+
+				<!-- Single Benefits Area -->
+				<div class="col-12 col-sm-4 col-lg">
+					<div class="single-benefits-area wow fadeInUp mb-50" data-wow-delay="300ms">
+						<img src="{% static 'service/img/core-img/windmill.png' %}" alt="">
+						<h5>Farm Experiences</h5>
+					</div>
+				</div>
+
+				<!-- Single Benefits Area -->
+				<div class="col-12 col-sm-4 col-lg">
+					<div class="single-benefits-area wow fadeInUp mb-50" data-wow-delay="500ms">
+						<img src="{% static 'service/img/core-img/cereals.png' %}" alt="">
+						<h5>100% Natural</h5>
+					</div>
+				</div>
+
+				<!-- Single Benefits Area -->
+				<div class="col-12 col-sm-4 col-lg">
+					<div class="single-benefits-area wow fadeInUp mb-50" data-wow-delay="700ms">
+						<img src="{% static 'service/img/core-img/tractor.png' %}" alt="">
+						<h5>Farm Equipment</h5>
+					</div>
+				</div>
+
+				<!-- Single Benefits Area -->
+				<div class="col-12 col-sm-4 col-lg">
+					<div class="single-benefits-area wow fadeInUp mb-50" data-wow-delay="900ms">
+						<img src="{% static 'service/img/core-img/sunrise.png' %}" alt="">
+						<h5>Organic food</h5>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+  <!-- ##### Famie Benefits Area End ##### -->
+
+  <!-- ##### About Us Area Start ##### -->
+	<section class="about-us-area">
+		<div class="container">
+			<div class="row align-items-center">
+				<!-- About Us Content -->
+				<div class="col-12 col-md-10">
+					<div class="about-us-content mb-100">
+						<!-- Section Heading -->
+						<div class="section-heading">
+							<p>About us</p>
+							<h2><span>Let Us</span> Tell You Our Story</h2>
+							<img src="{% static 'service/img/core-img/decor.png' %}" alt="">
+						</div>
+						<p>{{ com.com_story|safe|truncatechars:"150" }}</p>
+						<a href="/history/{{ com.id }}" class="btn famie-btn mt-30">Read More</a>
+					</div>
+				</div>
+
+				<!-- Famie Video Play -->
+				<div class="col-12 col-md-4">
+					<div class="famie-video-play mb-100">
+						<img src="{% static 'service/img/bg-img/6.jpg' %}" alt="">
+						<!-- Play Icon -->
+						<a href="{{ com.story_video_link }}" class="play-icon"><i class="fa fa-play"></i></a>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+	<!-- ##### About Us Area End ##### -->
+
+	<!-- ##### Team Member Area Start ##### -->
+	<section class="team-member-area section-padding-100-0">
+		<div class="container">
+			<div class="row">
+				<div class="col-12">
+					<!-- Section Heading -->
+					<div class="section-heading text-center">
+						<h2><span>OUR TEAM </span>Member</h2>
+						<img src="{% static 'service/img/core-img/decor2.png' %}" alt="">
+					</div>
+				</div>
+			</div>
+
+			<div class="row">
+
+				{% for data in team_member|member %}
+				<!-- Single Team Member -->
+					<div class="col-12 col-sm-6 col-lg-3">
+						<div class="single-team-member mb-100 wow fadeInUp" data-wow-delay="100ms">
+							<!-- Team Thumbnail -->
+							<div class="team-img">
+								<img src="/static/service/media/{{ data.images }}" alt="No Images">
+								<!-- Social Info -->
+								<div class="team-social-info">
+									<a href="{{ data.facebook }}" target="__blank__" data-toggle="tooltip" data-placement="right" title="Facebook"><i class="fa fa-facebook"></i></a>
+									<a href="{{ data.twitter }}" target="__blank__" data-toggle="tooltip" data-placement="right" title="Twitter"><i class="fa fa-twitter"></i></a>
+									<a href="{{ data.linkedin }}" target="__blank__" data-toggle="tooltip" data-placement="right" title="Linkedin"><i class="fa fa-linkedin"></i></a>
+								</div>
+							</div>
+							<!-- Team Member Info -->
+							<div class="team-member-info">
+								<h5>{{ data.member_name }}</h5>
+								<h6>{{ data.member_designation }}</h6>
+							</div>
+						</div>
+					</div>
+				{% endfor %}
+				
+			</div>
+		</div>
+	</section>
+  	<!-- ##### Team Member Area End ##### -->
+{% endfor %}
+{% endblock %}

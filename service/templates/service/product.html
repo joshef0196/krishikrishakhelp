@@ -1,0 +1,154 @@
+{% extends 'service/base.html' %}
+{% load staticfiles %}
+{% load data_load %}
+{% block contain %}
+
+    <div class="breadcrumb-area bg-img bg-overlay jarallax" style="background-image: url({% static 'service/img/bg-img/18.jpg' %});">
+        <div class="container h-100">
+            <div class="row h-100 align-items-center">
+                <div class="col-12">
+                    <div class="breadcrumb-text">
+                        <h2>Shop</h2>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="famie-breadcrumb">
+        <div class="container">
+            <nav aria-label="breadcrumb">
+                <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="index.html"><i class="fa fa-home"></i> Home</a></li>
+                <li class="breadcrumb-item active" aria-current="page">Shop</li>
+                </ol>
+            </nav>
+        </div>
+    </div>
+  <!-- ##### Breadcrumb Area End ##### -->
+
+  <!-- ##### Shop Area Start ##### -->
+  <section class="shop-area section-padding-0-100">
+        <div class="container">
+            <div class="row">
+                <!-- Shop Sidebar Area -->
+                <div class="col-12 col-md-4">
+                    <!-- Shopping Cart -->
+                    <div class="shopping-cart mb-50">
+                        <h5 class="mb-30">Shopping Cart</h5>
+                        <!-- Cart Table -->
+                        <div class="cart-table clearfix">
+                            <table class="table table-responsive">
+                                <!-- tbody -->
+                                <tbody>
+                                    <!-- Single Table Row -->
+                                    {% if cart_list %}
+                                        {% for data in cart_list %}
+                                            <tr>
+                                                <td class="cart_product_img">
+                                                <a href="#"><img src="/static/service/media/{{ data.product_name.thumb_image }}" alt="No Img"></a>
+                                                </td>
+                                                <td class="cart_product_desc">
+                                                    <p>{{ data.product_name.title }}</p>
+                                                    <h6>{{ data.quantity }} x {{ data.qt_price }} = {{ data.total_price }}</h6>
+                                                </td>
+                                                <td class="pro-close">
+                                                <a href="/product/delete-cart/{{ data.id }}/"><i class="icon_close"></i></a>
+                                                </td>
+                                            </tr>
+                                        {% endfor %}
+                                    {% else %}
+                                        <span style="color:red;">NO Cart</span>
+                                    {% endif %}
+                                </tbody>
+                            </table>
+                        </div>
+
+                        <!-- SubTotal -->
+                        <div class="cart-summary d-flex align-items-center justify-content-between">
+                        <div class="sub-total">
+                            <h6>SUBTOTAL</h6>
+                        </div>
+                        <div class="total-price">
+                            <h6>Tk. {{ qt_total }}</h6>
+                        </div>
+                        </div>
+                        <!-- Checkout -->
+                        <a href="/order-my/product/" class="btn famie-btn checkout-btn mt-30 w-100">Checkout</a>
+                    </div>
+                </div>
+
+                <!-- Shop Products Area -->
+                <div class="col-12 col-md-8 ">
+                    <div class="row">
+
+                        {% for data in product_list %}
+                            <!-- Single Product Area -->
+                            <div class="col-12 col-sm-6 col-lg-4">
+                                <div class="single-product-area mb-50">
+                                    <!-- Product Thumbnail -->
+                                    <div class="product-thumbnail">
+                                        <img src="/static/service/media/{{ data.thumb_image }}" alt="">
+                                        <!-- Product Tags -->
+                                        {% if data.new%}<span class="product-tags">New</span>{% endif %}
+                                        {% if data.quantity == 0 %}<span class="product-tags">sold Out</span>{% endif %}
+                                        <!-- Product Meta Data -->
+                                        <div class="product-meta-data">
+                                            <a href="#" data-toggle="tooltip" data-placement="top" title="Favourite"><i class="icon_heart_alt"></i></a>
+                                            {% if data.quantity == 0 %}
+                                                <a href="#" data-toggle="tooltip" data-placement="top" title="Sold Out!"><i class="icon_cart_alt"></i></a>
+                                            {% else %}
+                                                <a href="/product/add-to-cart/{{ data.id }}/" data-toggle="tooltip" data-placement="top" title="Add To Cart"><i class="icon_cart_alt"></i></a>
+                                            {% endif %}
+                                        </div>
+                                    </div>
+                                    <!-- Product Description -->
+                                    <div class="product-desc text-center pt-4">
+                                        <a href="/{{ data.farmer.name|str2url}}/{{ data.title|str2url }}/details/" class="product-title">{{ data.title }}</a>
+                                        
+                                        <span style="font-size:13px;" class="price">Avl: {{ data.quantity }}</span>
+                                        <h6 class="price">Tk. {{ data.product_price }} {% if data.quantity_for %}({{ data.get_quantity_for_display }}){% endif %}</h6>
+                                    </div>
+                                </div>
+                            </div>
+                        {% endfor %}
+                    </div>
+
+                    <!-- Pagination -->
+                    <nav>
+                        {% comment %} <ul class="pagination mb-0 mt-50">
+
+                            <li class="page-item active"><a class="page-link" href="#">1</a></li>
+                            <li class="page-item"><a class="page-link" href="#">2</a></li>
+                            <li class="page-item"><a class="page-link" href="#"><i class="fa fa-angle-right"></i></a></li>
+                    
+                        </ul> {% endcomment %}
+
+                        {% if product_list.has_other_pages %}
+                            <ul class="pagination mb-0 mt-50">
+                                {% if product_list.has_previous %}
+                                <li class="page-item"><a href="?page={{ product_list.previous_page_number }}" class="page-link">&laquo;</a></li>
+                                {% else %}
+                                <li class="page-item disabled"><span>&laquo;</span></li>
+                                {% endif %}
+                                {% for i in product_list.paginator.page_range %}
+                                {% if product_list.number == i %}
+                                    <li class="page-item active"><span>{{ i }} <span class="sr-only">(current)</span></span></li>
+                                {% else %}
+                                    <li class="page-item"><a href="?page={{ i }}" class="page-link">{{ i }}</a></li>
+                                {% endif %}
+                                {% endfor %}
+                                {% if product_list.has_next %}
+                                    <li class="page-item"><a href="?page={{ product_list.next_page_number }}" class="page-link">&raquo;</a></li>
+                                {% else %}
+                                <li class="page-item disabled" ><span>&raquo;</span></li>
+                                {% endif %}
+                            </ul>
+                        {% endif %}
+                    </nav>
+                </div>
+            </div>
+        </div>
+  </section>
+
+{% endblock %}

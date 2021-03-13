@@ -1,0 +1,34 @@
+{% extends 'sports/dash_base.html' %}
+{% block title %} Dashboard | Delivered Product {% endblock %}
+{% load staticfiles %}
+{% block content %}
+
+
+<div class="page_content_wrapping">
+    <table class="table table-bordered table-hover" style="margin-left:15px; margin-right:15px;width: 97%;">
+        <br>
+        <h3 style="color:green;text-align:center;">Delivered Product List</h3>
+        <br>
+        <thead style="text-align:center;background:#f1f1f1;">
+            <tr>
+                <th class="center"style="width:40px;">SL</th>                       
+                <th style="text-align:left;">Product Name</th>
+                <th style="text-align:right;">Amount</th>
+                <th style="text-align:center;">Purchased Date</th>
+                <th style="text-align:center;">Delivered Date</th>
+            </tr>
+        </thead>
+        <tbody style="text-align:center;">
+            {% for data in delivered %}
+                <tr class="gradeX odd"  role="row">
+                    <td> {{ forloop.counter }} </td>
+                    <td style="text-align:left;"> {{ data.product_name }} </td>
+                    <td style="text-align:right;width:100px;"> {{ data.price }} </td>
+                    <td> {{ data.order_date }} </td>
+                    <td>{% if data.delivered_date %} {{ data.delivered_date|date:"M.d.Y" }}{% endif %} </td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+{% endblock %}

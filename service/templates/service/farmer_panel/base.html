@@ -1,0 +1,218 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+{% load staticfiles %}
+
+	<title>Dashboard</title>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+	<!-- VENDOR CSS -->
+	<link rel="stylesheet" href="{% static 'service/farmer_panel/dashboard/vendor/bootstrap/css/bootstrap.min.css' %}">
+	<link rel="stylesheet" href="{% static 'service/farmer_panel/dashboard/vendor/font-awesome/css/font-awesome.min.css' %}">
+	<link rel="stylesheet" href="{% static 'service/farmer_panel/dashboard/vendor/linearicons/style.css' %}">
+	<link rel="stylesheet" href="{% static 'service/farmer_panel/dashboard/vendor/chartist/css/chartist-custom.css' %}">
+	<!-- MAIN CSS -->
+	<link rel="stylesheet" href="{% static 'service/farmer_panel/dashboard/css/main.css' %}">
+	<link rel="stylesheet" href="{% static 'service/farmer_panel/dashboard/css/pro.css' %}">
+	<!-- FOR DEMO PURPOSES ONLY. You should remove this in your project -->
+	<link rel="stylesheet" href="{% static 'service/farmer_panel/dashboard/css/demo.css' %}">
+	<!-- GOOGLE FONTS -->
+	<link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700" rel="stylesheet">
+	<!-- ICONS -->
+	<link rel="apple-touch-icon" sizes="76x76" href="{% static 'service/farmer_panel/dashboard/images/apple-icon.png' %}">
+	<link rel="icon" href="{% static 'service/img/core-img/favicon.ico' %}">
+</head>
+
+<body>
+	<!-- WRAPPER -->
+	<div id="wrapper">
+		<!-- NAVBAR -->
+		<nav class="navbar navbar-default navbar-fixed-top" style="background: rgb(83, 163, 163);color: white;">
+			<div class="brand">
+			</div>
+			<div class="container-fluid">
+				<div class="navbar-btn">
+					<button type="button" class="btn-toggle-fullwidth" style="color: white;"><i class="lnr lnr-arrow-left-circle"></i></button>
+				</div>
+		
+				<div id="navbar-menu">
+					<ul class="nav navbar-nav navbar-right">
+						<li class="dropdown">
+							<a href="#" class="dropdown-toggle" data-toggle="dropdown"  style="color: white;"><i class="fa fa-user-o" aria-hidden="true"></i> <span>{{ request.session.name }}</span> <i class="icon-submenu lnr lnr-chevron-down"></i></a>
+							<ul class="dropdown-menu">
+								<li><a href="/my/profile"><i class="lnr lnr-user"></i> <span>My Profile</span></a></li>
+								<li><a href="/farmer/logout/"><i class="lnr lnr-exit"></i> <span>Logout</span></a></li>
+							</ul>
+						</li>
+					</ul>
+				</div>
+			</div>
+		</nav>
+		<!-- END NAVBAR -->
+		<!-- LEFT SIDEBAR -->
+		<div id="sidebar-nav" class="sidebar">
+			<div class="sidebar-scroll" style="background:rgb(47, 146, 47);">
+				<nav>
+					<ul class="nav" style="font-family: 'PT Sans','Hind','Segoe UI',sans-serif; font-size: 14px;">
+						<li><a href="/" ><i class="lnr lnr-home"></i> <span>Website</span></a></li>
+						<li><a href="/my/dashboard/" ><i class="fa fa-home"></i> <span>Dashboard</span></a></li>
+						<li><a href="/add/product" class=""><i class="fa fa-plus"></i> <span>Add Product</span></a></li>
+						<li><a href="/my/product/list/" class=""><i class="fa fa-list"></i> <span>My Product</span></a></li>
+						<li><a href="/seeling/request/" class=""><i class="fa fa-spinner"></i> <span>Selling Request</span></a></li>
+						<li>
+							<a href="#subPages2" data-toggle="collapse" class="collapsed"><i class="lnr lnr-cog"></i> <span>Settings</span> <i class="icon-submenu lnr lnr-chevron-left"></i></a>
+							<div id="subPages2" class="collapse " >
+								<ul class="nav" style="font-size: 13px;background:rgb(47, 146, 47);">
+									<li><a href="/my/profile" class="fa fa-user"><span> My Profile</span></a></li>
+									
+									<li><a href="/change/my/password/" class="fa fa-asterisk"><span> Change Password</span></a></li>
+								</ul>
+							</div>
+						</li>
+						<li><a href="/farmer/logout/" class=""><i class="fa fa-sign-out"></i> <span>Logout</span></a></li>
+					</ul>
+				</nav>
+			</div>
+		</div>
+		<!-- END LEFT SIDEBAR -->
+		<!-- MAIN -->
+    <div class="main" >
+			<!-- MAIN CONTENT -->
+		<div class="main-content">
+			<div class="container-fluid" >		
+				{% block contain %}
+				
+				{% endblock  %}
+			</div>
+		</div>
+	</div>
+		
+	<!-- Javascript -->
+	<script src="{% static 'service/farmer_panel/dashboard/vendor/jquery/jquery.min.js' %}"></script>
+	<script src="{% static 'service/farmer_panel/dashboard/vendor/bootstrap/js/bootstrap.min.js' %}"></script>
+	<script src="{% static 'service/farmer_panel/dashboard/vendor/jquery-slimscroll/jquery.slimscroll.min.js' %}"></script>
+	<script src="{% static 'service/farmer_panel/dashboard/vendor/jquery.easy-pie-chart/jquery.easypiechart.min.js' %}"></script>
+	<script src="{% static 'service/farmer_panel/dashboard/vendor/chartist/js/chartist.min.js' %}"></script>
+	<script src="{% static 'service/farmer_panel/dashboard/js/klorofil-common.js' %}"></script>
+	<script>
+		$(function() {
+			var data, options;
+
+			// headline charts
+			data = {
+				labels: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'],
+				series: [
+					[23, 29, 24, 40, 25, 24, 35],
+					[14, 25, 18, 34, 29, 38, 44],
+				]
+			};
+
+			options = {
+				height: 300,
+				showArea: true,
+				showLine: false,
+				showPoint: false,
+				fullWidth: true,
+				axisX: {
+					showGrid: false
+				},
+				lineSmooth: false,
+			};
+
+			new Chartist.Line('#headline-chart', data, options);
+
+
+			// visits trend charts
+			data = {
+				labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'],
+				series: [{
+					name: 'series-real',
+					data: [200, 380, 350, 320, 410, 450, 570, 400, 555, 620, 750, 900],
+				}, {
+					name: 'series-projection',
+					data: [240, 350, 360, 380, 400, 450, 480, 523, 555, 600, 700, 800],
+				}]
+			};
+
+			options = {
+				fullWidth: true,
+				lineSmooth: false,
+				height: "270px",
+				low: 0,
+				high: 'auto',
+				series: {
+					'series-projection': {
+						showArea: true,
+						showPoint: false,
+						showLine: false
+					},
+				},
+				axisX: {
+					showGrid: false,
+
+				},
+				axisY: {
+					showGrid: false,
+					onlyInteger: true,
+					offset: 0,
+				},
+				chartPadding: {
+					left: 20,
+					right: 20
+				}
+			};
+
+			new Chartist.Line('#visits-trends-chart', data, options);
+
+
+			// visits chart
+			data = {
+				labels: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'],
+				series: [
+					[6384, 6342, 5437, 2764, 3958, 5068, 7654]
+				]
+			};
+
+			options = {
+				height: 300,
+				axisX: {
+					showGrid: false
+				},
+			};
+
+			new Chartist.Bar('#visits-chart', data, options);
+
+
+			// real-time pie chart
+			var sysLoad = $('#system-load').easyPieChart({
+				size: 130,
+				barColor: function(percent) {
+					return "rgb(" + Math.round(200 * percent / 100) + ", " + Math.round(200 * (1.1 - percent / 100)) + ", 0)";
+				},
+				trackColor: 'rgba(245, 245, 245, 0.8)',
+				scaleColor: false,
+				lineWidth: 5,
+				lineCap: "square",
+				animate: 800
+			});
+
+			var updateInterval = 3000; // in milliseconds
+
+			setInterval(function() {
+				var randomVal;
+				randomVal = getRandomInt(0, 100);
+
+				sysLoad.data('easyPieChart').update(randomVal);
+				sysLoad.find('.percent').text(randomVal);
+			}, updateInterval);
+
+			function getRandomInt(min, max) {
+				return Math.floor(Math.random() * (max - min + 1)) + min;
+			}
+		});
+	</script>
+</body>
+
+</html>

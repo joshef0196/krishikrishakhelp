@@ -1,0 +1,176 @@
+{% extends 'service/base.html' %}
+{% block title %} Order Form {% endblock %}
+{% load staticfiles %}
+{% block contain %}
+
+<section class="contact-area section-padding-100-0">
+    <div class="container">
+		<div class="row"> 
+			<div class="col-sm-12"> 
+				<center><h1>Billing Information</h1></center> <br> <br>
+			</div>
+		</div>
+		 
+		<table id="tbl_check_out" style="border:2px solid black;width:80%" class="table table-bordered "> 
+			<tr style="text-align:center;background:#f1f1f1;">	
+				<th>Product Name</th>
+				<th style="text-align:left;">Available Quantity</th>
+				<th style="text-align:left;">Price</th>
+				<th style="text-align:left;">Quantity</th>
+				<th style="width:112px;">Total Price</th>
+			</tr>
+			{% for data in cart_list %}
+				<tr>
+					<td class="product" id="{{ data.product_name_id }}" > 
+						{{ data.product_name }} 
+						<input type="text" hidden id="product_{{ data.product_name_id }}" value="{{ data.total_price }}">
+						<input type="text" hidden id="qnt_{{ data.product_name_id }}" value="{{ data.quantity }}">
+						<input type="text" hidden id="cat_{{ data.product_name_id }}" value="{{ data.product_name.cat_name.cat_name }}">
+						<input type="text" hidden id="far_{{ data.product_name_id__farmer_id }}" value="{{ data.product_name.farmer_id }}">
+						<input type="text" hidden id="qt_price" value="{{ data.qt_price }}">
+						
+					</td>
+					<td style="width:121px;"> 
+						<input style="border: none;text-align: center;" id="available_quantity" value="{{ data.product_name.quantity }}" readonly>					
+					</td>	
+					<td style="width:80px;"> {{ data.qt_price }}</td>	
+					<td style="width:121px;"> 
+					{% comment %} {{ data.quantity }} {% endcomment %}
+					{% comment %} <input type="text" id="quantity" placeholder="{{ data.quantity }}"> {% endcomment %}
+						<input type="number" id="quantity_cart" class="form-control" placeholder="{{ data.quantity }}">
+					</td>	
+					<td style="width:100px;">
+						<input style="border: none;text-align: center;" id="total_price" value="{{ data.total_price }} {% if data.product_name.quantity_for %}({{ data.product_name.get_quantity_for_display }}){% endif %}" readonly>					
+					</td>	
+				</tr>
+			{% endfor %}
+
+			<tr style="text-align:center;background:#f1f1f1;">	
+				<th></th>
+				<th style="text-align:left;"></th>
+				<th style="text-align:left;"></th>
+				<th style="text-align:left;">Subtotal</th>
+				<th style="width:112px;text-align:left;">{{qt_total}}</th>
+			</tr>
+		</table>
+		<div class="row">
+			<div class="col-sm-5">
+				<form method="POST">  {% csrf_token %}
+					<h3>Customer Information</h3> <br>
+					<div class="form-group"> 
+						<label for="Name">Full Name</label>
+						<input type="text" id="id_customer_name" name="customer_name" class="form-control" placeholder="FUll Name" required>
+					</div>
+					
+					<div class="form-group"> 
+						<label for="Mobile">Transaction Number</label>
+						<input type="text" name="mobile" id="payment_number" class="form-control" placeholder="Transaction Number" required>
+					</div>
+					<div class="form-group"> 
+						<label for="Email">Transaction ID</label>
+						<input type="text" id="payment_txt_id" name="txtid" class="form-control" placeholder="Transaction ID" required>
+					</div>
+					<div class="form-group"> 
+						<label for="Email">Transaction Type</label>
+						<select  name="tran_type" id="payment_type" class="form-control" required>
+							<option value="">---</option>
+							<option value="b">Bkash</option>
+							<option value="d">Rocket</option>
+						</select>
+					</div>
+					<div class="form-group"> 
+						<label for="Charge"> Delivery Address</label>
+						<textarea name="address" id="address" class="form-control" rows="2" placeholder="Delivery Address" required></textarea>
+					</div>
+					<div class="form-group"> 
+						<input type="button" name="submit" id="btn_Checkout" value="Checkout" class="btn btn-success" /> 
+					</div>
+				</form>	
+			</div>
+			<div class="col-sm-1"></div>
+			<div class="col-sm-6">
+				<h3>bKash Accounts</h3><br>
+				<h5>Accounts Number : <span style="color:green;">0123456789</span></h5> <br><br>
+				<h3>DBBL/Rocket</h3> <br>
+				<h5>Accounts Number : <span style="color:green;">0123456789</span></h5> <br><br>
+			</div>
+		</div>
+	</div>
+</section>
+
+<script src="{% static 'service/js/jquery.min.js' %}"></script>
+
+<script>
+    $("#quantity_cart").change(function() {
+        if(parseFloat(this.value) > parseFloat($("#available_quantity").val()) || parseFloat(this.value) < 0)
+        {
+            alert("Quantity is less than the available stock.");
+            $("#quantity_cart").val('');
+            $("#quantity_cart").focus();
+        }
+    });
+
+    $("#quantity_cart").change(function() {
+        var one = parseInt($("#quantity_cart").val());
+        var two = parseInt($("#qt_price").val());
+        $("#total_price").val(one * two);
+    });
+	
+    $("#quantity_cart").change(function() {
+        var one = parseInt($("#available_quantity").val());
+        var two = parseInt($("#quantity_cart").val());
+        $("#available_quantity").val(one - two);
+    });
+
+</script>
+
+<script>
+$("#btn_Checkout").click(function() {
+	if($('#id_customer_name').val().length > 0 && $('#payment_number').val().length > 0 && $('#payment_txt_id').val().length > 0 && $('#payment_type').val().length > 0 && $('#address').val().length > 0){ 
+		var confirm_msg = confirm("Are you sure to checkout?");
+		if (confirm_msg == true)
+		{
+			var flage = 0;
+			$("#tbl_check_out .product").each(function()
+			{  
+				$.ajax({
+					url: '/order-my/product/',
+					type:'GET',
+					async: false,
+					data : {
+						'customer_name': $('#id_customer_name').val(),
+						'product_name':this.id,
+						'price': $('#total_price').val(),
+						//'quantity': $('#qnt_'+this.id+'').val(),
+						'quantity': $('#quantity_cart').val(),
+						'farmer'  : $('#far_').val(),
+						'payment_type': $('#payment_type').val(),
+						'payment_number': $('#payment_number').val(),
+						'payment_txt_id': $('#payment_txt_id').val(),
+						'address': $('#address').val(),
+					},
+					success: function(data){
+						flage = 1;
+
+					},
+					error: function(data){
+						flage = 0;
+					}
+				});  
+			});
+			
+			if(flage == 1) {
+				alert("Order Completed");
+				window.location.href = "/buying/product/";
+			}
+			else alert("Order failed");
+		}
+	}
+	
+	else{
+		alert('Please fillup all information');
+	}
+});
+</script> 
+
+{% endblock %}

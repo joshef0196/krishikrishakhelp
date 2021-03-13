@@ -1,0 +1,40 @@
+{% extends 'service/base.html' %}
+{% load staticfiles %}
+{% load data_load %}
+{% block contain %}
+    <hr>
+    <section class="about-us-area">
+		<div class="container">
+			<div class="row align-items-center">
+				<!-- About Us Content -->
+				<div class="col-12 col-md-12">
+					<div class="about-us-content mb-100">
+						<!-- Section Heading -->
+						{% comment %} <div>
+							<h2>{{ single_problem.problem|safe }}</h2>
+						</div>
+                        <hr>
+						{% if single_problem.problem_file %}<img class="w-50 mb-25" src="/static/service/media/{{single_problem.problem_file}}" alt="">{% endif %}
+						<p style="text-align:justify;">
+							{{ single_problem.solve_message|safe }}
+						</p> {% endcomment %}
+
+						<div class="inner-main-body">
+							<div>
+								<h4 style="color:#336600;">{{ experience.subject}}</h4>
+							</div>
+							<div class="inner-brief-main-points">
+								<div class="points-head"><strong></strong>{{ experience.name}}</div>
+								{% comment %} <p><strong> </strong>{{ experience.subject}}</p> {% endcomment %}
+								<hr>
+								<div class="points-body">
+									<strong>{{ experience.message}}</strong>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+{% endblock %}

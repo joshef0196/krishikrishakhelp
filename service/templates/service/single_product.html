@@ -1,0 +1,81 @@
+{% extends 'service/base.html' %}
+{% load staticfiles %}
+{% load data_load %}
+{% block contain %}
+<head>
+    <link rel="stylesheet" href="{% static 'service/product.css' %}">
+    {% comment %} <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css"> {% endcomment %}
+</head>
+<main class="container1">
+    <div class="left-column">
+        <div class="w3-content w3-section" style="max-width:500px">
+            {% if product_details.product_image1 %} <img class="mySlides" src="/static/service/media/{{ product_details.product_image1 }}" style="width:90%">{% endif %}
+            {% if product_details.product_image2 %} <img class="mySlides" src="/static/service/media/{{ product_details.product_image2 }}" style="width:90%">{% endif %}
+            {% if product_details.product_image3 %} <img class="mySlides" src="/static/service/media/{{ product_details.product_image3 }}" style="width:90%">{% endif %}
+        </div>
+    </div>
+
+  <!-- Right Column -->
+  <div class="right-column">
+ 
+    <!-- Product Description -->
+    <div class="product-description">
+      <span><span style="color:gray;text-transform: capitalize;">Farmer-</span> {{ product_details.farmer }}</span>
+      <h1>{{ product_details.title }}</h1>
+      <p>{{ product_details.description|safe }}</p>
+    </div>
+ 
+    <!-- Product Configuration -->
+    <div class="product-configuration">
+ 
+      <!-- Product Color -->
+      <div class="product-color">
+        <span>Available : <span style="color:red;">{{product_details.quantity }}</span></span>
+ 
+      </div>
+ 
+      <!-- Cable Configuration -->
+      <div class="cable-config">
+        <span>Total Sell : <spain>{{ product_details.total_sale }}</span></span>
+ 
+        {% comment %} <div class="cable-choose">
+          < spain>{{ product_details.total_sale }}</button>
+        </div> {% endcomment %}
+ 
+        {% comment %} <a href="#">How to configurate your headphones</a> {% endcomment %}
+      </div> 
+    </div>
+ 
+    <!-- Product Pricing -->
+    <div class="product-price">
+        <span>Tk. {{product_details.product_price }} {% if product_details.quantity_for %}({{ product_details.get_quantity_for_display }}){% endif %}</span>
+        {% if product_details.quantity == 0 %}
+            <a href="#" class="cart-btn">Sold Out!</a>
+        {% else %}
+            <a href="/product/add-to-cart/{{ product_details.id }}/" class="cart-btn">Add to cart</a>
+        {% endif %}
+    </div>
+    </br>
+  </div>
+</main>
+</br>
+</br>
+<script src="{% static 'service/js/jquery.min.js' %}"></script>
+
+<script>
+    var myIndex = 0;
+    carousel();
+
+    function carousel() {
+    var i;
+    var x = document.getElementsByClassName("mySlides");
+    for (i = 0; i < x.length; i++) {
+        x[i].style.display = "none";  
+    }
+    myIndex++;
+    if (myIndex > x.length) {myIndex = 1}    
+    x[myIndex-1].style.display = "block";  
+    setTimeout(carousel, 2000); // Change image every 2 seconds
+    }
+</script>
+{% endblock %}

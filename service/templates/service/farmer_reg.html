@@ -1,0 +1,58 @@
+{% extends 'service/base.html' %}
+{% load staticfiles %}
+{% load data_load %}
+{% block contain %}
+
+    <section class="contact-area section-padding-100-0">
+            <div class="container">
+                <div class="row justify-content-between">
+                    <!-- Contact Content -->
+                    <div class="col-12 ">
+                        <div class="contact-content mb-100">
+                            <!-- Section Heading -->
+                            <div class="section-heading">
+                                <h2><span>Registration </span> Now</h2>
+                                <img src="{% static 'service/img/core-img/decor.png' %}" alt="No Images">
+                            </div>
+                            <div>
+                                {% if messages %}
+                                    {% for message in messages %}
+                                        <div class="alert {{ message.tags }} alert-dismissible" role="alert">
+                                            <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+                                            {% if message.tags %} <h4><i class="icon fa fa-check"></i> {{ message }}</h4>{% endif %}
+                                        </div>
+                                    {% endfor %}
+                                {% endif %}
+                            </div>
+                            <!-- Contact Form Area -->
+                            <div class="contact-form-area">
+                                <form  method="post">{% csrf_token %}
+                                    <div class="row">
+                                        <div class="col-lg-6">
+                                            <input type="text" class="form-control" name="name" placeholder="নাম">
+                                        </div>
+                                        <div class="col-lg-6">
+                                            <input type="number" class="form-control" name="mobile" placeholder="নাম্বার">
+                                        </div>
+                                        <div class="col-lg-6">
+                                            <input type="email" class="form-control" name="email" placeholder="ই-মেইল:">
+                                        </div>
+                                        <div class="col-6">
+                                            <input type="password" class="form-control" name="password" placeholder="পাসওয়ার্ড">
+                                        </div>
+                                        <div class="col-6">
+                                            <textarea name="address" class="form-control" cols="30" rows="10" placeholder="আপনার ঠিকানা"></textarea>
+                                        </div>
+                                        <div class="col-12">
+                                            <button type="submit" class="btn famie-btn">Registration</button>
+                                            <a href="/farmer/login/"><span style="color:blue;">Login</span></a></li>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+{% endblock %}

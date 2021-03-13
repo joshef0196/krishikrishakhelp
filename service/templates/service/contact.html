@@ -1,0 +1,115 @@
+{% extends 'service/base.html' %}
+{% load staticfiles %}
+{% load data_load %}
+{% block contain %}
+  <!-- ##### Breadcrumb Area Start ##### -->
+    <div class="breadcrumb-area bg-img bg-overlay jarallax" style="background-image: url({% static 'service/img/bg-img/18.jpg' %});">
+        <div class="container h-100">
+            <div class="row h-100 align-items-center">
+                <div class="col-12">
+                    <div class="breadcrumb-text">
+                        <h2>যোগাযোগ</h2>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="famie-breadcrumb">
+        <div class="container">
+            <nav aria-label="breadcrumb">
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item"><a href="/"><i class="fa fa-home"></i> Home</a></li>
+                    <li class="breadcrumb-item active" aria-current="page">Contact</li>
+                </ol>
+            </nav>
+        </div>
+    </div>
+  <!-- ##### Breadcrumb Area End ##### -->
+    {% for com in company_details|company|slice:"1" %}
+    <!-- ##### Contact Information Area Start ##### -->
+        <section class="contact-info-area">
+            <div class="container">
+                <div class="row">
+                    <div class="col-12">
+                        <!-- Section Heading -->
+                        <div class="section-heading text-center">
+                            <p>যোগাযোগ</p>
+                            <h4><span>সহায়তার জন্য আমাদের সাথে </span> যোগাযোগ করার সর্বোত্তম উপায়.</h4>
+                            <img src="img/core-img/decor2.png" alt="">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <!-- Single Information Area -->
+                    <div class="col-12 col-md-4">
+                        <div class="single-information-area text-center mb-100 wow fadeInUp" data-wow-delay="100ms">
+                            <div class="contact-icon">
+                                <i class="icon_pin_alt"></i>
+                            </div>
+                            <h5>Address</h5>
+                            <h6>{{ com.address }}</h6>
+                        </div>
+                    </div>
+
+                    <!-- Single Information Area -->
+                    <div class="col-12 col-md-4">
+                        <div class="single-information-area text-center mb-100 wow fadeInUp" data-wow-delay="500ms">
+                            <div class="contact-icon">
+                                <i class="icon_phone"></i>
+                            </div>
+                            <h5>Phone</h5>
+                            <h6>{{ com.mobile1 }}</h6>
+                        </div>
+                    </div>
+
+                    <!-- Single Information Area -->
+                    <div class="col-12 col-md-4">
+                        <div class="single-information-area text-center mb-100 wow fadeInUp" data-wow-delay="1000ms">
+                            <div class="contact-icon">
+                                <i class="icon_mail_alt"></i>
+                            </div>
+                            <h5>Email</h5>
+                            <h6>{{ com.email1 }}</h6>
+                        </div>
+                    </div>
+                </div>
+                <div class="c-border"></div>
+            </div>
+        </section>
+    <!-- ##### Contact Information Area End ##### -->
+
+    <!-- ##### Contact Area Start ##### -->
+        <section class="contact-area">
+            <div class="container">
+                <div class="row justify-content-between">
+                    <!-- Contact Content -->
+                    <div class="col-12 col-lg-12">
+                        <div class="contact-content mb-100">
+                            <div class="span6">
+                                <ul class="breadcrumb">
+                                    <h4 class ="link_title">জেলা ভিত্তিক কৃষি অধিদপ্তর</h4>
+                                </ul>
+                                <ul class="breadcrumb1">
+                                    {% regroup imprt_link by district as link_list %}
+                                    {% for district in link_list  %}	
+                                        <hr class="soft"/>
+                                        <h5>{{ district.grouper }}</h5>
+                                        {% regroup district.list by title as title_list %}
+                                        {% for title in title_list %}
+                                            {% for data in title.list %}
+                                                <li style="list-style: none;"><a class="active" href="{{ data.urls }}" target="_blank" title="{{ data.urls }}"> <i style="color:black;" class="fa fa-check-circle"></i> {{ title.grouper }}</a></li>&nbsp;&nbsp;
+                                            {% endfor %}
+                                        {% endfor %}
+                                    {% endfor %}
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    <!-- ##### Contact Area End ##### --> 
+  {% endfor %}
+
+{% endblock %}

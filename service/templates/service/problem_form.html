@@ -1,0 +1,124 @@
+{% extends 'service/base.html' %}
+{% load staticfiles %}
+{% load data_load %}
+{% block contain %}
+<head>
+    <script src="https://cdn.ckeditor.com/4.5.11/standard/ckeditor.js"></script>
+</head>
+<hr>
+    <section class="contact-area section-padding-100-0">
+        <div class="container">
+            <div class="row justify-content-between">
+                <!-- Contact Content -->
+                <div class="col-1.5 col-lg4">
+
+                </div>
+                
+                <div class="col-9 col-lg4">
+                    <div class="tab-content">
+                        {% if messages %}
+                            {% for message in messages %}
+                                <div class="alert {{ message.tags }} alert-dismissible" role="alert">
+                                    <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+                                    {% if message.tags %} <h5 style="text-align:center;"><i class="icon fa fa-check"></i> {{ message }}</h5>{% endif %}
+                                </div>
+                            {% endfor %}
+                        {% endif %}
+                    </div>
+                    <div class="contact-content mb-100">
+                        <!-- Section Heading -->
+                        <div class="section-heading">
+                            <h4>অনলাইন কৃষি বিষয়ক সমস্যার সমাধান    </h4>
+                            <img src="{% static 'service/img/core-img/decor.png' %}" alt="No Images">
+                        </div>
+                        <!-- Contact Form Area -->
+                        <form class="form-horizontal" method="post" enctype="multipart/form-data">{% csrf_token %}
+                            <div class="row">
+                                <label class="control-label col-sm-2" for="name">নাম:</label>
+                                <div class="col-sm-10">
+                                    <input type="text" name="name" class="form-control" id="name" placeholder="Your name" required>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <label class="control-label col-sm-2" for="email">ই-মেইল:</label>
+                                <div class="col-sm-10">
+                                    <input type="email" name="email" class="form-control" id="email" placeholder="Your Email">
+                                </div>
+                            </div>
+                            <div class="row">
+                                <label class="control-label col-sm-2" for="address">ঠিকানা:</label>
+                                <div class="col-sm-10">
+                                    <textarea name="address" class="form-control" id="address" rows="4" placeholder="Your Address"></textarea>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <label class="control-label col-sm-2" for="title">শিরোনাম:</label>
+                                <div class="col-sm-10">
+                                    <input type="text" name="title" class="form-control" id="title" placeholder="Title" required>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <label class="control-label col-sm-2" for="title">সমস্যার ধরন:</label>
+                                <div class="col-sm-10">
+                                    <select name="problem_cat" class="form-control">
+                                        {% for data in problem_cat %}
+                                            <option value="{{data.id}}">{{ data.category_name }}</option>
+                                        {% endfor %}
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <label class="control-label col-sm-2" for="title">সমস্যা:</label>
+                                <div class="col-sm-10">
+                                    <textarea name="editor1" id="editor1" rows="10" cols="80" required>
+                                    </textarea>
+                                    <script>
+                                        CKEDITOR.replace( 'editor1' );
+                                    </script>
+                                </div>
+                            </div>
+                            </br>
+                            <div class="row">
+                                <label class="control-label col-sm-2" for="title">ফাইল:(Voice,Image,file)</label>
+                                <div class="col-sm-10">
+                                    <input type="file" class="form-control" name = "problem_file" >
+                                </div>
+                            </div>
+                            <div class="row">
+                                <label class="control-label col-sm-2" for="title"></label>
+                                <div class="col-sm-10">
+                                    <button type="submit" class="btn famie-btn">প্রেরণ করুন</button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+
+                <div class="col-1.5 col-lg4">
+
+                </div>
+            </div>
+        </div>
+    </section>
+    <script type="text/javascript">
+        function readTextFile(file, callback, encoding) {
+        var reader = new FileReader();
+        reader.addEventListener('load', function (e) {
+            callback(this.result);
+        });
+        if (encoding) reader.readAsText(file, encoding);
+        else reader.readAsText(file);
+        }
+
+        function fileChosen(input, output) {
+            if (input.files && input.files[0]) {
+                readTextFile(
+                input.files[0],
+                function (str) {
+                output.value = str;
+                }
+                );
+            }
+        }
+    </script>
+{% endblock %}

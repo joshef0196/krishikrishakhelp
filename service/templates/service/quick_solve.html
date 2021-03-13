@@ -1,0 +1,113 @@
+{% extends 'service/base.html' %}
+{% load staticfiles %}
+{% load data_load %}
+{% block contain %}
+
+  <!-- ##### Breadcrumb Area Start ##### -->
+    <div class="breadcrumb-area bg-img bg-overlay jarallax" style="background-image: url({% static 'service/img/bg-img/18.jpg' %});">
+        <div class="container h-100">
+            <div class="row h-100 align-items-center">
+                <div class="col-12">
+                    <div class="breadcrumb-text">
+                        <h2>দ্রুত সমাধান</h2>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="famie-breadcrumb">
+        <div class="container">
+            <nav aria-label="breadcrumb">
+                <ol>
+                    <div class="example" >
+                        <input type="text" id="txt_search_box" placeholder="প্রশ্ন লিখুন....." name="search">
+                        {% comment %} <button type="submit"><i class="fa fa-search"></i></button> {% endcomment %}
+                    </div>
+                </ol>
+                <ul id="filter_result" class="page-sidebar-menu  page-header-fixed" style="overflow-x:auto;">
+                                       
+                </ul>
+            </nav>
+        </div>
+    </div>
+    
+    <!-- ##### FAQ Area Start ##### -->
+    <section class="famie-faq-area section-padding-100">
+        <div class="container">
+            {% comment %} <div class="row">
+                <div class="col-12">
+                    <!-- Section Heading -->
+                    <div class="section-heading text-center">
+                        <p>HAVE A QUESTION?</p>
+                        <h2><span>Get answers</span> from here about the service</h2>
+                        <img src="{% static 'service/img/core-img/decor2.png' %}" alt="No images">
+                    </div>
+                </div>
+            </div> {% endcomment %}
+
+            <div class="row">
+                <div class="col-12">
+                    <div class="accordions" id="accordion" role="tablist" aria-multiselectable="true">
+                        <!-- Single Accordian Area -->
+                        {% for data in question %}
+                            {% if forloop.first %}
+                                <div class="panel single-accordion">
+                                    <h6><a role="button" class="" aria-expanded="true" aria-controls="collapseOne" data-toggle="collapse" data-parent="#accordion" href="#collapse{{ forloop.counter }}">{{ data.question }}
+                                        <span class="accor-open"><i class="arrow_carrot-up" aria-hidden="true"></i></span>
+                                        <span class="accor-close"><i class="arrow_carrot-down" aria-hidden="true"></i></span>
+                                        </a></h6>
+                                    <div id="collapse{{ forloop.counter }}" class="accordion-content collapse show">
+                                        <p>{{ data.answer|safe }}</p>
+                                    </div>
+                                </div>
+                            {% else %}
+                                <div class="panel single-accordion">
+                                    <h6><a role="button" class="" aria-expanded="true" aria-controls="collapseOne" data-toggle="collapse" data-parent="#accordion" href="#collapse{{ forloop.counter }}">{{ data.question }}
+                                        <span class="accor-open"><i class="arrow_carrot-up" aria-hidden="true"></i></span>
+                                        <span class="accor-close"><i class="arrow_carrot-down" aria-hidden="true"></i></span>
+                                        </a></h6>
+                                    <div id="collapse{{ forloop.counter }}" class="accordion-content collapse">
+                                        <p>{{ data.answer|safe }}</p>
+                                    </div>
+                                </div>
+                            {% endif %}
+                        {% endfor %}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- ##### FAQ Area End ##### -->
+    <script src="{% static 'service/js/jquery.min.js' %}"></script>
+    
+    <script>
+    $("#txt_search_box").keyup(function(){
+        if($("#txt_search_box").val().length > 0)
+            {
+                var action_url = "/data/search/";
+                $.ajax({
+                    url: action_url,
+                    type:'GET',
+                    dataType:"json",
+                    data : {
+                        'src_data': $("#txt_search_box").val()
+                    },
+                    success: function(data){
+                        $("#filter_result").html("");
+                        $.each(data, function(rowIndex, r) {
+                            var product = data[rowIndex].question;
+                            var replaceurl = product.replace(/[/, :-]/g, "-");
+                            $('#filter_result').append('<li class="list-group-item link-class"><a class="searchList" href="/quick/'+replaceurl+'" >'+data[rowIndex].question+'</a></li>');
+
+                        });
+                    },
+                    error: function(data){     
+                    }
+                });
+            }
+        else{
+            $("#filter_result").html("");
+        }
+    });
+</script>
+{% endblock %}

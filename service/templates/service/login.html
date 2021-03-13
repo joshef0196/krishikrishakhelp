@@ -1,0 +1,50 @@
+{% extends 'service/base.html' %}
+{% load staticfiles %}
+{% load data_load %}
+{% block contain %}
+
+    <section class="contact-area section-padding-100-0">
+            <div class="container">
+                <div class="row justify-content-between">
+                    <!-- Contact Content -->
+                    <div class="col-6 ">
+                        <div class="contact-content mb-100">
+                            <!-- Section Heading -->
+                            <div class="section-heading">
+                                <h2><span>Login </span> Now</h2>
+                                <img src="{% static 'service/img/core-img/decor.png' %}" alt="No Images">
+                            </div>
+                            
+                            <div>
+                                {% if messages %}
+                                    <div class="messages">
+                                        {% for message in messages %}
+                                            <p style="color:green" {% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</p>
+                                        {% endfor %}
+                                    </div>
+                                {% endif %}
+                            </div>
+                            
+                            <!-- Contact Form Area -->
+                            <div class="contact-form-area">
+                                <form  method="post">{% csrf_token %}
+                                    <div class="row">
+                                        <div class="col-lg-12">
+                                            <input type="number" class="form-control" name="mobile" placeholder="নাম্বার">
+                                        </div>
+                                        <div class="col-12">
+                                            <input type="password" class="form-control" name="password" placeholder="পাসওয়ার্ড">
+                                        </div>
+                                        <div class="col-12">
+                                            <button type="submit" class="btn famie-btn">Login</button>
+                                            <a href="/farmer/reg/"><span style="color:blue;">New Registration</span></a></li>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+{% endblock %}

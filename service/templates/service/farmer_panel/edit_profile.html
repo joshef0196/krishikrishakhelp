@@ -1,0 +1,30 @@
+{% extends 'service/farmer_panel/base.html' %}
+{% block title %} Edit Profile {% endblock %}
+{% load staticfiles %}
+{% block contain %}
+
+<div class="form">
+    <div class="tab-content">
+        <form method="POST"> {% csrf_token %}
+        {% for data in edit_user %}
+            <table class="table table-bordered table-striped" id="upload_profile_table">
+                <h3>Update Profile</h3>
+                <tr>
+                    <td>Name</td>
+                    <td>
+                        <input type="text" name="name" id="user_mobile" value="{{ data.name }}" class="form-control">
+                    </td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td>
+                        <input type="submit" value="Update Profile" id="upload_profile" class="btn btn-success" style="width:150px;">
+                    </td>
+                </tr>
+            </table>	
+        {% endfor %}
+        </form>
+    </div>
+</div>
+
+{% endblock %}

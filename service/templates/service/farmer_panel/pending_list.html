@@ -1,0 +1,60 @@
+{% extends 'service/farmer_panel/base.html' %}
+{% block title %} Pending Products List {% endblock %}
+{% load staticfiles %}
+{% block contain %}
+
+<h3 style="text-align:center;color:#4a3737;">Pending Products List</h3>
+<div class="page_content_wrapping">
+    <table class="table table-bordered table-hover" style="font-size: 13px; max-width:100%;">
+    {% if messages %}
+        <div class="messages">
+            {% for message in messages %}
+                <p style="color:green" {% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</p>
+            {% endfor %}
+        </div>
+    {% endif %}
+    {% regroup pending_request by customer_name as farmer_list %}
+    {% for far in farmer_list %}
+        <thead>
+            <tr>
+                <th class="center"style="width:40px;">SL</th>     
+                <th style="text-align:center;">Cus. Name</th>                 
+                <th style="text-align:center;">Title</th>                 
+                <th>Product Image </th>
+                <th>Product Price </th>
+                <th>Quantity</th>
+                <th>Total Price</th>
+                <th>Address</th>
+                <th>Order Date</th>
+                <th>Delivery Date</th>
+                <th style="text-align:center;">Status</th>
+                <th style="text-align:center;">Delivery Status</th>
+            </tr>
+        </thead>
+
+        <tbody>
+            {% for data in far.list %}
+                <tr class="gradeX odd" role="row">
+                    <td> {{ forloop.counter }} </td>
+                    <td> {{ data.customer_name}} </td>
+                    <td> {{ data.product_name.title}} </td>
+                    <td><div class="user_image"><img src="/static/service/media/{{ data.product_name.thumb_image }}" alt="No Image" id="users_image" style="width:150px;height:80px;"></td>
+                    <td> {{ data.price }} </td>
+                    <td> {{ data.quantity }}<span>( {{ data.product_name.get_quantity_for_display }} ) </span></td>
+                    <td> {{ data.price }} </td>
+                    <td> {{ data.address }} </td>
+                    <td> {{ data.order_date }} </td>
+                    {% if data.delivery_date %}
+                        <td> {{ data.delivery_date }} </td>
+                    {% else %}
+                        <td style="text-align:center;"> --- </td>
+                    {% endif %}
+                    <td> {% if data.status %} <p style="color:green">Delivered</p> {% else %} <p style="color:red">Pending</p> {% endif %} </td>
+                    <td> <a style="color:green;font-weight:bold;" href="/product/{{data.id}}/delivery/">Delivery</a> </td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    {% endfor %}
+    </table>
+</div>
+{% endblock %}

@@ -1,0 +1,74 @@
+{% extends 'service/farmer_panel/base.html' %}
+{% block title %} Dashboard|Add Product {% endblock %}
+{% load staticfiles %}
+{% block contain %}
+
+</br>
+<div style="font-size:20px; text-align:left;">Sell My Product</div>
+</br>
+    
+    <form method="POST" enctype="multipart/form-data"> {% csrf_token %}
+        <table class="table table-bordered table-striped" style="background:white;" id="tbl">
+            {% if messages %}
+                {% for message in messages %}
+                    <div class="alert {{ message.tags }} alert-dismissible" role="alert" style="width:72%;">
+                        <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+                        {% if message.tags %} <h4><i class="icon fa fa-check"></i> {{ message }}</h4>{% endif %}
+                    </div>
+                {% endfor %}
+            {% endif %}
+            <tr>
+                <td>Title</td>
+                <td colspan='3'><input type="text" name="title" value=" " class="form-control" placeholder="Product Name" required></td>
+            </tr>
+
+            <tr>
+                <td>Thumbnail Images</td>
+                <td colspan='3'><input type="file" id="exampleInputFile" name="thumb_image"></td>
+            </tr>
+
+            <tr>
+                <td>Product Image1</td>
+                <td colspan='3'><input type="file" id="exampleInputFile" name="product_image1"></td>
+            </tr>
+            <tr>
+                <td>Product Image2</td>
+                <td colspan='3'><input type="file" id="exampleInputFile" name="product_image2"></td>
+            </tr>
+            <tr>
+                <td>Product Image3</td>
+                <td colspan='3'><input type="file" id="exampleInputFile" name="product_image3"></td>
+            </tr>
+            
+            <tr>
+                <td>Product Price</td>
+                <td colspan='3'><input type="number" name="product_price" value="" placeholder="00" class="form-control" required></td>
+            </tr>
+            <tr>
+                <td>Quantity Type</td>
+                <td colspan='3'>
+                    <select name="quantity_type" class="form-control" required>
+                        <option value="1">KG</option>
+                        <option value="2">Number</option>
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <td>Quantity</td>
+                <td colspan='3'><input type="number" name="quantity" value="" placeholder="1" class="form-control" required></td>
+            </tr>
+
+            <tr>
+                <td>Description</td>
+                <td colspan='3'><textarea name="description" class="form-control" cols="5" rows="3"></textarea></td>
+            </tr>
+
+            <tr>
+                <td></td>
+                <td colspan='3'>
+                    <input type="submit" value="Add" class="btn btn-success" style="width:150px">
+                </td>
+            </tr>
+        </table>
+    </form>
+{% endblock %}

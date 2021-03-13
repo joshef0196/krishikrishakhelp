@@ -1,0 +1,23 @@
+{% extends 'service/base.html' %}
+{% load staticfiles %}
+{% load data_load %}
+{% block contain %}
+    <hr>
+    <section class="about-us-area">
+		<div class="container">
+			<div class="row align-items-center">
+				<!-- About Us Content -->
+				<div class="col-10 col-md-10">
+					<div class="about-us-content mb-100">
+						<!-- Section Heading -->
+						{% comment %} <div>
+							<h2><span>{{ solve_details.question }}</span></h2>
+						</div> {% endcomment %}
+                        <hr>
+						<p style="text-align:justify;">{{ single_history.com_story|safe }}</p>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+{% endblock %}

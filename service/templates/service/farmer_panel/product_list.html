@@ -1,0 +1,38 @@
+{% extends 'service/farmer_panel/base.html' %}
+{% block title %} My Product List {% endblock %}
+{% load staticfiles %}
+{% block contain %}
+
+<h3 style="text-align:center;color:#4a3737;">My Products List</h3>
+<div class="page_content_wrapping">
+    <table class="table table-bordered table-hover" style="font-size: 13px; max-width:100%;">
+        <thead>
+            <tr>
+                <th class="center"style="width:40px;">SL</th>     
+                <th style="text-align:center;">Product Name</th>                 
+                <th>Product Image</th>
+                <th>Product Price</th>
+                <th>Quantity Type</th>
+                <th>Total Price</th>
+                <th>Date</th>
+                <th style="text-align:center;">Status</th>
+            </tr>
+        </thead>
+
+        <tbody>
+        {% for data in product_list %}
+            <tr class="gradeX odd" role="row">
+                <td> {{ forloop.counter }} </td>
+                <td> {{ data.title}} </td>
+                <td><div class="user_image"><img src="/static/service/media/{{ data.thumb_image }}" alt="No Image" id="users_image" style="width:150px;height:80px;"></td>
+                <td> {{ data.product_price }} </td>
+                <td> {{ data.get_quantity_for_display }} </td>
+                <td> {{ data.total_sale }}</td>
+                <td> {{ data.date }} </td>
+                <td> {% if data.status %} <p style="color:green">Published</p> {% else %} <p style="color:red">Pending</p> {% endif %} </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+{% endblock %}

@@ -1,0 +1,544 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	{% load staticfiles %}
+    {% load data_load %}
+	{% for com in company_details|company|slice:"1" %}
+    <meta charset="UTF-8">
+    <meta name="description" content="">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!-- The above 4 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <!-- Title -->
+    <title>{% block title %} {% endblock %}</title>
+    <!-- Favicon -->
+    <link rel="icon" href="{% static 'service/img/core-img/favicon.ico' %}">
+    <!-- Core Stylesheet -->
+    <link rel="stylesheet" href="{% static 'service/style.css' %}">
+</head>
+
+<body>
+    <!-- Preloader -->
+    <div class="preloader d-flex align-items-center justify-content-center">
+        <div class="spinner"></div>
+    </div>
+
+    <!-- ##### Header Area Start ##### -->
+    <header class="header-area">
+        <!-- Top Header Area -->
+        <div class="top-header-area">
+            <div class="container">
+                <div class="row">
+                    <div class="col-12">
+                        <div class="top-header-content d-flex align-items-center justify-content-between">
+                            <!-- Top Header Content -->
+                            <div class="top-header-meta">
+                                <div>
+                                    <div class="row">
+                                        <div class="col-3">
+                                            <span style="color: green;font-weight: bold;" id="time"></span>
+                                        </div>
+
+                                        <div class="col-6">
+                                            <p>
+                                                <script
+                                                    type="text/javascript"
+                                                    src="http://tareq.wedevs.com/bangla_date_widget.php">
+                                                </script>
+                                                
+                                                <script
+                                                    type="text/javascript">
+
+                                                    var d=new Date();
+
+                                                    var weekday=new Array(7);
+
+                                                    weekday[0]="রবিবার )";
+
+                                                    weekday[1]="সোমবার )";
+
+                                                    weekday[2]="মঙ্গলবার )";
+
+                                                    weekday[3]="বুধবার )";
+
+                                                    weekday[4]="বৃহস্পতিবার )";
+
+                                                    weekday[5]="শুক্রবার )";
+
+                                                    weekday[6]="শনিবার )";
+
+                                                    document.write(" ( " + weekday[d.getDay()]);
+
+                                                </script>
+                                            </p>
+                                        </div>
+
+                                        <div class="col-3">
+                                            <span id="datetime"></span>
+                                            
+                                            <script>
+                                            var dt = new Date();
+                                            document.getElementById("datetime").innerHTML = dt.toLocaleDateString();
+                                            </script>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                            </div>
+                            <!-- Top Header Content -->
+                            <div class="top-header-meta text-right">
+                                <a href="#" data-toggle="tooltip" data-placement="bottom" title="{{ com.email1 }}"><i class="fa fa-envelope-o" aria-hidden="true"></i> <span>Email: {{ com.email1 }}</span></a>
+                                <a href="#" data-toggle="tooltip" data-placement="bottom" title="{{ com.skype }}"><i class="fa fa-skype" aria-hidden="true"></i> <span>skype: {{ com.skype }}</span></a>
+                                <a href="#" data-toggle="tooltip" data-placement="bottom" title="{{ com.mobile1 }}"><i class="fa fa-phone" aria-hidden="true"></i> <span>Call Us: {{ com.mobile1 }}</span></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Navbar Area -->
+        <div class="famie-main-menu">
+            <div class="classy-nav-container breakpoint-off">
+                <div class="container">
+                    <!-- Menu -->
+                    <nav class="classy-navbar justify-content-between" id="famieNav">
+                        <!-- Nav Brand -->
+                        {% comment %} <a href="/" class="nav-brand"> {{ com.com_name }}</a> {% endcomment %}
+                        <a href="/" class="nav-brand"><img title="Krishi Krishak Help" src="/static/service/media/{{ com.company_logo }}" alt="No Logo" style="height: 82px;width: 189px;"></a>
+                        <!-- Navbar Toggler -->
+                        <div class="classy-navbar-toggler">
+                            <span class="navbarToggler"><span></span><span></span><span></span></span>
+                        </div>
+                        <!-- Menu -->
+                        <div class="classy-menu">
+                            <!-- Close Button -->
+                            <div class="classycloseIcon">
+                                <div class="cross-wrap"><span class="top"></span><span class="bottom"></span></div>
+                            </div>
+                            <!-- Navbar Start -->
+                            <div class="classynav">
+                                <ul>
+                                    <li class="active"><a href="/">প্রথম পাতা</a></li>
+                                    
+                                    {% regroup "1"|product_menu by category as category_list %}
+								    {% for data in category_list  %}
+                                        <li><a href="#">{{ data.grouper }}</a>
+                                            <ul class="dropdown">
+                                                {% regroup data.list by sub_category_name as sub_cat_list %}
+												{% for cat in sub_cat_list %}
+                                                    <li><a href="/{{cat.grouper|str2url}}/">{{ cat.grouper }}</a></li>
+                                                {% endfor %}
+                                            </ul>
+                                        </li>
+                                    {% endfor %}
+
+                                    <li><a href="/news/">কৃষি খবর</a></li>
+                                    <li><a href="/about-us/">আমাদের কথা</a></li>
+                                    <li><a href="/problem/send">কৃষকের সমস্যা ও তার সমাধান</a></li>
+                                    <li><a href="/contact-us/">যোগাযোগ</a></li>
+                                    <li><a href="/quick/solve/">দ্রুত সমাধান</a></li>
+                                    {% comment %} <li><a href="/buying/product/">পণ্য কিনুন</a></li> {% endcomment %}
+                                </ul>
+                                <!-- Search Icon -->
+                                {% comment %} <div>
+                                    {% if request.session.userid %}
+                                        <a href="/my/dashboard/">Dashboard</a>
+                                    {% else %}
+                                        <a class="btn famie-btn mt-4" href="/farmer/reg/">রেজিস্ট্রেশন</a>
+                                    {% endif %}
+                                </div> {% endcomment %}
+                            </div>
+                            <!-- Navbar End -->
+                        </div>
+                    </nav>
+
+                    <!-- Search Form -->
+                    <div class="search-form">
+                        <form action="#" method="get">
+                            <input type="search" name="search" id="search" placeholder="Type keywords &amp; press enter...">
+                            <button type="submit" class="d-none"></button>
+                        </form>
+                        
+                        <!-- Close Icon -->
+                        <div class="closeIcon"><i class="fa fa-times" aria-hidden="true"></i></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+    
+    <!-- ##### Header Area End ##### -->
+    {% block contain %}
+
+    {% endblock  %}
+    
+ <!-- ##### Testimonial Area Start ##### -->
+    <section class="testimonial-area bg-img bg-overlay section-padding-100" style="background-image: url({% static 'service/img/bg-img/27.jpg' %});">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <!-- Testimonial Slides -->
+                    <div class="testimonial-slides owl-carousel">
+
+                        <!-- Single Slide -->
+                        {% for data in product_review|reviews %}
+                            <div class="single-slide">
+                                <!-- Testimonial Text -->
+                                <div class="testi-text d-flex">
+                                    <div class="quote-icon">
+                                        <img src="{% static 'service/img/core-img/quote.png' %}" alt="No Images">
+                                    </div>
+                                    <h5>{{ data.review_detail|safe }}</h5>
+                                </div>
+                                <!-- Testimonial Thumbnail Name -->
+                                <div class="testimonial-thumbnail-name d-flex align-items-center">
+                                    <div class="testimonial-thumbnail">
+                                        <img src="/static/service/media/{{ data.person_img }}" alt="No Images">
+                                    </div>
+                                    <div class="testimonial-name">
+                                        <h5>{{ data.person_name }}</h5>
+                                        <h6>{{ data.person_designation }}</h6>
+                                    </div>
+                                </div>
+                            </div>
+                        {% endfor %}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- ##### Testimonial Area End ##### -->
+   <!-- ##### Breadcrumb Area End ##### -->
+    {% for com in company_details|company|slice:"1" %}
+    <!-- ##### Contact Area Start ##### -->
+        <section class="contact-area section-padding-100-0">
+            <div class="container">
+                <div class="row justify-content-between">
+                    <!-- Contact Content -->
+                    <div class="col-5 col-lg-5">
+                        <div class="contact-content mb-100">
+                            <!-- Section Heading -->
+                            <div class="section-heading">
+                                {% comment %} <p>Co01ntact now</p> {% endcomment %}
+                                <h2><span>কৃষি অভিজ্ঞতা</span> শেয়ার করুন</h2>
+                                <img src="{% static 'service/img/core-img/decor.png' %}" alt="No Images">
+                            </div>
+                            <!-- Contact Form Area -->
+                            <div class="contact-form-area">
+                                {% comment %} <form action="#" method="post"> {% endcomment %}
+                                    <div class="row">
+                                        <div class="col-lg-6">
+                                            <input type="text" class="form-control" name="name" id="txt_subscribe1" placeholder="আপনার নাম" required>
+                                        </div>
+                                        <div class="col-lg-6">
+                                            <input type="email" class="form-control" name="email" id="txt_subscribe2" placeholder="আপনার ইমেইল">
+                                        </div>
+                                        <div class="col-12">
+                                            <input type="text" class="form-control" name="subject" id="txt_subscribe3" placeholder="টাইটেল" required>
+                                        </div>
+                                        <div class="col-12">
+                                            <textarea name="message" class="form-control" id="txt_subscribe4" cols="30" rows="10" placeholder="আপনার মতামত" required></textarea>
+                                        </div>
+                                        <div class="col-12">
+                                            <button type="submit" id="btn_subscribe1" class="btn famie-btn">Send</button>
+                                        </div>
+                                    </div>
+                                {% comment %} </form> {% endcomment %}
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-6 col-lg-6">
+                        <div class="contact-content mb-100">
+                            <!-- Section Heading -->
+                            <div class="section-heading">
+                                {% comment %} <p>কৃষি অভিজ্ঞতা</p> {% endcomment %}
+                                <h2><span>কৃষি অভিজ্ঞতা </span> </h2>
+                                <img src="{% static 'service/img/core-img/decor.png' %}" alt="No Images">
+                            </div>
+                            <!-- Contact Form Area -->
+                            <div class="contact-form-area">
+                                <form action="#" method="post">
+                                    <div class="row">
+                                        <div class="table-responsive1">
+                                            <table class="table">
+                                                {% for data in agricultural_experience|agri_expre %}
+                                                    <thead>
+                                                        <tr><th>{{data.subject}}</th></tr>
+                                                    </thead>
+                                                    <tbody>  
+                                                        <tr style="font-style: normal;"><td>{{data.message|truncatechars:"100"}} <a class="aa-read-mor-btn" href="/experience/{{data.id}}">বিস্তারিত..</a></td> </tr>
+                                                    </tbody>
+                                                {% endfor %}
+                                            </table>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    <!-- ##### Contact Area End ##### -->
+  {% endfor %}
+<!-- ##### Newsletter Area Start ##### -->
+    <section class="newsletter-area section-padding-100 bg-img bg-overlay " style="background-image: url({% static 'service/img/bg-img/2.jpg' %});">
+        <div class="container">
+            <div class="row">
+                <div class="col-7">
+                    <div class="row justify-content-center">
+                        <div class="col-12 col-lg-10">
+                            <div class="newsletter-content">
+                                <!-- Section Heading -->
+                                <div class="section-heading white text-center">
+                                    <h2 style="color:white;"><span >Sign up</span> for Newsletter</h2>
+                                    <img src="{% static 'service/img/core-img/decor2.png' %}" alt="">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                <!-- Newsletter Form -->
+                
+                    <div class="row justify-content-center">
+                        <div class="col-12 col-lg-10">
+                            <div class="subs">
+                                <input type="email" id="txt_subscribe" name="email" class="form-control" placeholder="Enter your email">
+                                <button type="submit" id="btn_subscribe" class="btn famie-btn">Subscribe</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-5">
+                    <div class="col-3 col-lg-3">
+                        <div class="contact-maps">
+                        <div id="m-booked-bl-simple-week-vertical-5615"> <div class="booked-wzs-160-275 weather-customize" style="background-color:#137AE9; width:300px;" id="width3 " > <a target="_blank" class="booked-wzs-top-160-275" href="https://www.booked.net/"><img src="//s.bookcdn.com/images/letter/s5.gif" alt="www.booked.net" /></a> <div class="booked-wzs-160-275_in"> <div class="booked-wzs-160-275-data"> <div class="booked-wzs-160-275-left-img wrz-18"></div> <div class="booked-wzs-160-275-right"> <div class="booked-wzs-day-deck"> <div class="booked-wzs-day-val"> <div class="booked-wzs-day-number"><span class="plus">+</span>30</div> <div class="booked-wzs-day-dergee"> <div class="booked-wzs-day-dergee-val">&deg;</div> <div class="booked-wzs-day-dergee-name">C</div> </div> </div> <div class="booked-wzs-day"> <div class="booked-wzs-day-d"><span class="plus">+</span>31&deg;</div> <div class="booked-wzs-day-n"><span class="plus">+</span>27&deg;</div> </div> </div> <div class="booked-wzs-160-275-info"> <div class="booked-wzs-160-275-city">Dhaka</div> <div class="booked-wzs-160-275-date">Monday, 19</div> </div> </div> </div> <a target="_blank" href="https://www.booked.net/weather/dhaka-2125" class="booked-wzs-bottom-160-275" > <table cellpadding="0" cellspacing="0" class="booked-wzs-table-160"> <tr> <td class="week-day"> <span class="week-day-txt">Tuesday</span></td> <td class="week-day-ico"><div class="wrz-sml wrzs-18"></div></td> <td class="week-day-val"><span class="plus">+</span>33&deg;</td> <td class="week-day-val"><span class="plus">+</span>26&deg;</td> </tr> <tr> <td class="week-day"> <span class="week-day-txt">Wednesday</span></td> <td class="week-day-ico"><div class="wrz-sml wrzs-18"></div></td> <td class="week-day-val"><span class="plus">+</span>34&deg;</td> <td class="week-day-val"><span class="plus">+</span>26&deg;</td> </tr> <tr> <td class="week-day"> <span class="week-day-txt">Thursday</span></td> <td class="week-day-ico"><div class="wrz-sml wrzs-18"></div></td> <td class="week-day-val"><span class="plus">+</span>29&deg;</td> <td class="week-day-val"><span class="plus">+</span>25&deg;</td> </tr> <tr> <td class="week-day"> <span class="week-day-txt">Friday</span></td> <td class="week-day-ico"><div class="wrz-sml wrzs-18"></div></td> <td class="week-day-val"><span class="plus">+</span>28&deg;</td> <td class="week-day-val"><span class="plus">+</span>24&deg;</td> </tr> <tr> <td class="week-day"> <span class="week-day-txt">Saturday</span></td> <td class="week-day-ico"><div class="wrz-sml wrzs-18"></div></td> <td class="week-day-val"><span class="plus">+</span>28&deg;</td> <td class="week-day-val"><span class="plus">+</span>24&deg;</td> </tr> <tr> <td class="week-day"> <span class="week-day-txt">Sunday</span></td> <td class="week-day-ico"><div class="wrz-sml wrzs-18"></div></td> <td class="week-day-val"><span class="plus">+</span>31&deg;</td> <td class="week-day-val"><span class="plus">+</span>24&deg;</td> </tr> </table> <div class="booked-wzs-center"> <span class="booked-wzs-bottom-l">See 7-Day Forecast</span> </div> </a> </div> </div><script type="text/javascript"> var css_file=document.createElement("link"); css_file.setAttribute("rel","stylesheet"); css_file.setAttribute("type","text/css"); css_file.setAttribute("href",'https://s.bookcdn.com/css/w/booked-wzs-widget-160x275.css?v=0.0.1'); document.getElementsByTagName("head")[0].appendChild(css_file); function setWidgetData(data) { if(typeof(data) != 'undefined' && data.results.length > 0) { for(var i = 0; i < data.results.length; ++i) { var objMainBlock = document.getElementById('m-booked-bl-simple-week-vertical-5615'); if(objMainBlock !== null) { var copyBlock = document.getElementById('m-bookew-weather-copy-'+data.results[i].widget_type); objMainBlock.innerHTML = data.results[i].html_code; if(copyBlock !== null) objMainBlock.appendChild(copyBlock); } } } else { alert('data=undefined||data.results is empty'); } } </script> <script type="text/javascript" charset="UTF-8" src="https://widgets.booked.net/weather/info?action=get_weather_info&ver=6&cityID=2125&type=4&scode=124&ltid=3457&domid=w209&anc_id=73608&cmetric=1&wlangID=1&color=137AE9&wwidth=293&header_color=ffffff&text_color=333333&link_color=08488D&border_form=1&footer_color=ffffff&footer_text_color=333333&transparent=0"></script><!-- weather widget end -->                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </div>
+    </section>
+    <!-- ##### Newsletter Area End ##### -->
+
+  <!-- ##### Footer Area Start ##### -->
+    <footer class="footer-area">
+        <!-- Main Footer Area -->
+        <div class="main-footer bg-img bg-overlay section-padding-80-0" style="background-image: url({% static 'service/img/bg-img/3.jpg' %});">
+            <div class="container">
+                <div class="row">
+                    <!-- Single Footer Widget Area -->
+                    <div class="col-12 col-sm-6 col-lg-3">
+                        <div class="footer-widget mb-80">
+                            <a href="#" class="foo-logo d-block mb-30"><img src="/static/service/media/{{ com.company_logo }}" alt=""></a>
+                            <p>{{ com.short_descri|safe }}</p>
+                            <div class="contact-info">
+                                <p><i class="fa fa-map-pin" aria-hidden="true"></i><span>{{ com.address }}</span></p>
+                                {% if com.email1  %}<p><i class="fa fa-envelope" aria-hidden="true"></i><span>{{ com.email1 }}</span></p>{% endif %}
+                                {% if com.email2  %}<p><i class="fa fa-envelope" aria-hidden="true"></i><span>{{ com.email2 }}</span></p>{% endif %}
+                                {% if com.mobile1  %}<p><i class="fa fa-phone" aria-hidden="true"></i><span>{{ com.mobile1 }}</span></p>{% endif %}
+                                {% if com.mobile2  %}<p><i class="fa fa-phone" aria-hidden="true"></i><span>{{ com.mobile2 }}</span></p>{% endif %}
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Single Footer Widget Area -->
+                    <div class="col-12 col-sm-6 col-lg-3">
+                        <div class="footer-widget mb-10">
+                            <h5 class="widget-title">QUICK LINK</h5>
+                            <!-- Footer Widget Nav -->
+                            <nav class="footer-widget-nav">
+                                <ul>
+                                    <li><a href="/about-us/">About Us</a></li>
+                                    <li><a href="/contact-us/">Contact Us</a></li>
+                                    <li><a href="/faq/">FAQs</a></li>
+                                    <li><a href="/news/">News</a></li>
+                                </ul>
+                            </nav>
+                        </div>
+                    </div>
+
+                    <!-- Single Footer Widget Area -->
+                    <div class="col-12 col-sm-6 col-lg-3">
+                        <div class="footer-widget mb-80">
+                            <h5 class="widget-title">RECENT NEWS</h5>
+                            <!-- Single Recent News Start -->
+                            {% for data in news_list|news|slice:"3" %}
+                                <div class="single-recent-blog d-flex align-items-center">
+                                    <div class="post-thumbnail">
+                                        <img src="/static/service/media/{{ data.thumbnail_image }}" alt="NO Images">
+                                    </div>
+                                    <div class="post-content">
+                                        <a href="#" class="post-title">{{ data.blog_title|truncatechars:"40" }}</a>
+                                        <div class="post-date">{{ data.post_date }}</div>
+                                    </div>
+                                </div>
+                            {% endfor %}
+                        </div>
+                    </div>
+
+                    <!-- Single Footer Widget Area -->
+                    <div class="col-12 col-sm-6 col-lg-3">
+                        <div class="footer-widget mb-80">
+                            <h5 class="widget-title">STAY CONNECTED</h5>
+                            <!-- Footer Social Info -->
+                            <div class="footer-social-info">
+                                <a href="{{ com.facebook }}" target="__blank__">
+                                    <i class="fa fa-facebook" aria-hidden="true"></i>
+                                    <span>Facebook</span>
+                                </a>
+                                <a href="{{ com.twitter }}" target="__blank__">
+                                    <i class="fa fa-twitter" aria-hidden="true"></i>
+                                    <span>Twitter</span>
+                                </a>
+                                <a href="{{ com.pinterest }}" target="__blank__">
+                                    <i class="fa fa-pinterest" aria-hidden="true"></i>
+                                    <span>Pinterest</span>
+                                </a>
+                                <a href="{{ com.youtube }}" target="__blank__">
+                                    <i class="fa fa-youtube" aria-hidden="true"></i>
+                                    <span>Youtube</span>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Copywrite Area  -->
+        <div class="copywrite-area">
+            <div class="container">
+                <div class="copywrite-text">
+                    <div class="row align-items-center">
+                        <div class="col-md-6">
+                            <p><!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+                                Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved
+                                <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+                            </p>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="footer-nav">
+                                <nav>
+                                    <ul>
+                                        <li><a href="/about-us/">About Us</a></li>
+                                        <li><a href="/contact-us/">Contact Us</a></li>
+                                        <li><a href="/faq/">FAQs</a></li>
+                                        <li><a href="/news/">News</a></li>
+                                    </ul>
+                                </nav>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <section id="content" class="p-t-15">
+    <div class="container"><div class="sliding_text_wrap">
+        <marquee direction="left">{{com.news}}</marquee>
+    </div>
+    </section>
+  <!-- ##### Footer Area End ##### -->
+
+  <!-- ##### All Javascript Files ##### -->
+  <!-- jquery 2.2.4  -->
+  <script src="{% static 'service/js/jquery.min.js' %}"></script>
+  <!-- Popper js -->
+  <script src="{% static 'service/js/popper.min.js' %}"></script>
+  <!-- Bootstrap js -->
+  <script src="{% static 'service/js/bootstrap.min.js' %}"></script>
+  <!-- Owl Carousel js -->
+  <script src="{% static 'service/js/owl.carousel.min.js' %}"></script>
+  <!-- Classynav -->
+  <script src="{% static 'service/js/classynav.js' %}"></script>
+  <!-- Wow js -->
+  <script src="{% static 'service/js/wow.min.js' %}"></script>
+  <!-- Sticky js -->
+  <script src="{% static 'service/js/jquery.sticky.js' %}"></script>
+  <!-- Magnific Popup js -->
+  <script src="{% static 'service/js/jquery.magnific-popup.min.js' %}"></script>
+  <!-- Scrollup js -->
+  <script src="{% static 'service/js/jquery.scrollup.min.js' %}"></script>
+  <!-- Jarallax js -->
+  <script src="{% static 'service/js/jarallax.min.js' %}"></script>
+  <!-- Jarallax Video js -->
+  <script src="{% static 'service/js/jarallax-video.min.js' %}"></script>
+  <!-- Active js -->
+  <script src="{% static 'service/js/active.js' %}"></script> 
+   <!-- From Submit -->
+    <script>
+        $("#btn_subscribe1").click(function() {
+            $.ajax({
+                url: "/agricultural/experience",
+                data : {
+                    'name':$("#txt_subscribe1").val(),
+                    'email':$("#txt_subscribe2").val(),
+                    'subject':$("#txt_subscribe3").val(),
+                    'message':$("#txt_subscribe4").val()
+                },
+                success: function(data){
+                    alert(data);
+                    $("#name").val("");
+                    $("#email").val("");
+                    $("#subject").val("");
+                    $("#message").val("");
+                },
+                error: function(data){
+                    alert(data);
+                }
+            });
+        });
+    </script>
+
+  <script>
+    $("#btn_subscribe").click(function() {
+        $.ajax({
+            url: "/subscribe/newsletter",
+            data : {
+                'email':$("#txt_subscribe").val()
+            },
+            success: function(data){
+                alert(data);
+                $("#txt_subscribe").val("");
+            },
+            error: function(data){
+                alert(data);
+            }
+        });
+    });
+    
+    {% comment %} Live Time {% endcomment %}
+    $(document).ready(function() {
+         displayClock();
+    });
+    
+    function displayClock(){
+        var display = new Date().toLocaleTimeString();
+        $("#time").html(display);
+        setTimeout(displayClock, 1000); 
+    }
+</script>
+
+<!-- Auto scrolling Text -->
+<script>
+    var $el = $(".table-responsive1");
+    function anim() {
+    var st = $el.scrollTop();
+    var sb = $el.prop("scrollHeight")-$el.innerHeight();
+    $el.animate({scrollTop: st<sb/2 ? sb : 0}, 7000, anim);
+    }
+    function stop(){
+    $el.stop();
+    }
+    anim();
+    $el.hover(stop, anim);
+</script>
+
+
+</body>
+{% endfor %}
+</html>

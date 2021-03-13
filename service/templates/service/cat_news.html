@@ -1,0 +1,129 @@
+{% extends 'service/base.html' %}
+{% load staticfiles %}
+{% load data_load %}
+{% block contain %}
+
+    <!-- ##### Breadcrumb Area Start ##### -->
+    <div class="breadcrumb-area bg-img bg-overlay jarallax" style="background-image: url({% static 'service/img/bg-img/14.jpg' %});">
+        <div class="container h-100">
+            <div class="row h-100 align-items-center">
+                <div class="col-12">
+                    <div class="breadcrumb-text">
+                    <h2>News</h2>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="famie-breadcrumb">
+        <div class="container">
+            <nav aria-label="breadcrumb">
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item"><a href="/"><i class="fa fa-home"></i> Home</a></li>
+                    <li class="breadcrumb-item active" aria-current="page">News</li>
+                </ol>
+            </nav>
+        </div>
+    </div>
+    <!-- ##### Breadcrumb Area End ##### -->
+
+    <!-- ##### Blog Area Start ##### -->
+    <section class="famie-blog-area">
+        <div class="container">
+            <div class="row">
+                <!-- Posts Area -->
+                <div class="col-12 col-md-8">
+                    <div class="posts-area">
+                    {% if blog_list %}
+                        {% for data in blog_list %}
+                            <!-- Single Blog Post Area -->
+                            <div class="single-blog-post-area mb-50 wow fadeInUp" data-wow-delay="100ms">
+                                <h6>Post on <a href="#" class="post-date">{{ data.post_date }}</a> / <a href="#" class="post-author">{{ data.posted_By }}</a></h6>
+                                <a href="/news/{{data.id}}" title="{{ data.blog_title }}" class="post-title">{{ data.blog_title }}</a>
+                                <img src="/static/service/media/{{ data.thumbnail_image }}" alt="No Images" class="post-thumb">
+                                <p class="post-excerpt">{{ data.blog_details|truncatechars:"200"|safe }}</p>
+                            </div>
+                        {% endfor %}
+                    {% else %}
+                        <div class="single-blog-post-area mb-50 wow fadeInUp" data-wow-delay="100ms">
+                            <p style="font-size: 30px;color: red;text-align: center;">NO DATA FOUND</p>
+                        </div>
+                    {% endif %}
+                    </div>
+
+                    <!-- pagination -->
+                    <nav>
+                        {% if blog.has_other_pages %}
+                            <ul class="pagination mb-0 mt-50">
+                                {% if blog.has_previous %}
+                                <li class="page-item"><a href="?page={{ blog.previous_page_number }}" class="page-link">&laquo;</a></li>
+                                {% else %}
+                                <li class="page-item disabled"><span>&laquo;</span></li>
+                                {% endif %}
+                                {% for i in blog.paginator.page_range %}
+                                {% if blog.number == i %}
+                                    <li class="page-item active"><span>{{ i }} <span class="sr-only">(current)</span></span></li>
+                                {% else %}
+                                    <li class="page-item"><a href="?page={{ i }}" class="page-link">{{ i }}</a></li>
+                                {% endif %}
+                                {% endfor %}
+                                {% if blog.has_next %}
+                                    <li class="page-item"><a href="?page={{ blog.next_page_number }}" class="page-link">&raquo;</a></li>
+                                {% else %}
+                                <li class="page-item disabled" ><span>&raquo;</span></li>
+                                {% endif %}
+                            </ul>
+                        {% endif %}
+                    </nav>
+                </div>
+
+                <!-- Sidebar Area -->
+                <div class="col-12 col-md-4">
+                    <div class="sidebar-area">
+
+                        {% comment %} <!-- Single Widget Area -->
+                        <div class="single-widget-area">
+                            <form action="#" method="post" class="search-widget-form">
+                                <input type="search" class="form-control" placeholder="Search">
+                                <button type="submit"><i class="icon_search" aria-hidden="true"></i></button>
+                            </form>
+                        </div> {% endcomment %}
+
+                        <!-- Single Widget Area -->
+                        <div class="single-widget-area">
+                            <!-- Title -->
+                            <h5 class="widget-title">Catagories</h5>
+                            <!-- Cata List -->
+                            <ul class="cata-list">
+                                {% for data in blog_cat %}
+                                    <li title="{{ data.id }}"><a href="/cat/{{ data.id }}">{{ data.name }}</a></li>
+                                {% endfor %}
+                            </ul>
+                        </div>
+
+                        <!-- Single Widget Area -->
+                        <div class="single-widget-area">
+                            <!-- Title -->
+                            <h5 class="widget-title">Recent News</h5>
+                            <!-- Single Recent News Start -->
+                            {% for data in recent_post %}
+                                <div class="single-recent-blog style-2 d-flex align-items-center">
+                                    <div class="post-thumbnail">
+                                        <img src="/static/service/media/{{ data.thumbnail_image }}" alt="No Images">
+                                    </div>
+                                    <div class="post-content">
+                                        <a href="/news/{{data.id}}" class="post-title" title="{{ data.blog_title }}">{{ data.blog_title }}</a>
+                                        <div class="post-date">{{ data.post_date }}</div>
+                                    </div>
+                                </div>
+                            {% endfor %}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- ##### Blog Area End ##### -->
+
+{% endblock %}
