@@ -94,7 +94,7 @@
                                 <!-- Post Content -->
                                 <div class="post-content">
                                     <h6>Post on <a href="#">{{ data.post_date }}</a> / <a href="#">{{ data.name }}</a></h6>
-                                    <a href="#" class="post-title">{{ data.problem|safe|truncatechars:"100" }}</a>
+                                    <a href="#" class="post-title">{{ data.title|safe|truncatechars:"100" }}</a>
                                     <p>{{ data.solve_message|safe|truncatechars:"150" }}</p>
                                     <a class="aa-read-mor-btn" href="/problem/{{ data.id }}">বিস্তারিত পড়ুন...</a>
                                 </div>

@@ -1,0 +1,97 @@
+{% extends 'service/base.html' %}
+{% load staticfiles %}
+{% load data_load %}
+{% block contain %}
+
+  <!-- ##### Breadcrumb Area Start ##### -->
+    <div class="breadcrumb-area bg-img bg-overlay jarallax" style="background-image: url({% static 'service/img/bg-img/18.jpg' %});">
+        <div class="container h-100">
+            <div class="row h-100 align-items-center">
+                <div class="col-12">
+                    <div class="breadcrumb-text">
+                        <h2>কীটনাশক সার্চ করুন</h2>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="famie-breadcrumb">
+        <div class="container">
+            <div class="example">
+                <div class="card">
+                    <!-- /.card-header -->
+                    <div class="card-body">
+                        <form method="POST">{% csrf_token %}
+                            <div class="row align-items-center">
+                                <div class="col-md-3">
+                                    <div class="form-group">
+                                        <label>Tree</label>
+                                        <select name="tree" class="form-control">
+                                            {% for data in tree_name %}
+                                                <option value="{{data.id}}" {% if data.id == tree %} selected {% endif %}>{{ data.name }}</option>
+                                            {% endfor %}
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="col-md-3">
+                                    <div class="form-group">
+                                        <label >Ages</label>
+                                        <select name="ages" class="form-control">
+                                            {% for data in tree_age %}
+                                                <option value="{{data.id}}" {% if data.id == ages %} selected {% endif %} >{{ data.age }}</option>
+                                            {% endfor %}
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="col-md-1 text-center">
+                                    <input type="submit" class="btn btn-success" value="Search" id='btnEmployeePromotionExport'>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- ##### FAQ Area Start ##### -->
+    {% if search_list %}
+    
+    <section class="famie-faq-area section-padding-100">
+        <div class="container">
+            <div class="example">
+                <div class="card">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-12">
+                                <div class="accordions">
+                                    <!-- Single Accordian Area -->
+                                    {% for data in search_list %}
+                                        <div class="panel single-accordion">
+                                            <div class="accordion-content">
+                                                <p>{{ data.description|safe }}</p>
+                                            </div>
+                                        </div>
+                                    {% endfor %}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    {% else %}
+    <div class="container">
+        <div class="example">
+            <div class="card">
+                <div class="container">
+                    <div class="row" style="text-align:center;">
+                        <h1 style="color:red;">NO Data Found</h1>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    {% endif %}
+{% endblock %}

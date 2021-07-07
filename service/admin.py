@@ -135,6 +135,20 @@ class ImportantLinkAdmin(admin.ModelAdmin):
     search_fields   = ['district_district','status']
     list_filter     = ['status']
 
+class TreeAgeAdmin(admin.ModelAdmin):
+    list_display    = ['age','status']
+    search_fields   = ['age','status']
+    list_filter     = ['status']
+
+class TreeNameAdmin(admin.ModelAdmin):
+    list_display    = ['name','status']
+    search_fields   = ['name','status']
+    list_filter     = ['status']
+
+class SearchPesticidesAdmin(admin.ModelAdmin):
+    list_display    = ['tree_name','tree_age','search_count','status']
+    list_filter     = ['tree_name','tree_age','status']
+
 admin.site.register(models.CompanyInfo, CompanyInfoAdmin)
 admin.site.register(models.SubscriberNewslatter, SubscriberNewslatterAdmin)
 admin.site.register(models.Contact, ContactAdmin)
@@ -158,3 +172,6 @@ admin.site.register(models.FarmerAccount,FarmerAccountAdmin)
 admin.site.register(models.DistrictCat, DistrictCatAdmin)
 admin.site.register(models.ImportantLink, ImportantLinkAdmin)
 admin.site.register(models.ProblemCategory, ProblemCategoryAdmin)
+admin.site.register(models.TreeAge, TreeAgeAdmin)
+admin.site.register(models.TreeName, TreeNameAdmin)
+admin.site.register(models.SearchPesticides, SearchPesticidesAdmin)

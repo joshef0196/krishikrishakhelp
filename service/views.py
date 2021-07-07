@@ -115,6 +115,27 @@ def quick_solve(request):
     }
     return render(request,'service/quick_solve.html', context)
 
+def search_pesticides(request):
+    tree_age         = models.TreeAge.objects.filter(status = True).order_by("ordering")
+    tree_name        = models.TreeName.objects.filter(status = True).order_by("ordering")
+    if request.method == "POST":
+        tree = int(request.POST["tree"])
+        ages = int(request.POST["ages"])
+        search_list = models.SearchPesticides.objects.filter(tree_name_id = tree, tree_age_id = ages)
+        context = {
+            "search_list": search_list,
+            "tree": tree,
+            "ages": ages,
+            'tree_age' : tree_age,
+            'tree_name' : tree_name,
+        }
+        return render(request,'service/search_pesticides.html', context)
+    context ={
+        'tree_age' : tree_age,
+        'tree_name' : tree_name,
+    }
+    return render(request,'service/search_pesticides.html', context)
+
 def single_quick_solve(request, title):
     tlt             = title.replace('-', ' ')
     solve_details   = models.QuickSolve.objects.filter(status = True, question = tlt).first()
@@ -166,6 +187,7 @@ def problem_send(request):
     problem_cat = models.ProblemCategory.objects.filter(status = True).order_by('ordering')
     if request.method=="POST":
         name         = request.POST['name']
+        number       = request.POST['number']
         email        = request.POST['email']
         address      = request.POST['address']
         title        = request.POST['title']
@@ -182,10 +204,10 @@ def problem_send(request):
 
         # check_user = models.CustomerProblem.objects.filter(email = email).first()
 
-        if models.CustomerProblem.objects.create(name = name, category_id = problem_cat, email = email, address =  address, title = title, problem = editor1, problem_file = order_file):
+        if models.CustomerProblem.objects.create(name = name, category_id = problem_cat, phone = number, email = email, address =  address, title = title, problem = editor1, problem_file = order_file):
             
             name= request.POST['name']
-            subject = 'welcome to KrishiKhishakhelp'
+            subject = 'Welcome to KrishiKhishakhelp'
             message = f'Hi {name}, thank you for registering in Krishi Khishak help.'
             email_from = settings.EMAIL_HOST_USER 
              
@@ -580,3 +602,18 @@ def data_search(request):
 
     return HttpResponse("", content_type ="application/json")
     
+
+
+# ..........For REST API.............
+
+from rest_framework.decorators import api_view
+from rest_framework.response import Response
+from .serializer import POSTBlog
+
+@api_view(['GET'])
+def api_blog(request):
+    if request.method =="GET":
+        data_list = models.Blogs.objects.all()
+        serializer = POSTBlog(data_list, many=True)
+        return Response(serializer.data)
+def 

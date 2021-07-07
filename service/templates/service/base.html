@@ -4,6 +4,7 @@
 <head>
 	{% load staticfiles %}
     {% load data_load %}
+    {% load tawkto_tags %}
 	{% for com in company_details|company|slice:"1" %}
     <meta charset="UTF-8">
     <meta name="description" content="">
@@ -139,16 +140,17 @@
                                     <li><a href="/problem/send">কৃষকের সমস্যা ও তার সমাধান</a></li>
                                     <li><a href="/contact-us/">যোগাযোগ</a></li>
                                     <li><a href="/quick/solve/">দ্রুত সমাধান</a></li>
-                                    {% comment %} <li><a href="/buying/product/">পণ্য কিনুন</a></li> {% endcomment %}
+                                    <li><a href="/search/pesticides/">কীটনাশক</a></li>
+                                    <li><a href="/buying/product/">পণ্য কিনুন</a></li>
                                 </ul>
                                 <!-- Search Icon -->
-                                {% comment %} <div>
+                                <div>
                                     {% if request.session.userid %}
                                         <a href="/my/dashboard/">Dashboard</a>
                                     {% else %}
                                         <a class="btn famie-btn mt-4" href="/farmer/reg/">রেজিস্ট্রেশন</a>
                                     {% endif %}
-                                </div> {% endcomment %}
+                                </div>
                             </div>
                             <!-- Navbar End -->
                         </div>
@@ -538,7 +540,19 @@
     $el.hover(stop, anim);
 </script>
 
-
+<!--Start of Tawk.to Script-->
+{% comment %} <script type="text/javascript">
+    var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
+    (function(){
+    var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];
+    s1.async=true;
+    s1.src='https://embed.tawk.to/6087d50b5eb20e09cf36f82e/1f499gdfh';
+    s1.charset='UTF-8';
+    s1.setAttribute('crossorigin','*');
+    s0.parentNode.insertBefore(s1,s0);
+    })();
+</script> {% endcomment %}
+<!--End of Tawk.to Script-->
 </body>
 {% endfor %}
 </html>

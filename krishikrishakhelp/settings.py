@@ -30,8 +30,8 @@ EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 
 EMAIL_HOST = "smtp.gmail.com"
 EMAIL_PORT = "587"
-EMAIL_HOST_USER = "hossainjoshef@gmail.com"
-EMAIL_HOST_PASSWORD = "01965070089"
+EMAIL_HOST_USER = "onlinekrishi13@gmail.com"
+EMAIL_HOST_PASSWORD = "onlinekrishitestuser12345"
 EMAIL_USE_TLS = True 
 
 INSTALLED_APPS = [
@@ -44,6 +44,8 @@ INSTALLED_APPS = [
     'service',
     'ckeditor',
     'ckeditor_uploader',
+    'tawkto',
+    'rest_framework',
 ]
 
 MIDDLEWARE = [

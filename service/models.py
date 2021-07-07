@@ -148,6 +148,7 @@ class CustomerProblem(models.Model):
     category        = models.ForeignKey(ProblemCategory, on_delete=models.CASCADE, blank = True, null = True)
     name            = models.CharField(max_length = 200)
     email           = models.CharField(max_length=100, blank=True)
+    phone           = models.CharField(max_length=15, blank=True, null=True)
     address         = models.TextField(max_length=200, blank=True)
     title           = models.TextField(max_length=200)
     problem         = RichTextField()
@@ -445,3 +446,41 @@ class ImportantLink(models.Model):
     class Meta:
         verbose_name = 'Important Link'
         verbose_name_plural = 'Important Links'
+
+class TreeAge(models.Model):
+    age       = models.CharField(max_length = 20)
+    ordering       = models.IntegerField(default = 0)
+    status    = models.BooleanField(default = True)
+
+    def __str__(self):
+        return self.age
+
+    class Meta:
+        verbose_name = 'Tree Age'
+        verbose_name_plural = 'Tree Ages'
+
+class TreeName(models.Model):
+    name       = models.CharField(max_length = 100)
+    ordering       = models.IntegerField(default = 0)
+    status     = models.BooleanField(default = True)
+
+    def __str__(self):
+        return self.name
+
+    class Meta:
+        verbose_name = 'Tree Name'
+        verbose_name_plural = 'Tree Names'
+
+class SearchPesticides(models.Model):
+    tree_name     = models.ForeignKey(TreeName, on_delete=models.CASCADE)
+    tree_age      = models.ForeignKey(TreeAge, on_delete=models.CASCADE)
+    description   = RichTextField(blank = True)
+    search_count  = models.IntegerField(default = 0)
+    status        = models.BooleanField(default = True)
+
+    def __str__(self):
+        return str(self.tree_name)
+
+    class Meta:
+        verbose_name = 'Search Pesticides'
+        verbose_name_plural = 'Search Pesticides'

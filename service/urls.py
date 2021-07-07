@@ -16,6 +16,7 @@ urlpatterns = [
     path('<str:pro_name>/', views.single_service),
     path('advice/<str:advice>/', views.fram_advice),
     path('quick/solve/', views.quick_solve),
+    path('search/pesticides/', views.search_pesticides),
     path('quick/<str:title>', views.single_quick_solve),
     path('farmer/reg/', views.farmer_reg),
     path('my/dashboard/', views.dashboard),
@@ -40,4 +41,7 @@ urlpatterns = [
     path('agricultural/experience', views.agricultural_experience),
     path('experience/<str:id>', views.single_agricultural_experience),
     path('history/<str:id>', views.single_about),
+
+    # For Rest API
+    path('test/api/', views.api_blog),
 ]

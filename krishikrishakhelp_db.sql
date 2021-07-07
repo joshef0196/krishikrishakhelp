@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Mar 05, 2021 at 10:42 AM
+-- Generation Time: May 26, 2021 at 11:55 AM
 -- Server version: 10.1.10-MariaDB
 -- PHP Version: 7.0.4
 
@@ -147,7 +147,19 @@ INSERT INTO `auth_permission` (`id`, `name`, `content_type_id`, `codename`) VALU
 (84, 'Can delete district', 28, 'delete_districtcat'),
 (85, 'Can add Important Link', 29, 'add_importantlink'),
 (86, 'Can change Important Link', 29, 'change_importantlink'),
-(87, 'Can delete Important Link', 29, 'delete_importantlink');
+(87, 'Can delete Important Link', 29, 'delete_importantlink'),
+(88, 'Can add Problem Category', 30, 'add_problemcategory'),
+(89, 'Can change Problem Category', 30, 'change_problemcategory'),
+(90, 'Can delete Problem Category', 30, 'delete_problemcategory'),
+(91, 'Can add Tree Name', 31, 'add_treename'),
+(92, 'Can change Tree Name', 31, 'change_treename'),
+(93, 'Can delete Tree Name', 31, 'delete_treename'),
+(94, 'Can add Tree Age', 32, 'add_treeage'),
+(95, 'Can change Tree Age', 32, 'change_treeage'),
+(96, 'Can delete Tree Age', 32, 'delete_treeage'),
+(97, 'Can add Search Pesticides', 33, 'add_searchpesticides'),
+(98, 'Can change Search Pesticides', 33, 'change_searchpesticides'),
+(99, 'Can delete Search Pesticides', 33, 'delete_searchpesticides');
 
 -- --------------------------------------------------------
 
@@ -174,7 +186,7 @@ CREATE TABLE `auth_user` (
 --
 
 INSERT INTO `auth_user` (`id`, `password`, `last_login`, `is_superuser`, `username`, `first_name`, `last_name`, `email`, `is_staff`, `is_active`, `date_joined`) VALUES
-(1, 'pbkdf2_sha256$100000$u8SwQfPXopRA$m1igWTXz+ca00e6TTJGiVgDI2dj/nNGtJ0OD6TKgc6M=', '2021-03-04 09:45:13.701181', 1, 'admin', '', '', '', 1, 1, '2020-04-27 03:40:05.299174');
+(1, 'pbkdf2_sha256$100000$u8SwQfPXopRA$m1igWTXz+ca00e6TTJGiVgDI2dj/nNGtJ0OD6TKgc6M=', '2021-04-27 10:04:03.151926', 1, 'admin', '', '', '', 1, 1, '2020-04-27 03:40:05.299174');
 
 -- --------------------------------------------------------
 
@@ -473,7 +485,70 @@ INSERT INTO `django_admin_log` (`id`, `action_time`, `object_id`, `object_repr`,
 (249, '2020-11-06 17:43:19.336074', '12', 'Otto Rose', 2, '[{"changed": {"fields": ["problem", "solve_message", "slove"]}}]', 17, 1),
 (250, '2021-02-18 09:19:10.156580', '1', 'Krishi Krishak Help', 2, '[{"changed": {"fields": ["staring_year", "email1", "email2", "mobile1", "mobile2", "address", "skype"]}}]', 7, 1),
 (251, '2021-03-04 09:46:56.397121', '1', 'Krishi Krishak Help', 2, '[{"changed": {"fields": ["email1", "email2", "mobile2"]}}]', 7, 1),
-(252, '2021-03-04 10:21:11.599168', '14', 'Joshef Hossain', 2, '[{"changed": {"fields": ["problem", "solve_message", "slove"]}}]', 17, 1);
+(252, '2021-03-04 10:21:11.599168', '14', 'Joshef Hossain', 2, '[{"changed": {"fields": ["problem", "solve_message", "slove"]}}]', 17, 1),
+(253, '2021-03-05 09:45:04.381449', '2', 'Mehedi Hasan Nabil', 2, '[{"changed": {"fields": ["member_name", "member_designation", "images"]}}]', 14, 1),
+(254, '2021-03-05 09:45:30.555648', '1', 'Rakib Khan', 3, '', 14, 1),
+(255, '2021-03-13 06:32:54.110405', '1', 'Mobile', 1, '[{"added": {}}]', 30, 1),
+(256, '2021-03-13 06:33:25.583972', '15', 'Serina Stone', 1, '[{"added": {}}]', 17, 1),
+(257, '2021-03-13 07:10:32.774168', '2', 'Education Software', 1, '[{"added": {}}]', 30, 1),
+(258, '2021-03-13 07:10:37.387208', '3', 'ERP Software', 1, '[{"added": {}}]', 30, 1),
+(259, '2021-03-13 07:10:40.898708', '4', 'Ecommerce Software', 1, '[{"added": {}}]', 30, 1),
+(260, '2021-03-13 08:42:40.532741', '18', 'Byron Dunlap', 3, '', 17, 1),
+(261, '2021-03-13 08:42:40.681520', '17', 'Byron Dunlap', 3, '', 17, 1),
+(262, '2021-03-13 08:42:40.715480', '16', 'Byron Dunlap', 3, '', 17, 1),
+(263, '2021-03-13 10:25:53.233989', '20', 'fgfdgfdgdfgfdg', 3, '', 20, 1),
+(264, '2021-03-13 10:25:53.287571', '19', 'Hossain', 3, '', 20, 1),
+(265, '2021-03-13 10:25:53.320939', '18', 'Hossain', 3, '', 20, 1),
+(266, '2021-03-13 10:25:53.343233', '17', 'Joshef', 3, '', 20, 1),
+(267, '2021-03-13 10:29:53.110620', '16', 'Joshef Hossain', 3, '', 8, 1),
+(268, '2021-03-13 10:29:53.165118', '15', 'Joshef Hossain', 3, '', 8, 1),
+(269, '2021-03-13 10:29:53.209528', '14', 'Xena Wilder', 3, '', 8, 1),
+(270, '2021-03-13 11:55:20.422745', '22', 'Jessica Christensen', 3, '', 17, 1),
+(271, '2021-03-13 11:56:17.714979', '21', 'Lev Nunez', 3, '', 17, 1),
+(272, '2021-03-13 15:39:32.731476', '37', 'gf', 3, '', 17, 1),
+(273, '2021-03-13 15:39:32.817427', '36', 'gf', 3, '', 17, 1),
+(274, '2021-03-13 15:39:32.872396', '35', 'gf', 3, '', 17, 1),
+(275, '2021-03-13 15:39:32.939357', '34', 'gf', 3, '', 17, 1),
+(276, '2021-03-13 15:39:32.959346', '33', 'gf', 3, '', 17, 1),
+(277, '2021-03-13 15:39:33.016311', '32', 'gf', 3, '', 17, 1),
+(278, '2021-03-13 15:39:33.083563', '31', 'gf', 3, '', 17, 1),
+(279, '2021-03-13 15:39:33.228028', '30', 'gf', 3, '', 17, 1),
+(280, '2021-03-13 15:39:33.293975', '29', 'ghfgh', 3, '', 17, 1),
+(281, '2021-03-13 15:39:33.338080', '28', 'ghfgh', 3, '', 17, 1),
+(282, '2021-03-13 17:57:35.160477', '29', 'আপেল', 2, '[{"changed": {"fields": ["status", "new"]}}]', 25, 1),
+(283, '2021-03-13 18:05:38.122132', '52', 'Larissa Bishop', 2, '[{"changed": {"fields": ["problem", "solve_message"]}}]', 17, 1),
+(284, '2021-03-13 18:25:59.136398', '52', 'Larissa Bishop', 2, '[{"changed": {"fields": ["slove"]}}]', 17, 1),
+(285, '2021-03-13 18:26:05.983188', '51', 'Larissa Bishop', 2, '[{"changed": {"fields": ["problem", "slove"]}}]', 17, 1),
+(286, '2021-03-13 18:35:56.401064', '49', 'Larissa Bishop', 2, '[{"changed": {"fields": ["problem", "slove"]}}]', 17, 1),
+(287, '2021-03-13 18:37:35.678537', '53', 'Joshef Hossain', 2, '[{"changed": {"fields": ["problem", "slove"]}}]', 17, 1),
+(288, '2021-03-13 21:14:41.016822', '1', 'Mobile', 1, '[{"added": {}}]', 30, 1),
+(289, '2021-03-13 21:14:43.712478', '2', 'Education Software', 1, '[{"added": {}}]', 30, 1),
+(290, '2021-03-13 21:14:46.474123', '3', 'ERP Software', 1, '[{"added": {}}]', 30, 1),
+(291, '2021-03-13 21:14:48.941450', '4', 'Ecommerce Software', 1, '[{"added": {}}]', 30, 1),
+(292, '2021-03-21 14:53:24.820542', '2', 'Nazmul Hasan', 2, '[{"changed": {"fields": ["title", "problem", "solve_message"]}}]', 17, 1),
+(293, '2021-03-21 15:01:58.564278', '3', 'Shohel Khan', 2, '[{"changed": {"fields": ["problem", "solve_message"]}}]', 17, 1),
+(294, '2021-03-21 15:11:49.715741', '2', 'Nazmul Hassan', 2, '[{"changed": {"fields": ["member_name", "member_mobile", "member_email", "member_address"]}}]', 14, 1),
+(295, '2021-03-21 15:13:19.299943', '3', 'Srijal Chakrabortty.', 1, '[{"added": {}}]', 14, 1),
+(296, '2021-03-21 15:13:19.524070', '4', 'Srijal Chakrabortty.', 1, '[{"added": {}}]', 14, 1),
+(297, '2021-03-21 15:16:59.048182', '4', 'Srijal Chakrabortty.', 3, '', 14, 1),
+(298, '2021-03-21 15:17:09.171795', '2', 'Nazmul Hassan', 2, '[{"changed": {"fields": ["images"]}}]', 14, 1),
+(299, '2021-03-21 15:17:20.569664', '3', 'Srijal Chakrabortty.', 2, '[{"changed": {"fields": ["images"]}}]', 14, 1),
+(300, '2021-03-21 15:23:23.053921', '2', 'Srijal Chakrabortty.', 2, '[{"changed": {"fields": ["person_name", "person_img", "review_detail"]}}]', 13, 1),
+(301, '2021-03-21 15:27:30.528166', '1', 'Nazmul Hassan', 2, '[{"changed": {"fields": ["person_name", "person_img", "review_detail"]}}]', 13, 1),
+(302, '2021-03-21 15:36:54.148612', '1', 'Krishi Krishak Help', 2, '[{"changed": {"fields": ["com_story"]}}]', 7, 1),
+(303, '2021-03-21 15:44:10.064706', '1', 'Krishi Krishak Help', 2, '[{"changed": {"fields": ["mobile1"]}}]', 7, 1),
+(304, '2021-04-27 10:07:53.703529', '1', '2 Year', 1, '[{"added": {}}]', 32, 1),
+(305, '2021-04-27 10:07:58.028076', '2', '3 Year', 1, '[{"added": {}}]', 32, 1),
+(306, '2021-04-27 10:08:02.206228', '3', '4 Year', 1, '[{"added": {}}]', 32, 1),
+(307, '2021-04-27 10:08:07.151080', '4', '5 Year', 1, '[{"added": {}}]', 32, 1),
+(308, '2021-04-27 10:08:16.674496', '5', '6 Year', 1, '[{"added": {}}]', 32, 1),
+(309, '2021-04-27 10:08:30.531239', '1', 'Mango', 1, '[{"added": {}}]', 31, 1),
+(310, '2021-04-27 10:08:42.709270', '2', 'Apple', 1, '[{"added": {}}]', 31, 1),
+(311, '2021-04-27 10:08:48.965767', '3', 'Orange', 1, '[{"added": {}}]', 31, 1),
+(312, '2021-04-27 10:09:16.477578', '4', 'Banana', 1, '[{"added": {}}]', 31, 1),
+(313, '2021-04-27 10:13:04.422944', '3', 'Apple', 1, '[{"added": {}}]', 33, 1),
+(314, '2021-04-27 10:13:14.772329', '4', 'Mango', 1, '[{"added": {}}]', 33, 1),
+(315, '2021-04-27 10:13:22.746759', '5', 'Apple', 1, '[{"added": {}}]', 33, 1);
 
 -- --------------------------------------------------------
 
@@ -514,12 +589,16 @@ INSERT INTO `django_content_type` (`id`, `app_label`, `model`) VALUES
 (29, 'service', 'importantlink'),
 (19, 'service', 'ourservice'),
 (14, 'service', 'ourteammember'),
+(30, 'service', 'problemcategory'),
 (25, 'service', 'product'),
 (22, 'service', 'quicksolve'),
 (13, 'service', 'reviews'),
+(33, 'service', 'searchpesticides'),
 (16, 'service', 'sliderinfo'),
 (20, 'service', 'subcategory'),
 (9, 'service', 'subscribernewslatter'),
+(32, 'service', 'treeage'),
+(31, 'service', 'treename'),
 (6, 'sessions', 'session');
 
 -- --------------------------------------------------------
@@ -595,7 +674,14 @@ INSERT INTO `django_migrations` (`id`, `app`, `name`, `applied`) VALUES
 (53, 'service', '0039_auto_20201020_2222', '2020-10-20 16:22:36.149393'),
 (54, 'service', '0040_auto_20201022_1601', '2020-10-22 10:01:19.419813'),
 (55, 'service', '0041_auto_20201022_1817', '2020-10-22 12:17:26.938398'),
-(56, 'service', '0042_auto_20201022_1941', '2020-10-22 13:41:30.828932');
+(56, 'service', '0042_auto_20201022_1941', '2020-10-22 13:41:30.828932'),
+(57, 'service', '0043_auto_20210312_2037', '2021-03-12 14:37:32.653945'),
+(58, 'service', '0044_problemcategory', '2021-03-12 14:51:21.173181'),
+(59, 'service', '0002_problemcategory', '2021-03-13 21:13:10.709484'),
+(60, 'service', '0003_customerproblem', '2021-03-13 21:13:27.863498'),
+(61, 'service', '0004_auto_20210427_0251', '2021-04-27 09:51:52.809944'),
+(62, 'service', '0005_auto_20210427_0312', '2021-04-27 10:12:07.683679'),
+(63, 'service', '0006_auto_20210427_0316', '2021-04-27 10:16:04.914656');
 
 -- --------------------------------------------------------
 
@@ -614,6 +700,7 @@ CREATE TABLE `django_session` (
 --
 
 INSERT INTO `django_session` (`session_key`, `session_data`, `expire_date`) VALUES
+('11ulk5jl6i8efepsiobcsg0qxi2aohf7', 'NzA0YTNjZmFkOTBkYzRlY2MyMDQ1Mjk2NDlkMjc0OWZkMGMwZWNjMzp7Il9hdXRoX3VzZXJfaWQiOiIxIiwiX2F1dGhfdXNlcl9iYWNrZW5kIjoiZGphbmdvLmNvbnRyaWIuYXV0aC5iYWNrZW5kcy5Nb2RlbEJhY2tlbmQiLCJfYXV0aF91c2VyX2hhc2giOiIwYTQ2M2FmMWY2ZjMyZDcwOTU3MTM1Y2Q0NGVjYzNiZGMwZTNlM2JkIn0=', '2021-03-23 17:50:01.195352'),
 ('1flabcx6lpvpw4l1vgbsmjldlozon49v', 'NzA0YTNjZmFkOTBkYzRlY2MyMDQ1Mjk2NDlkMjc0OWZkMGMwZWNjMzp7Il9hdXRoX3VzZXJfaWQiOiIxIiwiX2F1dGhfdXNlcl9iYWNrZW5kIjoiZGphbmdvLmNvbnRyaWIuYXV0aC5iYWNrZW5kcy5Nb2RlbEJhY2tlbmQiLCJfYXV0aF91c2VyX2hhc2giOiIwYTQ2M2FmMWY2ZjMyZDcwOTU3MTM1Y2Q0NGVjYzNiZGMwZTNlM2JkIn0=', '2020-11-26 09:42:04.212013'),
 ('1ozeaabfkbl4c01h5kgan0zjjnfvit78', 'NzA0YTNjZmFkOTBkYzRlY2MyMDQ1Mjk2NDlkMjc0OWZkMGMwZWNjMzp7Il9hdXRoX3VzZXJfaWQiOiIxIiwiX2F1dGhfdXNlcl9iYWNrZW5kIjoiZGphbmdvLmNvbnRyaWIuYXV0aC5iYWNrZW5kcy5Nb2RlbEJhY2tlbmQiLCJfYXV0aF91c2VyX2hhc2giOiIwYTQ2M2FmMWY2ZjMyZDcwOTU3MTM1Y2Q0NGVjYzNiZGMwZTNlM2JkIn0=', '2020-09-07 06:19:57.719680'),
 ('4p3o4qnuqz4x7msp6dts0nnepcaucai3', 'NzA0YTNjZmFkOTBkYzRlY2MyMDQ1Mjk2NDlkMjc0OWZkMGMwZWNjMzp7Il9hdXRoX3VzZXJfaWQiOiIxIiwiX2F1dGhfdXNlcl9iYWNrZW5kIjoiZGphbmdvLmNvbnRyaWIuYXV0aC5iYWNrZW5kcy5Nb2RlbEJhY2tlbmQiLCJfYXV0aF91c2VyX2hhc2giOiIwYTQ2M2FmMWY2ZjMyZDcwOTU3MTM1Y2Q0NGVjYzNiZGMwZTNlM2JkIn0=', '2020-11-06 11:08:55.514196'),
@@ -621,13 +708,16 @@ INSERT INTO `django_session` (`session_key`, `session_data`, `expire_date`) VALU
 ('ahbuzx8uohglnhnvkws3odfcvz8kzbjm', 'NzA0YTNjZmFkOTBkYzRlY2MyMDQ1Mjk2NDlkMjc0OWZkMGMwZWNjMzp7Il9hdXRoX3VzZXJfaWQiOiIxIiwiX2F1dGhfdXNlcl9iYWNrZW5kIjoiZGphbmdvLmNvbnRyaWIuYXV0aC5iYWNrZW5kcy5Nb2RlbEJhY2tlbmQiLCJfYXV0aF91c2VyX2hhc2giOiIwYTQ2M2FmMWY2ZjMyZDcwOTU3MTM1Y2Q0NGVjYzNiZGMwZTNlM2JkIn0=', '2020-10-12 13:53:04.536793'),
 ('cb7elijtmx4at8nczxisx1di0dnohw1r', 'NzA0YTNjZmFkOTBkYzRlY2MyMDQ1Mjk2NDlkMjc0OWZkMGMwZWNjMzp7Il9hdXRoX3VzZXJfaWQiOiIxIiwiX2F1dGhfdXNlcl9iYWNrZW5kIjoiZGphbmdvLmNvbnRyaWIuYXV0aC5iYWNrZW5kcy5Nb2RlbEJhY2tlbmQiLCJfYXV0aF91c2VyX2hhc2giOiIwYTQ2M2FmMWY2ZjMyZDcwOTU3MTM1Y2Q0NGVjYzNiZGMwZTNlM2JkIn0=', '2021-03-18 09:45:13.863965'),
 ('dil5wjdvi74p454hfhpjqfc9y3kj24z7', 'Yzk0ZTcxZDRlNzIwYzFhY2FmOGIwNTNiZWYwODM2ZDFhNjM3NmMzNDp7Il9hdXRoX3VzZXJfaWQiOiIxIiwiX2F1dGhfdXNlcl9iYWNrZW5kIjoiZGphbmdvLmNvbnRyaWIuYXV0aC5iYWNrZW5kcy5Nb2RlbEJhY2tlbmQiLCJfYXV0aF91c2VyX2hhc2giOiIwYTQ2M2FmMWY2ZjMyZDcwOTU3MTM1Y2Q0NGVjYzNiZGMwZTNlM2JkIiwibmFtZV9fXyI6IkdhdmluIEJ1dGxlciIsIm5hbWUiOiJKb3NoZWYgSG9zc2FpbiAiLCJtb2JpbGUiOiIwMTk2NTU1MDYyOSIsInVzZXJpZCI6N30=', '2020-10-20 12:18:47.165987'),
+('has170gnz4z6lm0rb4phnq8q04c0etez', 'NzA0YTNjZmFkOTBkYzRlY2MyMDQ1Mjk2NDlkMjc0OWZkMGMwZWNjMzp7Il9hdXRoX3VzZXJfaWQiOiIxIiwiX2F1dGhfdXNlcl9iYWNrZW5kIjoiZGphbmdvLmNvbnRyaWIuYXV0aC5iYWNrZW5kcy5Nb2RlbEJhY2tlbmQiLCJfYXV0aF91c2VyX2hhc2giOiIwYTQ2M2FmMWY2ZjMyZDcwOTU3MTM1Y2Q0NGVjYzNiZGMwZTNlM2JkIn0=', '2021-05-11 10:04:03.208436'),
 ('hr5q7zfozss5in0e04m9t9kzkhpvf6rk', 'ZjdmMjk3NDk1NGM0MDExNjkyYjdiM2VkM2M5N2M4MjBmNzg3MTVlMzp7Il9hdXRoX3VzZXJfaWQiOiIxIiwiX2F1dGhfdXNlcl9iYWNrZW5kIjoiZGphbmdvLmNvbnRyaWIuYXV0aC5iYWNrZW5kcy5Nb2RlbEJhY2tlbmQiLCJfYXV0aF91c2VyX2hhc2giOiIwYTQ2M2FmMWY2ZjMyZDcwOTU3MTM1Y2Q0NGVjYzNiZGMwZTNlM2JkIiwibmFtZSI6IklzaG1hZWwgTWFzb24iLCJtb2JpbGUiOiIwMTk2NTA3MDA4OSIsInVzZXJpZCI6OH0=', '2020-11-05 13:26:18.926869'),
 ('hv371tijn9520fpi3k0f1si9dzrfcros', 'NzA0YTNjZmFkOTBkYzRlY2MyMDQ1Mjk2NDlkMjc0OWZkMGMwZWNjMzp7Il9hdXRoX3VzZXJfaWQiOiIxIiwiX2F1dGhfdXNlcl9iYWNrZW5kIjoiZGphbmdvLmNvbnRyaWIuYXV0aC5iYWNrZW5kcy5Nb2RlbEJhY2tlbmQiLCJfYXV0aF91c2VyX2hhc2giOiIwYTQ2M2FmMWY2ZjMyZDcwOTU3MTM1Y2Q0NGVjYzNiZGMwZTNlM2JkIn0=', '2021-03-04 09:05:17.969761'),
 ('jys17xdjwejf9prud83ia95h3hmpzknj', 'NzA0YTNjZmFkOTBkYzRlY2MyMDQ1Mjk2NDlkMjc0OWZkMGMwZWNjMzp7Il9hdXRoX3VzZXJfaWQiOiIxIiwiX2F1dGhfdXNlcl9iYWNrZW5kIjoiZGphbmdvLmNvbnRyaWIuYXV0aC5iYWNrZW5kcy5Nb2RlbEJhY2tlbmQiLCJfYXV0aF91c2VyX2hhc2giOiIwYTQ2M2FmMWY2ZjMyZDcwOTU3MTM1Y2Q0NGVjYzNiZGMwZTNlM2JkIn0=', '2020-11-17 19:19:27.537726'),
 ('nga1i3rwtvk3h1eqnrspbpsbi4ls610l', 'NzA0YTNjZmFkOTBkYzRlY2MyMDQ1Mjk2NDlkMjc0OWZkMGMwZWNjMzp7Il9hdXRoX3VzZXJfaWQiOiIxIiwiX2F1dGhfdXNlcl9iYWNrZW5kIjoiZGphbmdvLmNvbnRyaWIuYXV0aC5iYWNrZW5kcy5Nb2RlbEJhY2tlbmQiLCJfYXV0aF91c2VyX2hhc2giOiIwYTQ2M2FmMWY2ZjMyZDcwOTU3MTM1Y2Q0NGVjYzNiZGMwZTNlM2JkIn0=', '2020-09-03 13:28:52.223818'),
 ('npbvbr72rpxg2dpgtpi3xo12tf9mk9py', 'NzA0YTNjZmFkOTBkYzRlY2MyMDQ1Mjk2NDlkMjc0OWZkMGMwZWNjMzp7Il9hdXRoX3VzZXJfaWQiOiIxIiwiX2F1dGhfdXNlcl9iYWNrZW5kIjoiZGphbmdvLmNvbnRyaWIuYXV0aC5iYWNrZW5kcy5Nb2RlbEJhY2tlbmQiLCJfYXV0aF91c2VyX2hhc2giOiIwYTQ2M2FmMWY2ZjMyZDcwOTU3MTM1Y2Q0NGVjYzNiZGMwZTNlM2JkIn0=', '2020-11-19 17:33:58.198318'),
 ('o613lskqpnpbklu1ysywxifw1mqo0elx', 'NzA0YTNjZmFkOTBkYzRlY2MyMDQ1Mjk2NDlkMjc0OWZkMGMwZWNjMzp7Il9hdXRoX3VzZXJfaWQiOiIxIiwiX2F1dGhfdXNlcl9iYWNrZW5kIjoiZGphbmdvLmNvbnRyaWIuYXV0aC5iYWNrZW5kcy5Nb2RlbEJhY2tlbmQiLCJfYXV0aF91c2VyX2hhc2giOiIwYTQ2M2FmMWY2ZjMyZDcwOTU3MTM1Y2Q0NGVjYzNiZGMwZTNlM2JkIn0=', '2020-11-02 10:54:43.603148'),
+('rrlx55ah8ddhq2sg70tcgoudbjl5hylx', 'NzA0YTNjZmFkOTBkYzRlY2MyMDQ1Mjk2NDlkMjc0OWZkMGMwZWNjMzp7Il9hdXRoX3VzZXJfaWQiOiIxIiwiX2F1dGhfdXNlcl9iYWNrZW5kIjoiZGphbmdvLmNvbnRyaWIuYXV0aC5iYWNrZW5kcy5Nb2RlbEJhY2tlbmQiLCJfYXV0aF91c2VyX2hhc2giOiIwYTQ2M2FmMWY2ZjMyZDcwOTU3MTM1Y2Q0NGVjYzNiZGMwZTNlM2JkIn0=', '2021-04-04 14:44:39.353420'),
 ('t0m3dc1lq4a84byj799fb0i8kgrdtrom', 'NzA0YTNjZmFkOTBkYzRlY2MyMDQ1Mjk2NDlkMjc0OWZkMGMwZWNjMzp7Il9hdXRoX3VzZXJfaWQiOiIxIiwiX2F1dGhfdXNlcl9iYWNrZW5kIjoiZGphbmdvLmNvbnRyaWIuYXV0aC5iYWNrZW5kcy5Nb2RlbEJhY2tlbmQiLCJfYXV0aF91c2VyX2hhc2giOiIwYTQ2M2FmMWY2ZjMyZDcwOTU3MTM1Y2Q0NGVjYzNiZGMwZTNlM2JkIn0=', '2020-11-02 18:11:22.883603'),
+('t5zpn6w4p25n5vasn8l2za0l5mezrrrl', 'NzA0YTNjZmFkOTBkYzRlY2MyMDQ1Mjk2NDlkMjc0OWZkMGMwZWNjMzp7Il9hdXRoX3VzZXJfaWQiOiIxIiwiX2F1dGhfdXNlcl9iYWNrZW5kIjoiZGphbmdvLmNvbnRyaWIuYXV0aC5iYWNrZW5kcy5Nb2RlbEJhY2tlbmQiLCJfYXV0aF91c2VyX2hhc2giOiIwYTQ2M2FmMWY2ZjMyZDcwOTU3MTM1Y2Q0NGVjYzNiZGMwZTNlM2JkIn0=', '2021-03-26 18:05:43.056960'),
 ('td0zi9ez2ki5v10bx3ldzmwdx8mmddvl', 'NzA0YTNjZmFkOTBkYzRlY2MyMDQ1Mjk2NDlkMjc0OWZkMGMwZWNjMzp7Il9hdXRoX3VzZXJfaWQiOiIxIiwiX2F1dGhfdXNlcl9iYWNrZW5kIjoiZGphbmdvLmNvbnRyaWIuYXV0aC5iYWNrZW5kcy5Nb2RlbEJhY2tlbmQiLCJfYXV0aF91c2VyX2hhc2giOiIwYTQ2M2FmMWY2ZjMyZDcwOTU3MTM1Y2Q0NGVjYzNiZGMwZTNlM2JkIn0=', '2020-11-16 12:32:50.418992'),
 ('v401xfh5j4kwaqsum6ic807azhowh0sq', 'NzA0YTNjZmFkOTBkYzRlY2MyMDQ1Mjk2NDlkMjc0OWZkMGMwZWNjMzp7Il9hdXRoX3VzZXJfaWQiOiIxIiwiX2F1dGhfdXNlcl9iYWNrZW5kIjoiZGphbmdvLmNvbnRyaWIuYXV0aC5iYWNrZW5kcy5Nb2RlbEJhY2tlbmQiLCJfYXV0aF91c2VyX2hhc2giOiIwYTQ2M2FmMWY2ZjMyZDcwOTU3MTM1Y2Q0NGVjYzNiZGMwZTNlM2JkIn0=', '2020-06-16 14:36:46.790933'),
 ('vz3tm1051e512urd3oyh3v6fqn63iwrh', 'NzA0YTNjZmFkOTBkYzRlY2MyMDQ1Mjk2NDlkMjc0OWZkMGMwZWNjMzp7Il9hdXRoX3VzZXJfaWQiOiIxIiwiX2F1dGhfdXNlcl9iYWNrZW5kIjoiZGphbmdvLmNvbnRyaWIuYXV0aC5iYWNrZW5kcy5Nb2RlbEJhY2tlbmQiLCJfYXV0aF91c2VyX2hhc2giOiIwYTQ2M2FmMWY2ZjMyZDcwOTU3MTM1Y2Q0NGVjYzNiZGMwZTNlM2JkIn0=', '2020-05-11 03:40:15.055332'),
@@ -814,7 +904,7 @@ CREATE TABLE `service_companyinfo` (
 --
 
 INSERT INTO `service_companyinfo` (`id`, `com_name`, `company_logo`, `staring_year`, `email1`, `email2`, `website`, `mobile1`, `mobile2`, `address`, `facebook`, `twitter`, `pinterest`, `skype`, `youtube`, `Short Description`, `com_story`, `glg_map`, `status`, `story_video_link`, `news`) VALUES
-(1, 'Krishi Krishak Help', 'company_logo/Farmer_help_update.jpg', 2021, 'test@gmail.com', '', '', '+880 1634737283', '', '120 Raymond Rd, Dhaka, Bangladesh', 'http://facebook.com/', 'http://facebook.com/', 'http://facebook.com/', 'krishi.krishak', 'http://facebook.com/', '<p>Lorem ipsum dolor sit amet, consecte stare adipiscing elit. In act honcus risus atiner Pellentesque risus.</p>', '<p>Lorem ipsum dolor sit amet, consectetu adipiscing elit. Etiam nunc elit, pretium atlanta urna veloci, fermentum malesuda mina. Donec auctor nislec neque sagittis, sit amet dapibus pellentesque donal feugiat. Nulla mollis magna non sanaliquet, volutpat do zutum, ultrices consectetur, ultrices at purus</p>', 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d28313.28917392649!2d-88.2740948914384!3d41.76219337461615!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x880efa1199df6109%3A0x8a1293b2ae8e0497!2sE+New+York+St%2C+Aurora%2C+IL%2C+USA!5e0!3m2!1sen!2sbd!4v1542893000723', 1, '', 'আমাদের দেশে সাধারণত ঋতু বা মৌসুম ছটি। আর কৃষির মৌসুম তিনটি- খরিফ-১, খরিফ-২ ও রবি। উৎপাদনের ওপর ভিত্তি করে যদিও কৃষি মৌসুমকে তিনভাগে ভাগ করা হয়েছে, কিন্তু ভৌগোলিক অবস্থান, আবহাওয়া, জলবায়ু এবং আমাদের প্রয়োজনের তাগিদে প্রতি মাসের প্রতিটি দিনই কিছু না কিছু কৃষি কাজ করতে হয়।');
+(1, 'Krishi Krishak Help', 'company_logo/Farmer_help_update.jpg', 2021, 'test@gmail.com', '', '', '+880 1612345678', '', '120 Raymond Rd, Dhaka, Bangladesh', 'http://facebook.com/', 'http://facebook.com/', 'http://facebook.com/', 'krishi.krishak', 'http://facebook.com/', '<p>Lorem ipsum dolor sit amet, consecte stare adipiscing elit. In act honcus risus atiner Pellentesque risus.</p>', '<p><strong>কৃষি কৃষক হেল্পে আপনাকে স্বাগতম</strong></p>\r\n\r\n<p>&acute;<strong>কৃষি কৃষক হেল্পে</strong>&acute; এ আপনাকে স্বাগতম। কৃষি সম্প্রসারণ অধিদপ্তরের প্রযুক্তিগত সহযোগিতায় এ ওয়েব সাইটটি তৈরী করা হয়েছে। দেশের কৃষি উন্নয়নের লক্ষ্যে তথ্য যোগাযোগ প্রযুক্তি (ICT) ব্যবহারের মাধ্যমে আধুনিক কৃষি প্রযুক্তির দ্রুত সম্প্রসারণ ও কৃষি সংশ্লিষ্ট সকলের কাছে কৃষিতথ্য সহজলভ্যকরণের লক্ষ্যে ইনিশিয়েটিভ ফর টোট্যাল রিফর্ম (আইটিআর) গত ২০০৮ সালে বেসরকারী খাতে বাংলা ভাষায় এ বৃহত্তম কৃষি বিষয়ক ওয়েব সাইটটি চালু করে। গ্রিন সেভার্স দেশে পরিবেশ ও নগর কৃষি উন্নয়নে জনহিতকর বিভিন্ন কার্যক্রম পরিচালনা করে আসছে। নতুন বছরের শুরুতে &lsquo;কৃষিবাংলা ডট কম&rsquo; বৃহত্তর কলেবরে কৃষি ও পরিবেশ বিষয়ক তথ্য, প্রযুক্তি ও সেবা প্রদানকারী একটি টেকসই ওয়েব সাইট হিসেবে আত্নপ্রকাশ করেছে। ইনিশিয়েটিভ ফর টোট্যাল রিফর্ম (আইটিআর) ও গ্রিন সেভার্স যৌথভাবে &lsquo;কৃষিবাংলা ডট কম&rsquo; পরিচালনা করছে।</p>', 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d28313.28917392649!2d-88.2740948914384!3d41.76219337461615!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x880efa1199df6109%3A0x8a1293b2ae8e0497!2sE+New+York+St%2C+Aurora%2C+IL%2C+USA!5e0!3m2!1sen!2sbd!4v1542893000723', 1, '', 'আমাদের দেশে সাধারণত ঋতু বা মৌসুম ছটি। আর কৃষির মৌসুম তিনটি- খরিফ-১, খরিফ-২ ও রবি। উৎপাদনের ওপর ভিত্তি করে যদিও কৃষি মৌসুমকে তিনভাগে ভাগ করা হয়েছে, কিন্তু ভৌগোলিক অবস্থান, আবহাওয়া, জলবায়ু এবং আমাদের প্রয়োজনের তাগিদে প্রতি মাসের প্রতিটি দিনই কিছু না কিছু কৃষি কাজ করতে হয়।');
 
 -- --------------------------------------------------------
 
@@ -842,8 +932,8 @@ INSERT INTO `service_contact` (`id`, `name`, `email`, `subject`, `message`, `sta
 (11, 'Joshef Hossain Bappy', 'test@gmail.com', 'গম ফসলের ক্ষতিকর ব্লাস্ট রোগের আক্রমন ও দমন।', 'এটি পাইরিকুলারিয়া অরাইজি প্যাথোটাইপ ট্রিটিকাম নামক ছত্রাক দ্বারা বিস্তার লাভ করে (গম গবেষণা কেন্দ্র,বারি)।গমের শীষ বের হওয়া থেকে  ফুল ফুল ফোটার সময়ে উচ্চ তাপমাত্রা ও আদ্র আবহাওয়া থাকলে এ রোগের আক্রমণ ঘটে।', 1, '2020-10-22 11:19:15.399489'),
 (12, 'Joshef Hossain Bappy', 'test@gmail.com', 'গম ফসলের ক্ষতিকর ব্লাস্ট রোগের আক্রমন ও দমন।', 'এটি পাইরিকুলারিয়া অরাইজি প্যাথোটাইপ ট্রিটিকাম নামক ছত্রাক দ্বারা বিস্তার লাভ করে (গম গবেষণা কেন্দ্র,বারি)।গমের শীষ বের হওয়া থেকে  ফুল ফুল ফোটার সময়ে উচ্চ তাপমাত্রা ও আদ্র আবহাওয়া থাকলে এ রোগের আক্রমণ ঘটে।', 1, '2020-10-22 11:19:17.041812'),
 (13, 'Joshef Hossain Bappy', 'bytecode@gmail.com', 'গম ফসলের ক্ষতিকর ব্লাস্ট রোগের আক্রমন ও দমন।', 'এটি পাইরিকুলারিয়া অরাইজি প্যাথোটাইপ ট্রিটিকাম নামক ছত্রাক দ্বারা বিস্তার লাভ করে (গম গবেষণা কেন্দ্র,বারি)।গমের শীষ বের হওয়া থেকে  ফুল ফুল ফোটার সময়ে উচ্চ তাপমাত্রা ও আদ্র আবহাওয়া থাকলে এ রোগের আক্রমণ ঘটে।', 1, '2020-10-22 11:21:45.340135'),
-(14, 'Xena Wilder', 'harenyku@mailinator.com', 'Eveniet omnis quibu', 'Pariatur Sed qui re', 0, '2020-10-23 11:04:44.811951'),
-(15, 'Joshef Hossain', 'hossainjoshef@gmail.com', 'dsfsdfsdf', 'dsfsdfsaferewrwerewr', 1, '2021-03-04 10:22:14.694843');
+(14, 'Joshef Hossain', 'hossainjoshef@gmail.com', 'Courier Software Demo', 'hjjkhgghh', 0, '2021-03-29 17:04:48.175334'),
+(15, 'Joshef Hossain', 'hossainjoshef@gmail.com', 'Courier Software Demo', 'hkjhjktjhjh', 0, '2021-03-29 17:08:40.017500');
 
 -- --------------------------------------------------------
 
@@ -915,26 +1005,26 @@ CREATE TABLE `service_customerproblem` (
   `id` int(11) NOT NULL,
   `name` varchar(200) NOT NULL,
   `email` varchar(100) NOT NULL,
+  `phone` varchar(15) DEFAULT NULL,
   `address` longtext NOT NULL,
   `title` longtext NOT NULL,
   `problem` longtext NOT NULL,
-  `ordering` int(11) NOT NULL,
-  `slove` tinyint(1) NOT NULL,
-  `solve_message` longtext NOT NULL,
   `problem_file` varchar(100) NOT NULL,
-  `post_date` datetime(6) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+  `ordering` int(11) NOT NULL,
+  `post_date` datetime(6) NOT NULL,
+  `solve_message` longtext NOT NULL,
+  `slove` tinyint(1) NOT NULL,
+  `category_id` int(11) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `service_customerproblem`
 --
 
-INSERT INTO `service_customerproblem` (`id`, `name`, `email`, `address`, `title`, `problem`, `ordering`, `slove`, `solve_message`, `problem_file`, `post_date`) VALUES
-(6, 'MOHAMMAD AL EMRAN', 'shohel1@gmail.com', 'sdfsdf', 'সাদা মাছি', '<p>পেয়ারা , মরিচ ও লেবু&nbsp; গাছের পাতায় সাদা মাছি দ্বারা আক্রান্ত হয়েছে। কি উপায়ে এগুলা দূর করা যাবে। জানালে কৃতজ্ঞ থাকবো। ধন্যবাদ।</p>', 0, 1, '<p>যদি সাদা মাছির আক্রমণের পরিমাণ অল্প হয় তাহলে হাত দিয়ে পিষিয়ে পোকা মেরে প্রতি দুই লিটার পানির সাথে হাফ চা চামচ সাবানের গুড়া মিশিয়ে স্প্রে করবেন। বেশি পরিমাণে আক্রমণ হলে ইমিটাফ বা টাফগর বা একতারা বা এডমায়ার ইত্যাদির যেকোন একটি প্রতি লিটার পানির সাথে এক মিলি হারে মিশিয়ে স্প্রে করবেন। ধন্যবাদ।যদি সাদা মাছির আক্রমণের পরিমাণ অল্প হয় তাহলে হাত দিয়ে পিষিয়ে পোকা মেরে প্রতি দুই লিটার পানির সাথে হাফ চা চামচ সাবানের গুড়া মিশিয়ে স্প্রে করবেন। বেশি পরিমাণে আক্রমণ হলে ইমিটাফ বা টাফগর বা একতারা বা এডমায়ার ইত্যাদির যেকোন একটি প্রতি লিটার পানির সাথে এক মিলি হারে মিশিয়ে স্প্রে করবেন।<br />\r\nধন্যবাদ।</p>', '', '2020-08-24 11:57:41.862273'),
-(11, 'A Kader', 'test@gmail.com', 'Barisal', 'আমার গাছের কাঠাল পচে যাই কেন?', '<p><em>আমি আমার বাড়ীর পাশে কিছু সংখ্যক কাঠালের চারা রুপন করি গত ৩-৪ বছর আগে।বিগত কয়েক বছর ধরে প্রায় সব গাছেই কাঠাল আসছে। কিন্তু আমার একটি গাছের কাঠাল পচে ঝরে যায়।পচার ধরন -বাইরে থেকে বুঝা যায় না , যখন কাঠাল পরিপক্ক হয় বা খাওয়ার উপযোগি হই তখন গাছ থেকে পেড়ে নিই।বড়ই দুঃখের বিষয় এই যে পাকার জন্য রেখে দিলে পরে দেখা যাই মুলি(মুল দন্ড যার চার পাশে কোষ থাকে) পচে যায় ও কাঠালে দুর্ঘ্নদ সৃস্টি হয় ফলে খাওার উপযোগি থাকেনা।ভেবে ছিলাম আমাদের পাকানোর কোন ভুল তাই পরবর্তি বছর মানে এই মৌসোম এ কাঠাল গাছে পাকানোর সিদ্ধান্ত নিই ।কিন্তুযখন দেখতে পেলাম কাঠাল গাছেই পূর্বে বর্ণিত অবস্থায় পচে যাচ্ছে তখন খুভই মর্মাহত হলাম।আমি এর সঠিক সমাধান চাই। ধন্যবাদ</em></p>', 0, 1, '<p><strong><u>রোগ</u></strong>&nbsp;<strong><u>হওয়ার</u></strong>&nbsp;<strong><u>পূর্বে</u></strong>&nbsp;<strong><u>করণীয়:</u></strong><br />\r\n১। বিগত বছরের কাঁঠাল সংগ্রহ করার পর ফলের বোঁটা গাছের সাথে মিলিয়ে কেটে ফেলা<br />\r\n২। গাছে মুচি আসার আগেই মরা ডাল, পাতা ইত্যাদি পরিষ্কার করা<br />\r\n৩। মুচি আসা শুরু করলেই বোর্দো মিক্সার প্রতি লিটার পানিতে ১০ মিলি অথবা ইন্ডোফিল এম ৪৫ দুই গ্রাম হারে মিশিয়ে স্প্রে করা<br />\r\n৪। মুচি থেকে কচি কাঁঠাল টিকে গেলেই প্রতি লিটার পানিতে ১০ মিলি বোর্দো মিক্সার বা ০২ গ্রাম ইন্ডোফিল এম ৪৫ হারে মিশিয়ে স্প্রে করা<br />\r\n৫। অতিরিক্ত ঘন স্থান থেকে কাঁঠাল ছাটাই করে ফেলে দেয়া<br />\r\n৬। কাঁঠাল টিকে যাওয়ার এক মাস পর থেকে ১৫ দিন ব্যবধানে ০২ বার প্রতি লিটার পানিতে ফলি-কুর ০.৫ মিলি অথবা রিডেমিল গোল্ড ২ গ্রাম হারে মিশিয়ে স্প্রে করতে হবে। স্প্রে করার আগে পচা ফল বা মুচি, মরা ডাল বা পাতা ইত্যাদি পরিষ্কার করা<br />\r\n&nbsp;৭। রৌদ্রজ্জ্বল দিনে ফল সংগ্রহ করা<br />\r\n৮। আলো বাতাস পায় এরকম স্থানে কাঁঠাল পাকানোর জন্য রাখা<br />\r\nউত্তর দিয়েছেন-<br />\r\nকৃষিবিদ মুহাম্মদ শাহাদৎ হোসাইন সিদ্দিকী<br />\r\nসিনিয়র সহকারি পরিচালক,<br />\r\nNATA, গাজীপুর।</p>', '', '2020-08-24 15:44:01.655812'),
-(12, 'Otto Rose', 'wimu@mailinator.com', 'Laboriosam dicta su', 'Et labore veniam nu', '<p>fgfdgdfgdfg</p>', 0, 1, '<p>this is awesome .</p>', 'problem_file/sogsn.jpg', '2020-11-06 17:41:16.853916'),
-(13, 'Otto Rose', 'wimu@mailinator.com', 'Laboriosam dicta su', 'Et labore veniam nu', '<p>fgfdgdfgdfg</p>\r\n', 0, 0, '', 'problem_file/sogsn.jpg', '2020-11-06 17:43:24.525852'),
-(14, 'Joshef Hossain', 'hossainjoshef@gmail.com', 'dsfsdf', 'Any ID or Uniform to recognize your pickup Staff?', '<p>sdfsdfsafsdfsdfsdfsdf</p>', 0, 1, '<p>this is test</p>', 'problem_file/ER Diagram.docx', '2021-03-04 10:20:13.264323');
+INSERT INTO `service_customerproblem` (`id`, `name`, `email`, `phone`, `address`, `title`, `problem`, `problem_file`, `ordering`, `post_date`, `solve_message`, `slove`, `category_id`) VALUES
+(1, 'Vernon Hoover', 'joshefhossainbappy019@gmail.com', '364', 'Veniam et corporis ', 'Aut dicta eos quia e', '', '', 0, '2021-03-13 21:15:04.136398', '', 1, 3),
+(2, 'Nazmul Hasan', 'nazmulbest533@gmail.com', '0147852369', 'test', 'লাউ গাচের পাতার নিচে হলুদ রংগের গুরি গুরি পোকা। ডালিম গাচের ফল কালো হয়ে জরে পড়ছে এখন কি করবো।', '<p><a href="https://www.krishibangla.com/problem/262">সাদা মাছি</a></p>\r\n\r\n<p>পেয়ারা , মরিচ ও লেবু&nbsp; গাছের পাতায় সাদা মাছি দ্বারা আক্রান্ত হয়েছে। কি উপায়ে এগুলা দূর করা যাবে। জানালে কৃতজ্ঞ থাকবো।....</p>\r\n\r\n<p><a href="https://www.krishibangla.com/problem/259">Dalim fol boro hosce na.</a></p>\r\n\r\n<p>Drame lagano dalim gase dalim fol onek aslew temon boro hosce na ebong foler akriti nosto hosce. Er protikar ki....</p>\r\n\r\n<p><a href="https://www.krishibangla.com/problem/256">Leaf of lemon tree getting dry</a></p>\r\n\r\n<p>Leaves of my lemon tree are getting dry with yellow spot, white spot under the leaf.</p>', '', 0, '2021-03-21 14:51:59.880384', '<p>what should i....</p>\r\n\r\n<p><a href="https://www.krishibangla.com/problem/255">ড্রাগন গাছ&zwnj;ের ফুল ঝরা প্রত&zwnj;ি র&zwnj;োধে করনীয় প্রসঙ্গ&zwnj;ে ।</a></p>\r\n\r\n<p>আমার&nbsp; বাসার ছাদ&zwnj;ে&nbsp; একট&zwnj;ি ড্রাগন&nbsp; ফল&zwnj;ের গাছ লাগ&zwnj;িয়&zwnj;েছ&zwnj;ি ,&nbsp; যার আনুমান&zwnj;িক&nbsp; বয়স ৩ বছর ,কিন্তু&nbsp; ২&nbsp; বছর থেক&zwnj;ে ফুল&nbsp; আসল&zwnj;েও ফুটার&nbsp; পর&nbsp; লাল&nbsp; হয়&zwnj;ে&nbsp; ঝর&zwnj;ে&nbsp; যায়। এর&nbsp; প্রত&zwnj;িকার&nbsp; ক&zwnj;ি?&nbsp;....</p>\r\n\r\n<p><a href="https://www.krishibangla.com/problem/253">আমার গাছের কাঠাল পচে যাই কেন?</a></p>\r\n\r\n<p>&nbsp;</p>\r\n\r\n<p>আমি আমার বাড়ীর পাশে কিছু সংখ্যক কাঠালের চারা রুপন করি গত ৩-৪ বছর আগে।</p>\r\n\r\n<p>বিগত কয়েক বছর ধরে প্রায় সব গাছেই কাঠাল আসছে। কিন্তু আমার একটি গাছের কাঠাল পচে ঝরে যায়।</p>\r\n\r\n<p>পচার....</p>\r\n\r\n<p><a href="https://www.krishibangla.com/problem/250">আতাগাছে ফুল এসেছে কি করলে ফুল টিকবে ও ফল আসবে</a></p>\r\n\r\n<p>আতাগাছের ফুল কি ভাবে....</p>\r\n\r\n<p><a href="https://www.krishibangla.com/problem/249">ফল আসে না</a></p>\r\n\r\n<p>আমি একটি করে বার মাসি আম,কমলা,জামরুলের কলমের চারা বপন করেছি ।কিন্তু সব গাছে প্রচুর ফুল আসে ফল হয় না ।যদি ও ছোট ফলের&nbsp; কড়ি দেখা গেলেও তা ঝড়ে পরে যায়।এই....</p>', 1, 2),
+(3, 'Shohel Khan', 'test@gmail.com', '0125487963', 'test', 'ফল আসে না', '<p>আমি একটি করে বার মাসি আম,কমলা,জামরুলের কলমের চারা বপন করেছি ।কিন্তু সব গাছে প্রচুর ফুল আসে ফল হয় না ।যদি ও ছোট ফলের&nbsp; কড়ি দেখা গেলেও তা ঝড়ে পরে যায়।এই অবস্হায় কি করতে পারি?&nbsp;</p>', '', 0, '2021-03-21 14:57:53.428346', '<p><strong>সমাধান:&nbsp;</strong>প্রতিবছর বর্ষার আগে ও পরে টবের আকার অনুযায়ী জৈব+রাসায়নিক সার প্রয়োগ করুন। গাছে ফুল আসার আগে ও গুটি হওয়ার পরে কীটনাশক ও ছত্রাকনাশক স্প্রে করুন। মুকুল বের হলে দশ লিটার পানিতে আধামুঠ হারে ইউরিয়া এবং আধা চা চামচ হারে বোরণ সার মিশিয়ে তিন দিনের ব্যবধানে দুবার স্প্রে করুন। গাছের গোড়ায় পানি বেশি বা কম যেন না হয় সেদিকে খেয়াল রাখুন।<br />\r\nউত্তর দিয়েছেন-<br />\r\nকৃষিবিদ মুহাম্মদ শাহাদৎ হোসাইন সিদ্দিকী<br />\r\nসিনিয়র সহকারি পরিচালক,<br />\r\nNATA, গাজীপুর।</p>', 1, 3);
 
 -- --------------------------------------------------------
 
@@ -1061,11 +1151,7 @@ INSERT INTO `service_ourservice` (`id`, `service_title`, `service_detail`, `serv
 (3, 'joy', '<p>sdfsdfsdf</p>', '', 0, 1, 8),
 (4, 'sdfsdfsdfafwerere', '<p>erererer</p>', '', 0, 1, 11),
 (5, 'fsdfsdfdsfdsfdsf', '<p>sdfdsfdsf</p>', '', 0, 1, 2),
-(6, 'dsfd', '<p>fsdfdsfsdf</p>', '', 0, 1, 7),
-(7, 'Enim duis vel ipsa soluta est aut qui', '<p>gfhfghfdgdfgdfg</p>', '', 71, 1, 17),
-(8, 'Qui ut sunt ratione in nulla mollitia in nulla rerum eu dicta tempore', '<p>Qui ut sunt ratione in nulla mollitia in nulla rerum eu dicta temporeQui ut sunt ratione in nulla mollitia in nulla rerum eu dicta temporeQui ut sunt ratione in nulla mollitia in nulla rerum eu dicta temporeQui ut sunt ratione in nulla mollitia in nulla rerum eu dicta temporeQui ut sunt ratione in nulla mollitia in nulla rerum eu dicta temporeQui ut sunt ratione in nulla mollitia in nulla rerum eu dicta temporeQui ut sunt ratione in nulla mollitia in nulla rerum eu dicta temporeQui ut sunt ratione in nulla mollitia in nulla rerum eu dicta temporeQui ut sunt ratione in nulla mollitia in nulla rerum eu dicta temporeQui ut sunt ratione in nulla mollitia in nulla rerum eu dicta temporeQui ut sunt ratione in nulla mollitia in nulla rerum eu dicta temporeQui ut sunt ratione in nulla mollitia in nulla rerum eu dicta temporeQui ut sunt ratione in nulla mollitia in nulla rerum eu dicta temporeQui ut sunt ratione in nulla mollitia in nulla rerum eu dicta temporeQui ut sunt ratione in nulla mollitia in nulla rerum eu dicta temporeQui ut sunt ratione in nulla mollitia in nulla rerum eu dicta temporeQui ut sunt ratione in nulla mollitia in nulla rerum eu dicta temporeQui ut sunt ratione in nulla mollitia in nulla rerum eu dicta temporeQui ut sunt ratione in nulla mollitia in nulla rerum eu dicta temporeQui ut sunt ratione in nulla mollitia in nulla rerum eu dicta temporeQui ut sunt ratione in nulla mollitia in nulla rerum eu dicta temporeQui ut sunt ratione in nulla mollitia in nulla rerum eu dicta temporeQui ut sunt ratione in nulla mollitia in nulla rerum eu dicta temporeQui ut sunt ratione in nulla mollitia in nulla rerum eu dicta temporeQui ut sunt ratione in nulla mollitia in nulla rerum eu dicta tempore</p>', 'service/d-home-banner.webp', 15, 1, 18),
-(9, 'dsfsdfsdfdsfdsf', '<p>dsfsdffffffffffffffffff</p>', '', 0, 1, 19),
-(10, 'Suscipit praesentium repellendus Qui culpa voluptate error et odit magnam', '<p>শুভ বাংলা নববর্ষ ১৪২৪.......&nbsp;বাঙ্গালীর প্রাণের উৎসব নববর্ষ বরণ ১৪২৪ উদযাপন উপলক্ষ্যে প্রতিবারের মত কৃষিবিদ ইনস্টিটিউশন বাংলাদেশ অত্যান্ত উৎসাহ উদ্দীপনার সাথে উদযাপন করেছে&nbsp;বাংলা নববর্ষ ১৪২৪ . . .সকাল থেকে দিনব্যাপী এ অনুষ্ঠানমালা সাজানো হয়েছিল চমৎকারভাবে। বর্ণিল বেলুন উড়ানো, বর্নাঢ্য মঙ্গল শোভাযাত্রা, ঐতিহ্যগত সাপখেলা, বাদর নাচ সহ ছোটদের জন্য নানা খেলার আয়োজন দিনভর উপস্থিত সবাই উপভোগ করেন। সেইসাথে পান্তা ও দুপুরের বৈশাখী ভোজ অনুষ্ঠানমালাকে সমৃদ্ধ করেছে। বরেণ্য কৃষিবিদবৃন্দ তাঁদের পরিবার সহ এ বৈশাখী আয়োজনে অংশগ্রহন করেন।শুভ বাংলা নববর্ষ ১৪২৪.......&nbsp;বাঙ্গালীর প্রাণের উৎসব নববর্ষ বরণ ১৪২৪ উদযাপন উপলক্ষ্যে প্রতিবারের মত কৃষিবিদ ইনস্টিটিউশন বাংলাদেশ অত্যান্ত উৎসাহ উদ্দীপনার সাথে উদযাপন করেছে&nbsp;বাংলা নববর্ষ ১৪২৪ . . .সকাল থেকে দিনব্যাপী এ অনুষ্ঠানমালা সাজানো হয়েছিল চমৎকারভাবে। বর্ণিল বেলুন উড়ানো, বর্নাঢ্য মঙ্গল শোভাযাত্রা, ঐতিহ্যগত সাপখেলা, বাদর নাচ সহ ছোটদের জন্য নানা খেলার আয়োজন দিনভর উপস্থিত সবাই উপভোগ করেন। সেইসাথে পান্তা ও দুপুরের বৈশাখী ভোজ অনুষ্ঠানমালাকে সমৃদ্ধ করেছে। বরেণ্য কৃষিবিদবৃন্দ তাঁদের পরিবার সহ এ বৈশাখী আয়োজনে অংশগ্রহন করেন।শুভ বাংলা নববর্ষ ১৪২৪.......&nbsp;বাঙ্গালীর প্রাণের উৎসব নববর্ষ বরণ ১৪২৪ উদযাপন উপলক্ষ্যে প্রতিবারের মত কৃষিবিদ ইনস্টিটিউশন বাংলাদেশ অত্যান্ত উৎসাহ উদ্দীপনার সাথে উদযাপন করেছে&nbsp;বাংলা নববর্ষ ১৪২৪ . . .সকাল থেকে দিনব্যাপী এ অনুষ্ঠানমালা সাজানো হয়েছিল চমৎকারভাবে। বর্ণিল বেলুন উড়ানো, বর্নাঢ্য মঙ্গল শোভাযাত্রা, ঐতিহ্যগত সাপখেলা, বাদর নাচ সহ ছোটদের জন্য নানা খেলার আয়োজন দিনভর উপস্থিত সবাই উপভোগ করেন। সেইসাথে পান্তা ও দুপুরের বৈশাখী ভোজ অনুষ্ঠানমালাকে সমৃদ্ধ করেছে। বরেণ্য কৃষিবিদবৃন্দ তাঁদের পরিবার সহ এ বৈশাখী আয়োজনে অংশগ্রহন করেন।শুভ বাংলা নববর্ষ ১৪২৪.......&nbsp;বাঙ্গালীর প্রাণের উৎসব নববর্ষ বরণ ১৪২৪ উদযাপন উপলক্ষ্যে প্রতিবারের মত কৃষিবিদ ইনস্টিটিউশন বাংলাদেশ অত্যান্ত উৎসাহ উদ্দীপনার সাথে উদযাপন করেছে&nbsp;বাংলা নববর্ষ ১৪২৪ . . .সকাল থেকে দিনব্যাপী এ অনুষ্ঠানমালা সাজানো হয়েছিল চমৎকারভাবে। বর্ণিল বেলুন উড়ানো, বর্নাঢ্য মঙ্গল শোভাযাত্রা, ঐতিহ্যগত সাপখেলা, বাদর নাচ সহ ছোটদের জন্য নানা খেলার আয়োজন দিনভর উপস্থিত সবাই উপভোগ করেন। সেইসাথে পান্তা ও দুপুরের বৈশাখী ভোজ অনুষ্ঠানমালাকে সমৃদ্ধ করেছে। বরেণ্য কৃষিবিদবৃন্দ তাঁদের পরিবার সহ এ বৈশাখী আয়োজনে অংশগ্রহন করেন।শুভ বাংলা নববর্ষ ১৪২৪.......&nbsp;বাঙ্গালীর প্রাণের উৎসব নববর্ষ বরণ ১৪২৪ উদযাপন উপলক্ষ্যে প্রতিবারের মত কৃষিবিদ ইনস্টিটিউশন বাংলাদেশ অত্যান্ত উৎসাহ উদ্দীপনার সাথে উদযাপন করেছে&nbsp;বাংলা নববর্ষ ১৪২৪ . . .সকাল থেকে দিনব্যাপী এ অনুষ্ঠানমালা সাজানো হয়েছিল চমৎকারভাবে। বর্ণিল বেলুন উড়ানো, বর্নাঢ্য মঙ্গল শোভাযাত্রা, ঐতিহ্যগত সাপখেলা, বাদর নাচ সহ ছোটদের জন্য নানা খেলার আয়োজন দিনভর উপস্থিত সবাই উপভোগ করেন। সেইসাথে পান্তা ও দুপুরের বৈশাখী ভোজ অনুষ্ঠানমালাকে সমৃদ্ধ করেছে। বরেণ্য কৃষিবিদবৃন্দ তাঁদের পরিবার সহ এ বৈশাখী আয়োজনে অংশগ্রহন করেন।শুভ বাংলা নববর্ষ ১৪২৪.......&nbsp;বাঙ্গালীর প্রাণের উৎসব নববর্ষ বরণ ১৪২৪ উদযাপন উপলক্ষ্যে প্রতিবারের মত কৃষিবিদ ইনস্টিটিউশন বাংলাদেশ অত্যান্ত উৎসাহ উদ্দীপনার সাথে উদযাপন করেছে&nbsp;বাংলা নববর্ষ ১৪২৪ . . .সকাল থেকে দিনব্যাপী এ অনুষ্ঠানমালা সাজানো হয়েছিল চমৎকারভাবে। বর্ণিল বেলুন উড়ানো, বর্নাঢ্য মঙ্গল শোভাযাত্রা, ঐতিহ্যগত সাপখেলা, বাদর নাচ সহ ছোটদের জন্য নানা খেলার আয়োজন দিনভর উপস্থিত সবাই উপভোগ করেন। সেইসাথে পান্তা ও দুপুরের বৈশাখী ভোজ অনুষ্ঠানমালাকে সমৃদ্ধ করেছে। বরেণ্য কৃষিবিদবৃন্দ তাঁদের পরিবার সহ এ বৈশাখী আয়োজনে অংশগ্রহন করেন।শুভ বাংলা নববর্ষ ১৪২৪.......&nbsp;বাঙ্গালীর প্রাণের উৎসব নববর্ষ বরণ ১৪২৪ উদযাপন উপলক্ষ্যে প্রতিবারের মত কৃষিবিদ ইনস্টিটিউশন বাংলাদেশ অত্যান্ত উৎসাহ উদ্দীপনার সাথে উদযাপন করেছে&nbsp;বাংলা নববর্ষ ১৪২৪ . . .সকাল থেকে দিনব্যাপী এ অনুষ্ঠানমালা সাজানো হয়েছিল চমৎকারভাবে। বর্ণিল বেলুন উড়ানো, বর্নাঢ্য মঙ্গল শোভাযাত্রা, ঐতিহ্যগত সাপখেলা, বাদর নাচ সহ ছোটদের জন্য নানা খেলার আয়োজন দিনভর উপস্থিত সবাই উপভোগ করেন। সেইসাথে পান্তা ও দুপুরের বৈশাখী ভোজ অনুষ্ঠানমালাকে সমৃদ্ধ করেছে। বরেণ্য কৃষিবিদবৃন্দ তাঁদের পরিবার সহ এ বৈশাখী আয়োজনে অংশগ্রহন করেন।শুভ বাংলা নববর্ষ ১৪২৪.......&nbsp;বাঙ্গালীর প্রাণের উৎসব নববর্ষ বরণ ১৪২৪ উদযাপন উপলক্ষ্যে প্রতিবারের মত কৃষিবিদ ইনস্টিটিউশন বাংলাদেশ অত্যান্ত উৎসাহ উদ্দীপনার সাথে উদযাপন করেছে&nbsp;বাংলা নববর্ষ ১৪২৪ . . .সকাল থেকে দিনব্যাপী এ অনুষ্ঠানমালা সাজানো হয়েছিল চমৎকারভাবে। বর্ণিল বেলুন উড়ানো, বর্নাঢ্য মঙ্গল শোভাযাত্রা, ঐতিহ্যগত সাপখেলা, বাদর নাচ সহ ছোটদের জন্য নানা খেলার আয়োজন দিনভর উপস্থিত সবাই উপভোগ করেন। সেইসাথে পান্তা ও দুপুরের বৈশাখী ভোজ অনুষ্ঠানমালাকে সমৃদ্ধ করেছে। বরেণ্য কৃষিবিদবৃন্দ তাঁদের পরিবার সহ এ বৈশাখী আয়োজনে অংশগ্রহন করেন।</p>', '', 65, 1, 20);
+(6, 'dsfd', '<p>fsdfdsfsdf</p>', '', 0, 1, 7);
 
 -- --------------------------------------------------------
 
@@ -1094,8 +1180,31 @@ CREATE TABLE `service_ourteammember` (
 --
 
 INSERT INTO `service_ourteammember` (`id`, `member_name`, `images`, `member_mobile`, `member_email`, `facebook`, `twitter`, `linkedin`, `join_date`, `member_address`, `ordering`, `status`, `member_designation`) VALUES
-(1, 'Rakib Khan', 'team_member/20.jpg', '+8801954875421', 'rjrakib@gmail.com', 'http://facebook.com/', 'http://facebook.com/', 'http://facebook.com/', '2020-05-11', 'Dhaka, Bangladesh', 1, 1, 'Developer'),
-(2, 'Ritu Moni', 'team_member/21.jpg', '+8801954875421', 'ritumoni@gmail.com', 'http://facebook.com/', 'http://facebook.com/', 'http://facebook.com/', '2020-05-11', 'Taltola, Dhaka', 1, 1, 'Designer');
+(2, 'Nazmul Hassan', 'team_member/man-300x300.png', '+8801835928937', 'naznulhasan@gmail.com', 'http://facebook.com/', 'http://facebook.com/', 'http://facebook.com/', '2020-05-11', 'Chattogram', 1, 1, 'Developer'),
+(3, 'Srijal Chakrabortty.', 'team_member/images.png', '+88019123456789', 'srijialchakrabortty@gmail.com', 'http://facebook.com/', 'http://facebook.com/', 'Ex molestiae porro s', '2021-03-21', 'Chattogram', 1, 1, 'Designer');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `service_problemcategory`
+--
+
+CREATE TABLE `service_problemcategory` (
+  `id` int(11) NOT NULL,
+  `category_name` varchar(70) NOT NULL,
+  `ordering` int(11) NOT NULL,
+  `status` tinyint(1) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `service_problemcategory`
+--
+
+INSERT INTO `service_problemcategory` (`id`, `category_name`, `ordering`, `status`) VALUES
+(1, 'Mobile', 0, 1),
+(2, 'Education Software', 0, 1),
+(3, 'ERP Software', 0, 1),
+(4, 'Ecommerce Software', 0, 1);
 
 -- --------------------------------------------------------
 
@@ -1128,7 +1237,7 @@ CREATE TABLE `service_product` (
 
 INSERT INTO `service_product` (`id`, `title`, `product_image1`, `product_price`, `date`, `description`, `status`, `farmer_id`, `quantity`, `new`, `total_sale`, `approve_date`, `product_image2`, `product_image3`, `thumb_image`, `quantity_for`) VALUES
 (25, 'স্টবেরি', 'product_image1/36.jpg', 400, '2020-10-06', '<p>স্ট্রবেরি Fragaria ananasa) Rosaceae পরিবারভুক্ত একটি গুল্ম জাতীয় উদ্ভিদ। আকর্ষণীয় বর্ণ, গন্ধ, স্বাদ ও উচ্চ পুষ্টিমানের জন্য স্ট্রবেরি অত্যন্ত সমাদৃত। স্ট্রবেরি একটি ভিটামিন সি সমৃদ্ধ ফল হলেও এতে পর্যাপ্ত পরিমাণে অন্যান্য ভিটামিন, খনিজ পদার্থ ও এন্টি-অক্সিডেন্ট বিদ্যমান। ফল হিসেবে সরাসরি খাওয়া ছাড়াও বিভিন্ন খাদ্যের সৌন্দর্য ও সুগন্ধ বৃদ্ধিতেও ব্যাপকভাবে ব্যবহৃত হয়। স্ট্রবেরি মৃদ শীতপ্রধান দেশের ফল হলেও উষ্ণম-লীয় অঞ্চলে চাষোপযোগী স্ট্রবেরির জাত উদ্ভাবন করায় দক্ষিণ, পূর্ব ও দক্ষিণ-পূর্ব এশিয়ার বিভিন্ন দেশে বাণিজ্যিকভাবে এর চাষ হচ্ছে। শীত মৌসুমে আমাদের দেশে তেমন কোনো ফল উৎপন্ন না হলেও সাফল্যজনকভাবে স্ট্রবেরি চাষ সম্ভব অপরদিকে বাজারে এটি বেশ উচ্চমূল্যে বিক্রয় হয় বিধায় এর চাষ খুবই লাভজনক। বর্তমানে বাংলাদেশের প্রায় ২৫টি জেলায় সাফল্যের সাথে স্ট্রবেরি চাষ হচ্ছে। বিএআরআই দীর্ঘদিন ধরে স্ট্রবেরি চাষের বিভিন্ন বিষয় নিয়ে গবেষণা পরিচালনা করে আসছে এবং অদ্যাবধি বাছাই প্রক্রিয়ার মাধ্যমে বাংলাদেশের সর্বত্র চাষ উপযোগী স্ট্রবেরির তিনটি উচ্চফলনশীল জাত উদ্ভাবন করেছে।</p>', 1, 7, 0, 1, 2, '2020-10-06 18:00:00.000000', 'product_image2/11_NocTeUU.jpg', 'product_image/36.jpg', 'thumb_image/9.jpg', '1'),
-(29, 'আপেল', 'product_image1/344.jpg', 117, '2020-10-06', '<p>Temporibus aute beat</p>', 1, 7, 6, 0, 5, NULL, 'product_image2/pexels-photo-251225.jpeg', 'product_image3/macbook-apple-imac-computer-39284.jpeg', 'thumb_image/8.jpg', '2'),
+(29, 'আপেল', 'product_image1/344.jpg', 117, '2020-10-06', '<p>Temporibus aute beat</p>', 1, 7, 6, 1, 5, '2021-03-12 18:00:00.000000', 'product_image2/pexels-photo-251225.jpeg', 'product_image3/macbook-apple-imac-computer-39284.jpeg', 'thumb_image/8.jpg', '2'),
 (30, 'Nam voluptatem sit rerum iste', 'product_image1/ab_pic.jpg', 131, '2020-10-20', '<p>ভারী দোঁয়াশ মাটি হলে ভাল হয়।পরিমান মতো&nbsp; দো-আঁশ&nbsp; বা বেলে মাটি, এর সাথে পরিমান মতো ব্যালিমিন, কম্পোস্ট, একমুঠো হাঁড়ের গুঁড়ো, দু&rsquo;মুঠো ছাই মিশিয়ে নিন।এর সঙ্গে কিছুটা পরিমান পাতা পচা সার, গোবর, খৈল মিশিয়ে মাটি তৈরি করলে ভাল হয়।</p>', 1, 6, 1, 0, 8, '2020-10-19 18:00:00.000000', 'product_image2/36.jpg', 'product_image3/macbook-apple-imac-computer-39284_NDukeUX.jpeg', 'thumb_image/4.jpg', '1'),
 (31, 'Cupiditate consectet', '', 500, '2020-10-22', 'Ad non eos nostrud s', 1, 8, 50, 0, 0, '2020-10-21 18:00:00.000000', '', '', 'thumb_image/7doc-vincent-a - Copy.jpg', '1'),
 (32, 'Autem porro ad dolor', 'product_image3/Zenith-Watch_1920x1080_1984.jpg', 300, '2020-10-22', 'Veritatis aliquid vo', 1, 8, 46, 0, 0, '2020-10-21 18:00:00.000000', '', '', 'thumb_image/Omega-De-Ville_1920x1080_4034.jpg', '1'),
@@ -1181,8 +1290,32 @@ CREATE TABLE `service_reviews` (
 --
 
 INSERT INTO `service_reviews` (`id`, `person_name`, `person_designation`, `person_img`, `review_detail`, `ordering`, `review_date`, `status`) VALUES
-(1, 'Rakib khan', 'Developer', 'reviews_img/20.jpg', '<p>Thank you for your organic products. My children like your products and they use for breakfast. We are loving the pure milk, freshly fruit and of course our staple, Brown Rice Bread.</p>', 0, '2020-05-17', 1),
-(2, 'Ritu Moni', 'Designer', 'reviews_img/16.jpg', '<p>My children like your products and they use for breakfast. We are loving the pure milk, freshly fruit and of course our staple, Brown Rice Bread. Your Gluten Free breads truly make me feel</p>', 0, '2020-05-17', 1);
+(1, 'Nazmul Hassan', 'Developer', 'reviews_img/man-300x300.png', '<p>This is the best website for farmer.Thanks you <u><strong><span style="color:#2980b9">K</span><a href="http://127.0.0.1:8000/admin/"><span style="color:#2980b9">rishi Krishak</span></a><span style="color:#2980b9">&nbsp;Help</span></strong></u></p>', 0, '2020-05-17', 1),
+(2, 'Srijal Chakrabortty.', 'Designer', 'reviews_img/images.png', '<p>মানসম্পন্ন বৈজ্ঞানিক কৃষি বিষয়ক ওয়েব সাইট</p>', 0, '2020-05-17', 1);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `service_searchpesticides`
+--
+
+CREATE TABLE `service_searchpesticides` (
+  `id` int(11) NOT NULL,
+  `description` longtext NOT NULL,
+  `search_count` int(11) NOT NULL,
+  `status` tinyint(1) NOT NULL,
+  `tree_age_id` int(11) NOT NULL,
+  `tree_name_id` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `service_searchpesticides`
+--
+
+INSERT INTO `service_searchpesticides` (`id`, `description`, `search_count`, `status`, `tree_age_id`, `tree_name_id`) VALUES
+(3, '<p>&nbsp;</p>\r\n\r\n<h3>আমের ভালো ফলন নিশ্চিত করতে করণীয়</h3>\r\n\r\n<h2>&nbsp;</h2>\r\n\r\n<p><img alt="Magh-1422 krishikotha" src="http://www.ais.gov.bd/sites/default/files/files/ais.portal.gov.bd/krishi_kotha/5f76e871_7be4_44b5_9532_6ea2beaa34f0/Magh-1422%20krishikotha.jpg" style="width:200px" /></p>\r\n\r\n<p>বাংলাদেশে আম হলো ফলের রাজা এবং গাছ হলো জাতীয় আমগাছ। আম সাধারণত উষ্ণ ও অবউষ্ণম-লীয় অঞ্চলের জন্মে। ইন্দো-বার্মা অঞ্চলে আমের উৎপত্তিস্থল বলে ধারণা করা হয় তবে বাংলাদেশসহ ভারতীয় উপমহাদেশে আম সবচেয়ে জনপ্রিয় ফল কারণ এ ফল বৈচিত্র্যপূর্ণ ব্যবহার, পুষ্টিমান ও স্বাদে-গন্ধে অতুলনীয়। বাংলাদেশে প্রায় সব অঞ্চলে আম জন্মে কিন্তু দেশের উরাঞ্চলে এর বাণিজ্যিকভাবে ব্যাপক চাষ হয়ে থাকে। আম চাষিরা প্রতি বছর অনেক ক্ষতির শিকার হয়ে থাকেন সাধারণত দুই প্রকারের সমস্যার কারণে যথা- ১. প্রাকৃতিক কারণ (যেমন- ঝড়, শিলাবৃষ্টি, খরা প্রভৃতি) এবং (আ) রোগ ও পোকামাকড় দ্বারা আক্রান্ত হয়ে। সঠিক পরিচর্যা ও রোগ-পোকামাকড় দমন করে প্রথম ক্ষতি আংশিক এবং দ্বিতীয় ক্ষতি প্রায় সম্পূর্ণ রূপে সমাধান করা সম্ভব। নিচে তা পর্যায়ক্রমে আলোচনা করা হলো-<br />\r\n<strong>ফলন্ত আম গাছের পরিচর্চা</strong>&nbsp;: আম গাছের ফলধারণ ক্ষমতা বৃদ্ধি এবং ফলন বাড়ানোর জন্য নিম্নলিখিত পরিচর্চাগুলো করা একান্ত প্রয়োজন।<br />\r\n&nbsp;</p>\r\n\r\n<p><strong>পরগাছা দমন&nbsp;</strong>: আমগাছে একাধিক জাতের আগাছা জন্মাতে দেখা যায়, যা গাছের স্বাভাবিক বৃদ্ধি ও স্বাস্থ্যের প্রতি ক্ষতিকর। পরগাছাসমূহে শিকড়ের মতো এক প্রকার হস্টোরিয়া হয়, যা গাছের মধ্যে প্রবেশ করে রস শোষণ করে এবং দুর্বল করে। পরগাছার পাদুর্ভাব বেশি হলে গাছের পাতার আকার ছোট হয় ও ফ্যাকাসে হয় এবং অনেক সময় গাছ মারা যায়। এর ফলে গাছের ফলন মারাত্মকভাবে কমে যায়। তাই ভালো ফলন পেতে হলে অবশ্যই পরগাছা অপসারণ করতে হবে।<br />\r\n&nbsp;</p>\r\n\r\n<p><strong>সার প্রয়োগ&nbsp;</strong>: গাছের বৃদ্ধি ও ফল উৎপাদনের জন্য সারের ব্যবহার একান্ত প্রয়োজন। ফলন্ত গাছের আকার, বয়স ও মাটির উর্বরতার ওপর সারের পরিমাণ নির্ভর করে। দুপুর বেলা যতটুকু স্থানে ছায়া পড়ে সেটুকু স্থানে মাটি কুপিয়ে সার মাটির সঙ্গে মিশিয়ে দিতে হবে।</p>\r\n\r\n<p><br />\r\n<strong>সেচ প্রয়োগ&nbsp;</strong>: সাধারণত জমির ওপর স্তরে প্রয়োজনীয় খাদ্য উপাদান থাকে বা সার হিসেবে মাটিতে মিশিয়ে দেয়া হয় তাই আম বাগানের ওপরের ২-৩ মিটার অংশকে জমির পানি সংরক্ষণ স্তর হিসেবে ধরা হয়। তাই শুষ্ক মৌসুমে আম বাগানে পানি সেচ দেয়া দরকার। আমের গুটি মটর দানারমতো হওয়ার পর থেকে ১৫-২০ দিন পর পর ২-৩ বার সেচ দিলে আমের গুটি ঝরা বন্ধ হয়।</p>\r\n\r\n<p><br />\r\n<strong>বয়স্ক টক আমগাছকে মিষ্টি আমগাছে রূপান্তরকরণ&nbsp;</strong>: বাগানের কোনো গাছের আমের গুণাগুণ খারাপ হলে সে গাছকে নষ্ট না করে ভিনিয়ার কলমের মাধ্যমে উন্নতি সাধন করা য়ায়। বয়স্ক গাছের ২-৩টি ডাল কেটে দিলে সেখান থেকে নতুন শাখা বের হলে তার পর নতুন শাখাতে ভিনিয়ার কলম করে নিতে হবে। এভাবে ৩-৪ বারে কাজ সম্পন্ন করতে হবে।</p>\r\n\r\n<p><br />\r\n<strong>পুরনো বাগান নবায়ন</strong>&nbsp;: আম বাগানের বয়স বেশি হলে ফল ধারণ কমে যায়, তাই এ ক্ষেত্রে গাছ কেটে না ফেলে পুরনো গাছের ভারি শাখা কেটে দিলে সেখানে নতুন শাখা বের হবে এবং গাছ নবায়ন হয়ে যাবে। এভাবে ২-৩ বছরে বাগান নবায়ন করা যায়।</p>\r\n\r\n<p><br />\r\n<strong>ফসল সংগ্রহ :</strong>&nbsp;ফল ধরার ৩-৫ মাসের মধ্যেই জাতভেদে ফল পাকা শুরু করে। বাণিজ্যিকভাবে কখনো সম্পন্ন পাকা অবস্থায় আম গাছ থেকে পাড়া ঠিক নয়। গাছের ফল দুই চারটি পাকা শুরু করলে বাঁশের কোটার মাথায় থলে সদৃশ্য জালতি লাগিয়ে আম পাড়তে হবে যেন আঘাত না লাগে। গাছের নিচে সাময়িক ভাবে রাখতে হলে খড় বিছিয়ে তার ওপর রাখতে হবে। নিম্নোক্ত লক্ষণ দেখে ফল সংগ্রহ করতে হবে : ১. আমের বোঁটার নিচে হলুদ বর্ণ ধারণ করলে। ২. পানিতে দিলে ডুবে যাবে। ৩. কষ বের হলে দ্রুত শুকে যাবে। ৪. দুই একটি পাকা আম গাছ থেকে ঝরে পড়বে।</p>\r\n\r\n<p><br />\r\n<strong>ফল সংরক্ষণ</strong>&nbsp;: আম পচনশীল ফল। বেশি পাকা অবস্থায় সংগ্রহ করলে সংরক্ষণকাল কম হয়। অধিকাংশ জাতের আম ১৩-১৭ ডিগ্রি সে. তাপমাএায় ও ৮৫-৯০% আপেক্ষিক আর্দ্রতায় বাঁশের ঝুড়ি, বাস্কেট, খড় বিছানো স্থানে ৪-৭ সপ্তাহ সংরক্ষণ করা যায়।<br />\r\n&nbsp;</p>\r\n\r\n<p><strong>২. রোগ দমন<br />\r\nঅ্যানথ্রাকনোজ</strong><br />\r\nএ রোগ আমের পাতা ও ফলে হয়ে থাকে। এটি কোলিটোট্রিকাম গোলেসপোরিওডিস&nbsp;(Colletotrichum gloeosporioides)&nbsp;নামক এক প্রকার ছত্রাক দ্বারা হয়ে থাকে। এ রোগের কারণে আমের ফলন শূন্যের কাছাকাছি আসতে পারে।</p>\r\n\r\n<p><br />\r\n<strong>লক্ষণগুলো&nbsp;</strong>: ১. এ রোগ নতুন পাতা, পুষ্পমঞ্জরি ও ফলে দেখা যায়। ২. পাতায় ধূসর-বাদামি ছোট কৌষিক দাগ পড়ে এবং পরে সব পাতায় ছড়িয়ে পড়ে ও এক পর্যায় পাতা ঝরে পড়ে। ৩. ফলের ওপর প্রথমে গাঢ় বাদামি দাগ পড়ে। ৪. দাগগুলো পরে বড় হয়ে কাল বর্ণ ধারণ করে। ৫. আক্রমণ মারাত্মক হলে পরবর্তীতে সম্পূর্ণ আম পচে যায়।</p>\r\n\r\n<p><br />\r\n<strong>অনুকূল অবস্থা :</strong>&nbsp;১. তাপমাএা ২৫-২৮ ডিগ্রি সে.। ২. আপেক্ষিক আর্দ্রতা ৭০-৮০%। ৩. অধিক বৃষ্টিপাত। ৪. ঘন কুয়াশা ও আকাশ মেঘাচ্ছন এ রোগের প্রকোপ বাড়ায়।</p>\r\n\r\n<p><br />\r\n<strong>দমন ব্যবস্থা</strong>&nbsp;: ১. ফল সংগ্রহের পর বাগানের অবশিষ্টাংশ ধ্বংস করতে হবে। ২. স্বাস্থ্যবান চারা রোপণ করতে হবে। ৩. বোর্দো মিক্সচার ০.৩% হারে ৩-৪ বার স্প্রে করতে হবে (ফুল ধরার পূর্বে ও পরে এবং ফল সংগ্রহের পূর্বে)। ৪. ব্যাভিসটিন ডবলিউ/পি ০.২ % হারে অথবা ডাইথেন-এম ০.৩ % হারে দুই বার (ফুল ধরার আগে ও পরে ) স্প্রে করতে হবে।</p>\r\n\r\n<p>&nbsp;</p>\r\n\r\n<p><strong>আমের বোঁটা ও ফল পচা</strong><br />\r\n<strong>রোগের কারণ&nbsp;</strong>: এ রোগ বোট্রিওডিপ্লডিয়া থিয়োব্রোমি&nbsp;(Botryodiplodia theobromae)&nbsp;নামক এক প্রকার ছত্রাক দ্বারা এ রোগ হয়ে থাকে। এ রোগ আমের বোঁটা ও ফলে হয়ে থাকে।</p>\r\n\r\n<p><br />\r\n<strong>রোগের লক্ষণগুলো :</strong>&nbsp;১. প্রথমে বোঁটার চারদিকে কিছু জায়গা জুড়ে কাল দাগ পড়ে। ২. পরবর্তীতে আমের অধিকাংশ ও সর্বশেষ অংশ পচে কাল রঙ ধারণ। ৩. আক্রান্ত স্থানে চাপ দিলে ভেতর থেকে পচা কাল গন্ধযুক্ত আমের রস বের হয়ে আসে।</p>\r\n\r\n<p><br />\r\n<strong>রোগ দমন :&nbsp;</strong>ক. যে কোনো একটি পদ্ধতিতে রোগ দমন করবেন : ১. ডাইথেন-এম-৪৫, ০.৩ % হারে ২-৩ বার স্প্রে করতে হবে। ২. রিডোমিল ০.১ % হারে ২-৩ বার স্প্রে করতে হবে। ৩. রোভরাল ০.১ % হারে ২-৩ বার স্প্রে করতে হবে। খ. আম হারভেস্ট করার পর ৪৩ ডিগ্রি সে. তাপমাত্রায় ৫ মিনিট ৬% বোরাক্স দ্রবণে চুবাতে হবে। গ. ফল সংগ্রহ করার পর ডালপালা, অবশিষ্টাংশ ধ্বংস করতে হবে।</p>\r\n\r\n<p><br />\r\n<strong>আমের পাউডারি মিলডিউ</strong><br />\r\n<strong>রোগের কারণ</strong>&nbsp;: এ রোগ ওডিয়াম মেংগিফেরা&nbsp;(Oidium mangiferae)&nbsp;নামক ছত্রাক দ্বারা এ রোগ হয়ে থাকে।</p>\r\n\r\n<p><br />\r\n<strong>রোগের লক্ষণগুলো</strong>&nbsp;: ১. পুষ্পমঞ্জরি ও উহার সংলগ্ন কচিপাতা এবং ছোট ফলের ওপর সাদা-ধূসর পাউডার দেখা যায়। ২. সাধারণত সংক্রামণে পুষ্পমঞ্জরির অগ্রভাগ ক্ষত শুরু করে নিচের দিকে ধাবিত হয় এবং কুঁচকে যেয়ে ডাই-বেক লক্ষণ প্রকাশ পায়। ৩. ফল অপরিপক্ব অবস্থায় ঝরে পড়ে এবং বিকৃত ও বিবর্ণ হয়।</p>\r\n\r\n<p><br />\r\n<strong>দমন ব্যবস্থা&nbsp;</strong>: ১. আমের বাগান পরিষ্কার পরিচ্ছিন্ন রাখতে হবে। ২. ছত্রাকের গঠন ধ্বংস করতে মাঝে মাঝে গাছে পানি স্প্রে করতে হবে। ৩. থিয়োভিট ০.৩ % হারে ফুল ফোটার পূর্বে এক বার ও পরে দুই বার স্প্রে করতে হবে। ৪. ম্যালাথিয়ন ০.২ % হারে ফুল ফোটার পর একবার ও গুটি আসার পর ১৫ দিন পর পর দুই বার স্প্রে করতে হবে।<br />\r\n&nbsp;</p>\r\n\r\n<p><strong>৩. পোকামাকড় দমন<br />\r\nআমের শোষক পোকা/ আমের হপার</strong><br />\r\nএই পোকার তিনটি প্রজাতি ক্ষতি করে থাকে। নিম্নে ক্ষতির প্রকৃতি ও দমনব্যবস্থা দেয়া হলো।<br />\r\nক্ষতির প্রকৃতি : আমের অনিষ্টকারী পোকার মধ্যে এ পোকা সবচেয়ে বেশি ক্ষতিসাধন করে থাকে। আমের পাতা ও বোঁটায় এরা ডিম পাড়ে। এজন্য আক্রান্ত পাতা ও ফুল শুকিয়ে যায় এবং গুটি আসার আগেই ফুল ঝরে য়ায়। এতে ফলন মারাত্মকভাবে কমে যায়। এ পোকার আক্রমণের অন্যতম লক্ষণ হলো, আক্রান্ত গাছের নিচে দিয়ে হাঁটলে পোকা লাফিয়ে গায়ে পড়ে।</p>\r\n\r\n<p><br />\r\n<strong>দমন ব্যবস্থা&nbsp;</strong>: এ পোকা দমন করতে হলে মুকুল আসার আগে অথবা মুকুল আসার মুহূর্ত থেকে নিম্নলিখিত কীটনাশক স্প্রে করতে হবে : ডায়াজিনন ৬০ ইসি বা লেবাসিড ৫০ ইসি চা চামচের ৪ চামচ ৮.৫ লিটার পানিতে মিশিয়ে ১৫ দিন পর পর দুই বার স্প্রে করতে হবে। অথবা ম্যালাথিয়ন বা এমএসটি ৫৭ ইসি উপরোক্ত মাত্রায় স্প্রে করতে হবে।</p>\r\n\r\n<p><br />\r\n<strong>ফলের মাছি বা আমের মাছি পোকা</strong><br />\r\n<strong>ক্ষতির প্রকৃতি :&nbsp;</strong>এ পোকার কীড়া পাকা আমের মধ্যে প্রবেশ করে শাঁস খেয়ে ফেলে। এতে ফল পচে যায় ও ঝরে পড়ে। আক্রান্ত আম কাটলে অসংখ্য পোকা দেখা য়ায়। পোকার আক্রমণ বেশি হলে গাছের সব আম খাওয়ার অনুপযোগী হয়ে যায়।</p>\r\n\r\n<p><br />\r\n<strong>দমন ব্যবস্থা :</strong>&nbsp;আম পাকার আগে যখন পূর্ণ বৃদ্ধিপ্রাপ্ত হয় ডিপটেরেক্স চা চামুচের ৪ চামচ ৮.৫ লিটার পানিতে মিশিয়ে ৭ দিন পর পর দুই বার স্প্রে করতে হবে। অথবা ডায়াজিনন ৫০ ইসি ২মিলি/লিটার পানিতে মিশিয়ে ফলে স্প্রে করতে হবে (ওই সময়ে ফল খাওয়া যাবে না)।</p>\r\n\r\n<p><br />\r\n<strong>আমের বিছা পোকা</strong><br />\r\n<strong>ক্ষতির প্রকৃতি :</strong>&nbsp;এ পোকার কীড়া আমগাছের পাতা খেয়ে ফেলে। আক্রমণের মাত্রা বেশি হলে গাছ পত্রশূন্য হয়ে যায় এবং ফুল-ফল হয় না বা হলেও ঝরে পড়ে। তবে কোনো গাছ একবার আক্রান্ত হলে বার বার আক্রান্ত হওয়ার সম্ভাবনা থাকে।</p>\r\n\r\n<p><br />\r\n<strong>দমন ব্যবস্থা&nbsp;</strong>: আক্রান্ত গাছে ডাইমেক্রন ১০০ ইসি ৩০০ মিলি বা ডায়াজিনন ৫০ ইসি ৪০০ মিলি বা সুমিথিয়ন ৫০ ইসি ৪৫৪ মিলি ২২৫ লিটার পানিতে মিশিয়ে স্প্রে করতে হবে।</p>', 0, 1, 1, 2),
+(4, '<p>Text size&nbsp;A&nbsp;A&nbsp;A</p>\r\n\r\n<p>Color&nbsp;C&nbsp;C&nbsp;C&nbsp;C</p>\r\n\r\n<p><img alt="print_btn" src="http://www.ais.gov.bd/themes/responsive_npf/images/print_btn.png" style="width:24px" title="প্রিন্ট" /></p>\r\n\r\n<h3>আমের ভালো ফলন নিশ্চিত করতে করণীয়</h3>\r\n\r\n<h2>&nbsp;</h2>\r\n\r\n<p><img alt="Magh-1422 krishikotha" src="http://www.ais.gov.bd/sites/default/files/files/ais.portal.gov.bd/krishi_kotha/5f76e871_7be4_44b5_9532_6ea2beaa34f0/Magh-1422%20krishikotha.jpg" style="width:200px" /></p>\r\n\r\n<p>বাংলাদেশে আম হলো ফলের রাজা এবং গাছ হলো জাতীয় আমগাছ। আম সাধারণত উষ্ণ ও অবউষ্ণম-লীয় অঞ্চলের জন্মে। ইন্দো-বার্মা অঞ্চলে আমের উৎপত্তিস্থল বলে ধারণা করা হয় তবে বাংলাদেশসহ ভারতীয় উপমহাদেশে আম সবচেয়ে জনপ্রিয় ফল কারণ এ ফল বৈচিত্র্যপূর্ণ ব্যবহার, পুষ্টিমান ও স্বাদে-গন্ধে অতুলনীয়। বাংলাদেশে প্রায় সব অঞ্চলে আম জন্মে কিন্তু দেশের উরাঞ্চলে এর বাণিজ্যিকভাবে ব্যাপক চাষ হয়ে থাকে। আম চাষিরা প্রতি বছর অনেক ক্ষতির শিকার হয়ে থাকেন সাধারণত দুই প্রকারের সমস্যার কারণে যথা- ১. প্রাকৃতিক কারণ (যেমন- ঝড়, শিলাবৃষ্টি, খরা প্রভৃতি) এবং (আ) রোগ ও পোকামাকড় দ্বারা আক্রান্ত হয়ে। সঠিক পরিচর্যা ও রোগ-পোকামাকড় দমন করে প্রথম ক্ষতি আংশিক এবং দ্বিতীয় ক্ষতি প্রায় সম্পূর্ণ রূপে সমাধান করা সম্ভব। নিচে তা পর্যায়ক্রমে আলোচনা করা হলো-<br />\r\n<strong>ফলন্ত আম গাছের পরিচর্চা</strong>&nbsp;: আম গাছের ফলধারণ ক্ষমতা বৃদ্ধি এবং ফলন বাড়ানোর জন্য নিম্নলিখিত পরিচর্চাগুলো করা একান্ত প্রয়োজন।<br />\r\n&nbsp;</p>\r\n\r\n<p><strong>পরগাছা দমন&nbsp;</strong>: আমগাছে একাধিক জাতের আগাছা জন্মাতে দেখা যায়, যা গাছের স্বাভাবিক বৃদ্ধি ও স্বাস্থ্যের প্রতি ক্ষতিকর। পরগাছাসমূহে শিকড়ের মতো এক প্রকার হস্টোরিয়া হয়, যা গাছের মধ্যে প্রবেশ করে রস শোষণ করে এবং দুর্বল করে। পরগাছার পাদুর্ভাব বেশি হলে গাছের পাতার আকার ছোট হয় ও ফ্যাকাসে হয় এবং অনেক সময় গাছ মারা যায়। এর ফলে গাছের ফলন মারাত্মকভাবে কমে যায়। তাই ভালো ফলন পেতে হলে অবশ্যই পরগাছা অপসারণ করতে হবে।<br />\r\n&nbsp;</p>\r\n\r\n<p><strong>সার প্রয়োগ&nbsp;</strong>: গাছের বৃদ্ধি ও ফল উৎপাদনের জন্য সারের ব্যবহার একান্ত প্রয়োজন। ফলন্ত গাছের আকার, বয়স ও মাটির উর্বরতার ওপর সারের পরিমাণ নির্ভর করে। দুপুর বেলা যতটুকু স্থানে ছায়া পড়ে সেটুকু স্থানে মাটি কুপিয়ে সার মাটির সঙ্গে মিশিয়ে দিতে হবে।</p>\r\n\r\n<p><br />\r\n<strong>সেচ প্রয়োগ&nbsp;</strong>: সাধারণত জমির ওপর স্তরে প্রয়োজনীয় খাদ্য উপাদান থাকে বা সার হিসেবে মাটিতে মিশিয়ে দেয়া হয় তাই আম বাগানের ওপরের ২-৩ মিটার অংশকে জমির পানি সংরক্ষণ স্তর হিসেবে ধরা হয়। তাই শুষ্ক মৌসুমে আম বাগানে পানি সেচ দেয়া দরকার। আমের গুটি মটর দানারমতো হওয়ার পর থেকে ১৫-২০ দিন পর পর ২-৩ বার সেচ দিলে আমের গুটি ঝরা বন্ধ হয়।</p>\r\n\r\n<p><br />\r\n<strong>বয়স্ক টক আমগাছকে মিষ্টি আমগাছে রূপান্তরকরণ&nbsp;</strong>: বাগানের কোনো গাছের আমের গুণাগুণ খারাপ হলে সে গাছকে নষ্ট না করে ভিনিয়ার কলমের মাধ্যমে উন্নতি সাধন করা য়ায়। বয়স্ক গাছের ২-৩টি ডাল কেটে দিলে সেখান থেকে নতুন শাখা বের হলে তার পর নতুন শাখাতে ভিনিয়ার কলম করে নিতে হবে। এভাবে ৩-৪ বারে কাজ সম্পন্ন করতে হবে।</p>\r\n\r\n<p><br />\r\n<strong>পুরনো বাগান নবায়ন</strong>&nbsp;: আম বাগানের বয়স বেশি হলে ফল ধারণ কমে যায়, তাই এ ক্ষেত্রে গাছ কেটে না ফেলে পুরনো গাছের ভারি শাখা কেটে দিলে সেখানে নতুন শাখা বের হবে এবং গাছ নবায়ন হয়ে যাবে। এভাবে ২-৩ বছরে বাগান নবায়ন করা যায়।</p>\r\n\r\n<p><br />\r\n<strong>ফসল সংগ্রহ :</strong>&nbsp;ফল ধরার ৩-৫ মাসের মধ্যেই জাতভেদে ফল পাকা শুরু করে। বাণিজ্যিকভাবে কখনো সম্পন্ন পাকা অবস্থায় আম গাছ থেকে পাড়া ঠিক নয়। গাছের ফল দুই চারটি পাকা শুরু করলে বাঁশের কোটার মাথায় থলে সদৃশ্য জালতি লাগিয়ে আম পাড়তে হবে যেন আঘাত না লাগে। গাছের নিচে সাময়িক ভাবে রাখতে হলে খড় বিছিয়ে তার ওপর রাখতে হবে। নিম্নোক্ত লক্ষণ দেখে ফল সংগ্রহ করতে হবে : ১. আমের বোঁটার নিচে হলুদ বর্ণ ধারণ করলে। ২. পানিতে দিলে ডুবে যাবে। ৩. কষ বের হলে দ্রুত শুকে যাবে। ৪. দুই একটি পাকা আম গাছ থেকে ঝরে পড়বে।</p>\r\n\r\n<p><br />\r\n<strong>ফল সংরক্ষণ</strong>&nbsp;: আম পচনশীল ফল। বেশি পাকা অবস্থায় সংগ্রহ করলে সংরক্ষণকাল কম হয়। অধিকাংশ জাতের আম ১৩-১৭ ডিগ্রি সে. তাপমাএায় ও ৮৫-৯০% আপেক্ষিক আর্দ্রতায় বাঁশের ঝুড়ি, বাস্কেট, খড় বিছানো স্থানে ৪-৭ সপ্তাহ সংরক্ষণ করা যায়।<br />\r\n&nbsp;</p>\r\n\r\n<p><strong>২. রোগ দমন<br />\r\nঅ্যানথ্রাকনোজ</strong><br />\r\nএ রোগ আমের পাতা ও ফলে হয়ে থাকে। এটি কোলিটোট্রিকাম গোলেসপোরিওডিস&nbsp;(Colletotrichum gloeosporioides)&nbsp;নামক এক প্রকার ছত্রাক দ্বারা হয়ে থাকে। এ রোগের কারণে আমের ফলন শূন্যের কাছাকাছি আসতে পারে।</p>\r\n\r\n<p><br />\r\n<strong>লক্ষণগুলো&nbsp;</strong>: ১. এ রোগ নতুন পাতা, পুষ্পমঞ্জরি ও ফলে দেখা যায়। ২. পাতায় ধূসর-বাদামি ছোট কৌষিক দাগ পড়ে এবং পরে সব পাতায় ছড়িয়ে পড়ে ও এক পর্যায় পাতা ঝরে পড়ে। ৩. ফলের ওপর প্রথমে গাঢ় বাদামি দাগ পড়ে। ৪. দাগগুলো পরে বড় হয়ে কাল বর্ণ ধারণ করে। ৫. আক্রমণ মারাত্মক হলে পরবর্তীতে সম্পূর্ণ আম পচে যায়।</p>\r\n\r\n<p><br />\r\n<strong>অনুকূল অবস্থা :</strong>&nbsp;১. তাপমাএা ২৫-২৮ ডিগ্রি সে.। ২. আপেক্ষিক আর্দ্রতা ৭০-৮০%। ৩. অধিক বৃষ্টিপাত। ৪. ঘন কুয়াশা ও আকাশ মেঘাচ্ছন এ রোগের প্রকোপ বাড়ায়।</p>\r\n\r\n<p><br />\r\n<strong>দমন ব্যবস্থা</strong>&nbsp;: ১. ফল সংগ্রহের পর বাগানের অবশিষ্টাংশ ধ্বংস করতে হবে। ২. স্বাস্থ্যবান চারা রোপণ করতে হবে। ৩. বোর্দো মিক্সচার ০.৩% হারে ৩-৪ বার স্প্রে করতে হবে (ফুল ধরার পূর্বে ও পরে এবং ফল সংগ্রহের পূর্বে)। ৪. ব্যাভিসটিন ডবলিউ/পি ০.২ % হারে অথবা ডাইথেন-এম ০.৩ % হারে দুই বার (ফুল ধরার আগে ও পরে ) স্প্রে করতে হবে।</p>\r\n\r\n<p>&nbsp;</p>\r\n\r\n<p><strong>আমের বোঁটা ও ফল পচা</strong><br />\r\n<strong>রোগের কারণ&nbsp;</strong>: এ রোগ বোট্রিওডিপ্লডিয়া থিয়োব্রোমি&nbsp;(Botryodiplodia theobromae)&nbsp;নামক এক প্রকার ছত্রাক দ্বারা এ রোগ হয়ে থাকে। এ রোগ আমের বোঁটা ও ফলে হয়ে থাকে।</p>\r\n\r\n<p><br />\r\n<strong>রোগের লক্ষণগুলো :</strong>&nbsp;১. প্রথমে বোঁটার চারদিকে কিছু জায়গা জুড়ে কাল দাগ পড়ে। ২. পরবর্তীতে আমের অধিকাংশ ও সর্বশেষ অংশ পচে কাল রঙ ধারণ। ৩. আক্রান্ত স্থানে চাপ দিলে ভেতর থেকে পচা কাল গন্ধযুক্ত আমের রস বের হয়ে আসে।</p>\r\n\r\n<p><br />\r\n<strong>রোগ দমন :&nbsp;</strong>ক. যে কোনো একটি পদ্ধতিতে রোগ দমন করবেন : ১. ডাইথেন-এম-৪৫, ০.৩ % হারে ২-৩ বার স্প্রে করতে হবে। ২. রিডোমিল ০.১ % হারে ২-৩ বার স্প্রে করতে হবে। ৩. রোভরাল ০.১ % হারে ২-৩ বার স্প্রে করতে হবে। খ. আম হারভেস্ট করার পর ৪৩ ডিগ্রি সে. তাপমাত্রায় ৫ মিনিট ৬% বোরাক্স দ্রবণে চুবাতে হবে। গ. ফল সংগ্রহ করার পর ডালপালা, অবশিষ্টাংশ ধ্বংস করতে হবে।</p>\r\n\r\n<p><br />\r\n<strong>আমের পাউডারি মিলডিউ</strong><br />\r\n<strong>রোগের কারণ</strong>&nbsp;: এ রোগ ওডিয়াম মেংগিফেরা&nbsp;(Oidium mangiferae)&nbsp;নামক ছত্রাক দ্বারা এ রোগ হয়ে থাকে।</p>\r\n\r\n<p><br />\r\n<strong>রোগের লক্ষণগুলো</strong>&nbsp;: ১. পুষ্পমঞ্জরি ও উহার সংলগ্ন কচিপাতা এবং ছোট ফলের ওপর সাদা-ধূসর পাউডার দেখা যায়। ২. সাধারণত সংক্রামণে পুষ্পমঞ্জরির অগ্রভাগ ক্ষত শুরু করে নিচের দিকে ধাবিত হয় এবং কুঁচকে যেয়ে ডাই-বেক লক্ষণ প্রকাশ পায়। ৩. ফল অপরিপক্ব অবস্থায় ঝরে পড়ে এবং বিকৃত ও বিবর্ণ হয়।</p>\r\n\r\n<p><br />\r\n<strong>দমন ব্যবস্থা&nbsp;</strong>: ১. আমের বাগান পরিষ্কার পরিচ্ছিন্ন রাখতে হবে। ২. ছত্রাকের গঠন ধ্বংস করতে মাঝে মাঝে গাছে পানি স্প্রে করতে হবে। ৩. থিয়োভিট ০.৩ % হারে ফুল ফোটার পূর্বে এক বার ও পরে দুই বার স্প্রে করতে হবে। ৪. ম্যালাথিয়ন ০.২ % হারে ফুল ফোটার পর একবার ও গুটি আসার পর ১৫ দিন পর পর দুই বার স্প্রে করতে হবে।<br />\r\n&nbsp;</p>\r\n\r\n<p><strong>৩. পোকামাকড় দমন<br />\r\nআমের শোষক পোকা/ আমের হপার</strong><br />\r\nএই পোকার তিনটি প্রজাতি ক্ষতি করে থাকে। নিম্নে ক্ষতির প্রকৃতি ও দমনব্যবস্থা দেয়া হলো।<br />\r\nক্ষতির প্রকৃতি : আমের অনিষ্টকারী পোকার মধ্যে এ পোকা সবচেয়ে বেশি ক্ষতিসাধন করে থাকে। আমের পাতা ও বোঁটায় এরা ডিম পাড়ে। এজন্য আক্রান্ত পাতা ও ফুল শুকিয়ে যায় এবং গুটি আসার আগেই ফুল ঝরে য়ায়। এতে ফলন মারাত্মকভাবে কমে যায়। এ পোকার আক্রমণের অন্যতম লক্ষণ হলো, আক্রান্ত গাছের নিচে দিয়ে হাঁটলে পোকা লাফিয়ে গায়ে পড়ে।</p>\r\n\r\n<p><br />\r\n<strong>দমন ব্যবস্থা&nbsp;</strong>: এ পোকা দমন করতে হলে মুকুল আসার আগে অথবা মুকুল আসার মুহূর্ত থেকে নিম্নলিখিত কীটনাশক স্প্রে করতে হবে : ডায়াজিনন ৬০ ইসি বা লেবাসিড ৫০ ইসি চা চামচের ৪ চামচ ৮.৫ লিটার পানিতে মিশিয়ে ১৫ দিন পর পর দুই বার স্প্রে করতে হবে। অথবা ম্যালাথিয়ন বা এমএসটি ৫৭ ইসি উপরোক্ত মাত্রায় স্প্রে করতে হবে।</p>\r\n\r\n<p><br />\r\n<strong>ফলের মাছি বা আমের মাছি পোকা</strong><br />\r\n<strong>ক্ষতির প্রকৃতি :&nbsp;</strong>এ পোকার কীড়া পাকা আমের মধ্যে প্রবেশ করে শাঁস খেয়ে ফেলে। এতে ফল পচে যায় ও ঝরে পড়ে। আক্রান্ত আম কাটলে অসংখ্য পোকা দেখা য়ায়। পোকার আক্রমণ বেশি হলে গাছের সব আম খাওয়ার অনুপযোগী হয়ে যায়।</p>\r\n\r\n<p><br />\r\n<strong>দমন ব্যবস্থা :</strong>&nbsp;আম পাকার আগে যখন পূর্ণ বৃদ্ধিপ্রাপ্ত হয় ডিপটেরেক্স চা চামুচের ৪ চামচ ৮.৫ লিটার পানিতে মিশিয়ে ৭ দিন পর পর দুই বার স্প্রে করতে হবে। অথবা ডায়াজিনন ৫০ ইসি ২মিলি/লিটার পানিতে মিশিয়ে ফলে স্প্রে করতে হবে (ওই সময়ে ফল খাওয়া যাবে না)।</p>\r\n\r\n<p><br />\r\n<strong>আমের বিছা পোকা</strong><br />\r\n<strong>ক্ষতির প্রকৃতি :</strong>&nbsp;এ পোকার কীড়া আমগাছের পাতা খেয়ে ফেলে। আক্রমণের মাত্রা বেশি হলে গাছ পত্রশূন্য হয়ে যায় এবং ফুল-ফল হয় না বা হলেও ঝরে পড়ে। তবে কোনো গাছ একবার আক্রান্ত হলে বার বার আক্রান্ত হওয়ার সম্ভাবনা থাকে।</p>\r\n\r\n<p><br />\r\n<strong>দমন ব্যবস্থা&nbsp;</strong>: আক্রান্ত গাছে ডাইমেক্রন ১০০ ইসি ৩০০ মিলি বা ডায়াজিনন ৫০ ইসি ৪০০ মিলি বা সুমিথিয়ন ৫০ ইসি ৪৫৪ মিলি ২২৫ লিটার পানিতে মিশিয়ে স্প্রে করতে হবে।</p>', 0, 1, 2, 1),
+(5, '<p>Text size&nbsp;A&nbsp;A&nbsp;A</p>\r\n\r\n<p>Color&nbsp;C&nbsp;C&nbsp;C&nbsp;C</p>\r\n\r\n<p><img alt="print_btn" src="http://www.ais.gov.bd/themes/responsive_npf/images/print_btn.png" style="width:24px" title="প্রিন্ট" /></p>\r\n\r\n<h3>আমের ভালো ফলন নিশ্চিত করতে করণীয়</h3>\r\n\r\n<h2>&nbsp;</h2>\r\n\r\n<p><img alt="Magh-1422 krishikotha" src="http://www.ais.gov.bd/sites/default/files/files/ais.portal.gov.bd/krishi_kotha/5f76e871_7be4_44b5_9532_6ea2beaa34f0/Magh-1422%20krishikotha.jpg" style="width:200px" /></p>\r\n\r\n<p>বাংলাদেশে আম হলো ফলের রাজা এবং গাছ হলো জাতীয় আমগাছ। আম সাধারণত উষ্ণ ও অবউষ্ণম-লীয় অঞ্চলের জন্মে। ইন্দো-বার্মা অঞ্চলে আমের উৎপত্তিস্থল বলে ধারণা করা হয় তবে বাংলাদেশসহ ভারতীয় উপমহাদেশে আম সবচেয়ে জনপ্রিয় ফল কারণ এ ফল বৈচিত্র্যপূর্ণ ব্যবহার, পুষ্টিমান ও স্বাদে-গন্ধে অতুলনীয়। বাংলাদেশে প্রায় সব অঞ্চলে আম জন্মে কিন্তু দেশের উরাঞ্চলে এর বাণিজ্যিকভাবে ব্যাপক চাষ হয়ে থাকে। আম চাষিরা প্রতি বছর অনেক ক্ষতির শিকার হয়ে থাকেন সাধারণত দুই প্রকারের সমস্যার কারণে যথা- ১. প্রাকৃতিক কারণ (যেমন- ঝড়, শিলাবৃষ্টি, খরা প্রভৃতি) এবং (আ) রোগ ও পোকামাকড় দ্বারা আক্রান্ত হয়ে। সঠিক পরিচর্যা ও রোগ-পোকামাকড় দমন করে প্রথম ক্ষতি আংশিক এবং দ্বিতীয় ক্ষতি প্রায় সম্পূর্ণ রূপে সমাধান করা সম্ভব। নিচে তা পর্যায়ক্রমে আলোচনা করা হলো-<br />\r\n<strong>ফলন্ত আম গাছের পরিচর্চা</strong>&nbsp;: আম গাছের ফলধারণ ক্ষমতা বৃদ্ধি এবং ফলন বাড়ানোর জন্য নিম্নলিখিত পরিচর্চাগুলো করা একান্ত প্রয়োজন।<br />\r\n&nbsp;</p>\r\n\r\n<p><strong>পরগাছা দমন&nbsp;</strong>: আমগাছে একাধিক জাতের আগাছা জন্মাতে দেখা যায়, যা গাছের স্বাভাবিক বৃদ্ধি ও স্বাস্থ্যের প্রতি ক্ষতিকর। পরগাছাসমূহে শিকড়ের মতো এক প্রকার হস্টোরিয়া হয়, যা গাছের মধ্যে প্রবেশ করে রস শোষণ করে এবং দুর্বল করে। পরগাছার পাদুর্ভাব বেশি হলে গাছের পাতার আকার ছোট হয় ও ফ্যাকাসে হয় এবং অনেক সময় গাছ মারা যায়। এর ফলে গাছের ফলন মারাত্মকভাবে কমে যায়। তাই ভালো ফলন পেতে হলে অবশ্যই পরগাছা অপসারণ করতে হবে।<br />\r\n&nbsp;</p>\r\n\r\n<p><strong>সার প্রয়োগ&nbsp;</strong>: গাছের বৃদ্ধি ও ফল উৎপাদনের জন্য সারের ব্যবহার একান্ত প্রয়োজন। ফলন্ত গাছের আকার, বয়স ও মাটির উর্বরতার ওপর সারের পরিমাণ নির্ভর করে। দুপুর বেলা যতটুকু স্থানে ছায়া পড়ে সেটুকু স্থানে মাটি কুপিয়ে সার মাটির সঙ্গে মিশিয়ে দিতে হবে।</p>\r\n\r\n<p><br />\r\n<strong>সেচ প্রয়োগ&nbsp;</strong>: সাধারণত জমির ওপর স্তরে প্রয়োজনীয় খাদ্য উপাদান থাকে বা সার হিসেবে মাটিতে মিশিয়ে দেয়া হয় তাই আম বাগানের ওপরের ২-৩ মিটার অংশকে জমির পানি সংরক্ষণ স্তর হিসেবে ধরা হয়। তাই শুষ্ক মৌসুমে আম বাগানে পানি সেচ দেয়া দরকার। আমের গুটি মটর দানারমতো হওয়ার পর থেকে ১৫-২০ দিন পর পর ২-৩ বার সেচ দিলে আমের গুটি ঝরা বন্ধ হয়।</p>\r\n\r\n<p><br />\r\n<strong>বয়স্ক টক আমগাছকে মিষ্টি আমগাছে রূপান্তরকরণ&nbsp;</strong>: বাগানের কোনো গাছের আমের গুণাগুণ খারাপ হলে সে গাছকে নষ্ট না করে ভিনিয়ার কলমের মাধ্যমে উন্নতি সাধন করা য়ায়। বয়স্ক গাছের ২-৩টি ডাল কেটে দিলে সেখান থেকে নতুন শাখা বের হলে তার পর নতুন শাখাতে ভিনিয়ার কলম করে নিতে হবে। এভাবে ৩-৪ বারে কাজ সম্পন্ন করতে হবে।</p>\r\n\r\n<p><br />\r\n<strong>পুরনো বাগান নবায়ন</strong>&nbsp;: আম বাগানের বয়স বেশি হলে ফল ধারণ কমে যায়, তাই এ ক্ষেত্রে গাছ কেটে না ফেলে পুরনো গাছের ভারি শাখা কেটে দিলে সেখানে নতুন শাখা বের হবে এবং গাছ নবায়ন হয়ে যাবে। এভাবে ২-৩ বছরে বাগান নবায়ন করা যায়।</p>\r\n\r\n<p><br />\r\n<strong>ফসল সংগ্রহ :</strong>&nbsp;ফল ধরার ৩-৫ মাসের মধ্যেই জাতভেদে ফল পাকা শুরু করে। বাণিজ্যিকভাবে কখনো সম্পন্ন পাকা অবস্থায় আম গাছ থেকে পাড়া ঠিক নয়। গাছের ফল দুই চারটি পাকা শুরু করলে বাঁশের কোটার মাথায় থলে সদৃশ্য জালতি লাগিয়ে আম পাড়তে হবে যেন আঘাত না লাগে। গাছের নিচে সাময়িক ভাবে রাখতে হলে খড় বিছিয়ে তার ওপর রাখতে হবে। নিম্নোক্ত লক্ষণ দেখে ফল সংগ্রহ করতে হবে : ১. আমের বোঁটার নিচে হলুদ বর্ণ ধারণ করলে। ২. পানিতে দিলে ডুবে যাবে। ৩. কষ বের হলে দ্রুত শুকে যাবে। ৪. দুই একটি পাকা আম গাছ থেকে ঝরে পড়বে।</p>\r\n\r\n<p><br />\r\n<strong>ফল সংরক্ষণ</strong>&nbsp;: আম পচনশীল ফল। বেশি পাকা অবস্থায় সংগ্রহ করলে সংরক্ষণকাল কম হয়। অধিকাংশ জাতের আম ১৩-১৭ ডিগ্রি সে. তাপমাএায় ও ৮৫-৯০% আপেক্ষিক আর্দ্রতায় বাঁশের ঝুড়ি, বাস্কেট, খড় বিছানো স্থানে ৪-৭ সপ্তাহ সংরক্ষণ করা যায়।<br />\r\n&nbsp;</p>\r\n\r\n<p><strong>২. রোগ দমন<br />\r\nঅ্যানথ্রাকনোজ</strong><br />\r\nএ রোগ আমের পাতা ও ফলে হয়ে থাকে। এটি কোলিটোট্রিকাম গোলেসপোরিওডিস&nbsp;(Colletotrichum gloeosporioides)&nbsp;নামক এক প্রকার ছত্রাক দ্বারা হয়ে থাকে। এ রোগের কারণে আমের ফলন শূন্যের কাছাকাছি আসতে পারে।</p>\r\n\r\n<p><br />\r\n<strong>লক্ষণগুলো&nbsp;</strong>: ১. এ রোগ নতুন পাতা, পুষ্পমঞ্জরি ও ফলে দেখা যায়। ২. পাতায় ধূসর-বাদামি ছোট কৌষিক দাগ পড়ে এবং পরে সব পাতায় ছড়িয়ে পড়ে ও এক পর্যায় পাতা ঝরে পড়ে। ৩. ফলের ওপর প্রথমে গাঢ় বাদামি দাগ পড়ে। ৪. দাগগুলো পরে বড় হয়ে কাল বর্ণ ধারণ করে। ৫. আক্রমণ মারাত্মক হলে পরবর্তীতে সম্পূর্ণ আম পচে যায়।</p>\r\n\r\n<p><br />\r\n<strong>অনুকূল অবস্থা :</strong>&nbsp;১. তাপমাএা ২৫-২৮ ডিগ্রি সে.। ২. আপেক্ষিক আর্দ্রতা ৭০-৮০%। ৩. অধিক বৃষ্টিপাত। ৪. ঘন কুয়াশা ও আকাশ মেঘাচ্ছন এ রোগের প্রকোপ বাড়ায়।</p>\r\n\r\n<p><br />\r\n<strong>দমন ব্যবস্থা</strong>&nbsp;: ১. ফল সংগ্রহের পর বাগানের অবশিষ্টাংশ ধ্বংস করতে হবে। ২. স্বাস্থ্যবান চারা রোপণ করতে হবে। ৩. বোর্দো মিক্সচার ০.৩% হারে ৩-৪ বার স্প্রে করতে হবে (ফুল ধরার পূর্বে ও পরে এবং ফল সংগ্রহের পূর্বে)। ৪. ব্যাভিসটিন ডবলিউ/পি ০.২ % হারে অথবা ডাইথেন-এম ০.৩ % হারে দুই বার (ফুল ধরার আগে ও পরে ) স্প্রে করতে হবে।</p>\r\n\r\n<p>&nbsp;</p>\r\n\r\n<p><strong>আমের বোঁটা ও ফল পচা</strong><br />\r\n<strong>রোগের কারণ&nbsp;</strong>: এ রোগ বোট্রিওডিপ্লডিয়া থিয়োব্রোমি&nbsp;(Botryodiplodia theobromae)&nbsp;নামক এক প্রকার ছত্রাক দ্বারা এ রোগ হয়ে থাকে। এ রোগ আমের বোঁটা ও ফলে হয়ে থাকে।</p>\r\n\r\n<p><br />\r\n<strong>রোগের লক্ষণগুলো :</strong>&nbsp;১. প্রথমে বোঁটার চারদিকে কিছু জায়গা জুড়ে কাল দাগ পড়ে। ২. পরবর্তীতে আমের অধিকাংশ ও সর্বশেষ অংশ পচে কাল রঙ ধারণ। ৩. আক্রান্ত স্থানে চাপ দিলে ভেতর থেকে পচা কাল গন্ধযুক্ত আমের রস বের হয়ে আসে।</p>\r\n\r\n<p><br />\r\n<strong>রোগ দমন :&nbsp;</strong>ক. যে কোনো একটি পদ্ধতিতে রোগ দমন করবেন : ১. ডাইথেন-এম-৪৫, ০.৩ % হারে ২-৩ বার স্প্রে করতে হবে। ২. রিডোমিল ০.১ % হারে ২-৩ বার স্প্রে করতে হবে। ৩. রোভরাল ০.১ % হারে ২-৩ বার স্প্রে করতে হবে। খ. আম হারভেস্ট করার পর ৪৩ ডিগ্রি সে. তাপমাত্রায় ৫ মিনিট ৬% বোরাক্স দ্রবণে চুবাতে হবে। গ. ফল সংগ্রহ করার পর ডালপালা, অবশিষ্টাংশ ধ্বংস করতে হবে।</p>\r\n\r\n<p><br />\r\n<strong>আমের পাউডারি মিলডিউ</strong><br />\r\n<strong>রোগের কারণ</strong>&nbsp;: এ রোগ ওডিয়াম মেংগিফেরা&nbsp;(Oidium mangiferae)&nbsp;নামক ছত্রাক দ্বারা এ রোগ হয়ে থাকে।</p>\r\n\r\n<p><br />\r\n<strong>রোগের লক্ষণগুলো</strong>&nbsp;: ১. পুষ্পমঞ্জরি ও উহার সংলগ্ন কচিপাতা এবং ছোট ফলের ওপর সাদা-ধূসর পাউডার দেখা যায়। ২. সাধারণত সংক্রামণে পুষ্পমঞ্জরির অগ্রভাগ ক্ষত শুরু করে নিচের দিকে ধাবিত হয় এবং কুঁচকে যেয়ে ডাই-বেক লক্ষণ প্রকাশ পায়। ৩. ফল অপরিপক্ব অবস্থায় ঝরে পড়ে এবং বিকৃত ও বিবর্ণ হয়।</p>\r\n\r\n<p><br />\r\n<strong>দমন ব্যবস্থা&nbsp;</strong>: ১. আমের বাগান পরিষ্কার পরিচ্ছিন্ন রাখতে হবে। ২. ছত্রাকের গঠন ধ্বংস করতে মাঝে মাঝে গাছে পানি স্প্রে করতে হবে। ৩. থিয়োভিট ০.৩ % হারে ফুল ফোটার পূর্বে এক বার ও পরে দুই বার স্প্রে করতে হবে। ৪. ম্যালাথিয়ন ০.২ % হারে ফুল ফোটার পর একবার ও গুটি আসার পর ১৫ দিন পর পর দুই বার স্প্রে করতে হবে।<br />\r\n&nbsp;</p>\r\n\r\n<p><strong>৩. পোকামাকড় দমন<br />\r\nআমের শোষক পোকা/ আমের হপার</strong><br />\r\nএই পোকার তিনটি প্রজাতি ক্ষতি করে থাকে। নিম্নে ক্ষতির প্রকৃতি ও দমনব্যবস্থা দেয়া হলো।<br />\r\nক্ষতির প্রকৃতি : আমের অনিষ্টকারী পোকার মধ্যে এ পোকা সবচেয়ে বেশি ক্ষতিসাধন করে থাকে। আমের পাতা ও বোঁটায় এরা ডিম পাড়ে। এজন্য আক্রান্ত পাতা ও ফুল শুকিয়ে যায় এবং গুটি আসার আগেই ফুল ঝরে য়ায়। এতে ফলন মারাত্মকভাবে কমে যায়। এ পোকার আক্রমণের অন্যতম লক্ষণ হলো, আক্রান্ত গাছের নিচে দিয়ে হাঁটলে পোকা লাফিয়ে গায়ে পড়ে।</p>\r\n\r\n<p><br />\r\n<strong>দমন ব্যবস্থা&nbsp;</strong>: এ পোকা দমন করতে হলে মুকুল আসার আগে অথবা মুকুল আসার মুহূর্ত থেকে নিম্নলিখিত কীটনাশক স্প্রে করতে হবে : ডায়াজিনন ৬০ ইসি বা লেবাসিড ৫০ ইসি চা চামচের ৪ চামচ ৮.৫ লিটার পানিতে মিশিয়ে ১৫ দিন পর পর দুই বার স্প্রে করতে হবে। অথবা ম্যালাথিয়ন বা এমএসটি ৫৭ ইসি উপরোক্ত মাত্রায় স্প্রে করতে হবে।</p>\r\n\r\n<p><br />\r\n<strong>ফলের মাছি বা আমের মাছি পোকা</strong><br />\r\n<strong>ক্ষতির প্রকৃতি :&nbsp;</strong>এ পোকার কীড়া পাকা আমের মধ্যে প্রবেশ করে শাঁস খেয়ে ফেলে। এতে ফল পচে যায় ও ঝরে পড়ে। আক্রান্ত আম কাটলে অসংখ্য পোকা দেখা য়ায়। পোকার আক্রমণ বেশি হলে গাছের সব আম খাওয়ার অনুপযোগী হয়ে যায়।</p>\r\n\r\n<p><br />\r\n<strong>দমন ব্যবস্থা :</strong>&nbsp;আম পাকার আগে যখন পূর্ণ বৃদ্ধিপ্রাপ্ত হয় ডিপটেরেক্স চা চামুচের ৪ চামচ ৮.৫ লিটার পানিতে মিশিয়ে ৭ দিন পর পর দুই বার স্প্রে করতে হবে। অথবা ডায়াজিনন ৫০ ইসি ২মিলি/লিটার পানিতে মিশিয়ে ফলে স্প্রে করতে হবে (ওই সময়ে ফল খাওয়া যাবে না)।</p>\r\n\r\n<p><br />\r\n<strong>আমের বিছা পোকা</strong><br />\r\n<strong>ক্ষতির প্রকৃতি :</strong>&nbsp;এ পোকার কীড়া আমগাছের পাতা খেয়ে ফেলে। আক্রমণের মাত্রা বেশি হলে গাছ পত্রশূন্য হয়ে যায় এবং ফুল-ফল হয় না বা হলেও ঝরে পড়ে। তবে কোনো গাছ একবার আক্রান্ত হলে বার বার আক্রান্ত হওয়ার সম্ভাবনা থাকে।</p>\r\n\r\n<p><br />\r\n<strong>দমন ব্যবস্থা&nbsp;</strong>: আক্রান্ত গাছে ডাইমেক্রন ১০০ ইসি ৩০০ মিলি বা ডায়াজিনন ৫০ ইসি ৪০০ মিলি বা সুমিথিয়ন ৫০ ইসি ৪৫৪ মিলি ২২৫ লিটার পানিতে মিশিয়ে স্প্রে করতে হবে।</p>', 0, 1, 2, 2);
 
 -- --------------------------------------------------------
 
@@ -1244,11 +1377,7 @@ INSERT INTO `service_subcategory` (`id`, `sub_category_name`, `ordering`, `categ
 (13, 'উপকরনের মান ও ব্যবহার', 1, 5, 1),
 (14, 'ফসলের পুষ্টি সমূহ', 4, 6, 1),
 (15, 'অভাব জনিত লক্ষন', 3, 6, 1),
-(16, 'ব্যবহার', 2, 5, 1),
-(17, 'Joshef', 0, 1, 1),
-(18, 'Hossain', 0, 1, 1),
-(19, 'Hossain', 0, 2, 1),
-(20, 'fgfdgfdgdfgfdg', 0, 2, 1);
+(16, 'ব্যবহার', 2, 5, 1);
 
 -- --------------------------------------------------------
 
@@ -1275,7 +1404,57 @@ INSERT INTO `service_subscribernewslatter` (`id`, `subscriber_email`, `subscirbe
 (6, 'tarebag@mailinator.com', '2020-10-22 10:56:23.041613'),
 (7, 'shohel11@gmail.com', '2020-10-23 11:19:12.547097'),
 (8, 'shohe111l1@gmail.com', '2020-10-23 11:19:35.464474'),
-(9, 'hossainjoshef@gmail.com', '2021-03-04 10:23:40.937023');
+(9, 'hossainjoshef@gmail.com', '2021-03-04 10:23:40.937023'),
+(10, 'joshefhossain@gmail.com', '2021-03-13 10:43:32.353902'),
+(11, 'joshefhossainbappy019@gmail.com', '2021-03-29 17:03:16.056494'),
+(12, 'joshef@mailinator.com', '2021-03-29 17:03:33.375227');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `service_treeage`
+--
+
+CREATE TABLE `service_treeage` (
+  `id` int(11) NOT NULL,
+  `age` varchar(20) NOT NULL,
+  `status` tinyint(1) NOT NULL,
+  `ordering` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `service_treeage`
+--
+
+INSERT INTO `service_treeage` (`id`, `age`, `status`, `ordering`) VALUES
+(1, '2 Year', 1, 0),
+(2, '3 Year', 1, 0),
+(3, '4 Year', 1, 0),
+(4, '5 Year', 1, 0),
+(5, '6 Year', 1, 0);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `service_treename`
+--
+
+CREATE TABLE `service_treename` (
+  `id` int(11) NOT NULL,
+  `name` varchar(100) NOT NULL,
+  `status` tinyint(1) NOT NULL,
+  `ordering` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `service_treename`
+--
+
+INSERT INTO `service_treename` (`id`, `name`, `status`, `ordering`) VALUES
+(1, 'Mango', 1, 0),
+(2, 'Apple', 1, 0),
+(3, 'Orange', 1, 0),
+(4, 'Banana', 1, 0);
 
 --
 -- Indexes for dumped tables
@@ -1425,7 +1604,8 @@ ALTER TABLE `service_customarorderlist`
 -- Indexes for table `service_customerproblem`
 --
 ALTER TABLE `service_customerproblem`
-  ADD PRIMARY KEY (`id`);
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `service_customerprob_category_id_17ea1936_fk_service_p` (`category_id`);
 
 --
 -- Indexes for table `service_districtcat`
@@ -1468,6 +1648,12 @@ ALTER TABLE `service_ourteammember`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indexes for table `service_problemcategory`
+--
+ALTER TABLE `service_problemcategory`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `service_product`
 --
 ALTER TABLE `service_product`
@@ -1485,6 +1671,14 @@ ALTER TABLE `service_quicksolve`
 --
 ALTER TABLE `service_reviews`
   ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `service_searchpesticides`
+--
+ALTER TABLE `service_searchpesticides`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `service_searchpestic_tree_age_id_379e4a74_fk_service_t` (`tree_age_id`),
+  ADD KEY `service_searchpestic_tree_name_id_5ca61402_fk_service_t` (`tree_name_id`);
 
 --
 -- Indexes for table `service_sliderinfo`
@@ -1506,6 +1700,18 @@ ALTER TABLE `service_subscribernewslatter`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indexes for table `service_treeage`
+--
+ALTER TABLE `service_treeage`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `service_treename`
+--
+ALTER TABLE `service_treename`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- AUTO_INCREMENT for dumped tables
 --
 
@@ -1523,7 +1729,7 @@ ALTER TABLE `auth_group_permissions`
 -- AUTO_INCREMENT for table `auth_permission`
 --
 ALTER TABLE `auth_permission`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=88;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=100;
 --
 -- AUTO_INCREMENT for table `auth_user`
 --
@@ -1543,17 +1749,17 @@ ALTER TABLE `auth_user_user_permissions`
 -- AUTO_INCREMENT for table `django_admin_log`
 --
 ALTER TABLE `django_admin_log`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=253;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=316;
 --
 -- AUTO_INCREMENT for table `django_content_type`
 --
 ALTER TABLE `django_content_type`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=30;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=34;
 --
 -- AUTO_INCREMENT for table `django_migrations`
 --
 ALTER TABLE `django_migrations`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=57;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=64;
 --
 -- AUTO_INCREMENT for table `service_addtocart`
 --
@@ -1608,7 +1814,7 @@ ALTER TABLE `service_customarorderlist`
 -- AUTO_INCREMENT for table `service_customerproblem`
 --
 ALTER TABLE `service_customerproblem`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 --
 -- AUTO_INCREMENT for table `service_districtcat`
 --
@@ -1633,12 +1839,17 @@ ALTER TABLE `service_importantlink`
 -- AUTO_INCREMENT for table `service_ourservice`
 --
 ALTER TABLE `service_ourservice`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 --
 -- AUTO_INCREMENT for table `service_ourteammember`
 --
 ALTER TABLE `service_ourteammember`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+--
+-- AUTO_INCREMENT for table `service_problemcategory`
+--
+ALTER TABLE `service_problemcategory`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 --
 -- AUTO_INCREMENT for table `service_product`
 --
@@ -1655,6 +1866,11 @@ ALTER TABLE `service_quicksolve`
 ALTER TABLE `service_reviews`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 --
+-- AUTO_INCREMENT for table `service_searchpesticides`
+--
+ALTER TABLE `service_searchpesticides`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+--
 -- AUTO_INCREMENT for table `service_sliderinfo`
 --
 ALTER TABLE `service_sliderinfo`
@@ -1663,12 +1879,22 @@ ALTER TABLE `service_sliderinfo`
 -- AUTO_INCREMENT for table `service_subcategory`
 --
 ALTER TABLE `service_subcategory`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
 --
 -- AUTO_INCREMENT for table `service_subscribernewslatter`
 --
 ALTER TABLE `service_subscribernewslatter`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+--
+-- AUTO_INCREMENT for table `service_treeage`
+--
+ALTER TABLE `service_treeage`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+--
+-- AUTO_INCREMENT for table `service_treename`
+--
+ALTER TABLE `service_treename`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 --
 -- Constraints for dumped tables
 --
@@ -1733,6 +1959,12 @@ ALTER TABLE `service_customarorderlist`
   ADD CONSTRAINT `service_customarorde_product_name_id_37b9cc17_fk_service_p` FOREIGN KEY (`product_name_id`) REFERENCES `service_product` (`id`);
 
 --
+-- Constraints for table `service_customerproblem`
+--
+ALTER TABLE `service_customerproblem`
+  ADD CONSTRAINT `service_customerprob_category_id_17ea1936_fk_service_p` FOREIGN KEY (`category_id`) REFERENCES `service_problemcategory` (`id`);
+
+--
 -- Constraints for table `service_importantlink`
 --
 ALTER TABLE `service_importantlink`
@@ -1749,6 +1981,13 @@ ALTER TABLE `service_ourservice`
 --
 ALTER TABLE `service_product`
   ADD CONSTRAINT `service_product_farmer_id_e06c69b2_fk_service_farmeraccount_id` FOREIGN KEY (`farmer_id`) REFERENCES `service_farmeraccount` (`id`);
+
+--
+-- Constraints for table `service_searchpesticides`
+--
+ALTER TABLE `service_searchpesticides`
+  ADD CONSTRAINT `service_searchpestic_tree_age_id_379e4a74_fk_service_t` FOREIGN KEY (`tree_age_id`) REFERENCES `service_treeage` (`id`),
+  ADD CONSTRAINT `service_searchpestic_tree_name_id_5ca61402_fk_service_t` FOREIGN KEY (`tree_name_id`) REFERENCES `service_treename` (`id`);
 
 --
 -- Constraints for table `service_subcategory`
